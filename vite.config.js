@@ -15,5 +15,5 @@ export default defineConfig({
     },
   },
   // Ajoute cette section pour définir le chemin de base pour GitHub Pages
-  base: '/portfolio_elodie/',  // Remplace 'nom-du-repo' par le nom de ton dépôt GitHub
+  base: '/',  // Remplace 'nom-du-repo' par le nom de ton dépôt GitHub
 });
