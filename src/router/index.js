@@ -4,7 +4,7 @@ import Contact from '../views/Contact.vue'
 import Exposition from '../views/Exposition.vue'
 import CabinotierView from '../views/CabinotierView.vue'
 import Catalogue from '../views/Catalogue.vue'
-
+import NotFound from '../views/NotFound.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -33,6 +33,11 @@ const router = createRouter({
       name: 'contact',
       component: Contact,
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: NotFound,
+    }
   ],
 })
 
