@@ -3,7 +3,7 @@
     <div class="box">
       <h1>Oups!!</h1>
       <p>
-        Toutes mes excuses, cette page n'existe plus
+        Toutes mes excuses, Il semblerait avoir une erreur.
       </p>
       <div class="router">        <RouterLink to="/">Retour à l'accueil</RouterLink>
       </div>
