@@ -1,36 +1,28 @@
 <template>
   <div class="cookie-consent-banner" id="cookieConsentBanner">
     <div>
-      <h1>Politique de Cookies</h1>
+      <h1> {{ $t('cookiePolicy.title') }}</h1>
       <p>
-        Mon site web utilise des cookies pour améliorer votre expérience et
-        analyser le trafic. J'utilise Google Analytics afin de savoir combien de
-        personnes visitent mon site, et d'où elles viennent.
+       {{ $t('cookiePolicy.description') }}
       </p>
-      <h2>Cookies Google Analytics</h2>
+      <h2>{{ $t('cookiePolicy.title2') }}</h2>
       <p>
-        Google Analytics est un service d'analyse de site internet fourni par
-        Google Inc. ("Google"). Google utilise les données collectées pour
-        suivre et examiner l'utilisation de notre site web, pour préparer des
-        rapports sur ses activités et les partager avec d'autres services
-        Google.
+        {{ $t('cookiePolicy.description2') }}
       </p>
-      <h2>Consentement</h2>
+      <h2>{{ $t('cookiePolicy.title3') }}</h2>
       <p>
-        En acceptant, vous acceptez l'utilisation de cookies. Vous pouvez
-        changez d'avis en allant voir le pied de page du site web
+        {{ $t('cookiePolicy.description3') }}
       </p>
       <p>
-        Pour plus d'informations sur les cookies utilisés par Google Analytics,
-        vous pouvez consulter la
+        {{ $t('cookiePolicy.more') }}
         <a
           href="https://policies.google.com/technologies/cookies"
           target="_blank"
           >politique de confidentialité de Google</a
         >.
       </p>
-      <button @click="declineCookies">Refuser</button>
-      <button @click="acceptCookies">Accepter</button>
+      <button @click="declineCookies">{{ $t('cookiePolicy.buttons.decline') }}</button>
+      <button @click="acceptCookies">{{ $t('cookiePolicy.buttons.accept') }}</button>
     </div>
   </div>
 </template>

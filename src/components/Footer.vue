@@ -1,5 +1,8 @@
 <script setup>
 import { ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
+
+const {t, locale} = useI18n();
 const consentStatus = ref(localStorage.getItem("cookieConsent") || "unknown");
 
 
@@ -7,14 +10,14 @@ const consentMessage = ref("");
 
 function updateConsentMessage() {
   if (consentStatus.value === "accepted") {
-    consentMessage.value = "Vous avez accepté les cookies";
+    consentMessage.value = t('footer.cookies.accepted');
   } else if (consentStatus.value === "declined") {
-    consentMessage.value = "Vous avez refusé les cookies";
+    consentMessage.value = t('footer.cookies.declined');
   } else {
-    consentMessage.value = "Vous n'avez pas encore donné votre consentement pour les cookies";
+    consentMessage.value = t('footer.cookies.other');
   }
 }
-
+watch(locale, updateConsentMessage);
 
 updateConsentMessage();
 

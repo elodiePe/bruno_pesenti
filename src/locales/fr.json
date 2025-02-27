@@ -1,0 +1,42 @@
+{
+    "welcome": "Bienvenue",
+    "cookiePolicy": {
+        "title": "Politique de Cookies",
+        "description": "Mon site web utilise des cookies pour améliorer votre expérience et analyser le traffic. J'utilise Google Analytics afin de savoir combien de personnes visitent mon site web et d'où elles viennent.",
+        "title2": "Cookies de Google Analytics",
+        "description2": "Google Analytics est un service d'analyse web fourni par Google. Google utilise les données collectées pour suivre et examiner l'utilisation de ce site, préparer des rapports sur ses activités et les partager avec d'autres services Google. Google peut utiliser les données collectées pour contextualiser et personnaliser les annonces de son propre réseau publicitaire.",
+        "title3": "Consentement",
+        "description3": " En acceptant, vous acceptez l'utilisation de cookies. Vous pouvez changez d'avis en allant voir le pied de page du site web",
+        "more": "Pour plus d'informations sur les cookies utilisés par Google Analytics, vous pouvez consulter:",
+        "buttons": {
+            "accept": "Accepter",
+            "decline": "Refuser"
+        }
+    },
+    "footer": {
+        "cookies": {
+            "accepted": "Cookies acceptés",
+            "declined": "Cookies refusés",
+            "other": "Cookies"
+        },
+        "developper": {
+            "by": "Elodie Perring"
+        }
+    },
+    "navigation": {
+        "home": "Accueil",
+        "exposition": "Exposition",
+        "cabinotiers": "Cabinotiers",
+        "catalogue": "Catalogue",
+        "contact": "Contact",
+        "language": {
+            "french": "Français",
+            "english": "Anglais"
+        }
+    },
+    "home": {
+        "introduction": {
+            "description": "Depuis près de 50 ans, j'ai la chance de vivre de mes passions: <g>l'horlogerie et les antiquités</g>. J'ai eu la chance de pouvoir ouvrir mon propre atelier dans le quartier des <a href='/cabinotiers'>Cabinotiers Genevois</a>. <br /> En 2018, j'ai également mis en place une <a href='/exposition'>exposition</a>. <br /> <gr> Aujourd'hui, je suis spécialisé dans la réparation et la restauration de montres et horloges ancienne.</gr>"
+        }
+    }
+}

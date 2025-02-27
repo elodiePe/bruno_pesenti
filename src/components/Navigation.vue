@@ -1,6 +1,16 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+
+const router = useRouter();
+const route = useRoute();
+const { locale } = useI18n();
+const changeLanguage = (lang) => {
+  locale.value = lang;
+  router.push({ path: `/${lang}${route.path.replace(/^\/(en|fr)/, '')}` });
+
+};
 
 const isMenuOpen = ref(false);
 
@@ -34,22 +44,24 @@ onUnmounted(() => {
   <div :class="['navigation', { 'navigation-open': isMenuOpen }]">
     <ul class="nav no-search">
       <li class="navText">
-        <RouterLink class="one" to="/">Accueil</RouterLink>
+        <RouterLink class="one" to="/">{{ $t('navigation.home') }}</RouterLink>
       </li>
       <li class="navText">
-        <RouterLink class="two" to="/exposition">Exposition</RouterLink>
+        <RouterLink class="two" to="/exposition">{{ $t('navigation.exposition') }}</RouterLink>
       </li>
       <li class="navText">
-        <RouterLink class="three" to="/cabinotiers">Cabinotiers</RouterLink>
+        <RouterLink class="three" to="/cabinotiers">{{ $t('navigation.cabinotiers') }}</RouterLink>
       </li>
       <li class="navText">
-        <RouterLink class="four" to="/catalogue">Catalogue</RouterLink>
+        <RouterLink class="four" to="/catalogue">{{ $t('navigation.catalogue') }}</RouterLink>
       </li>
       <li class="navText">
-        <RouterLink class="five" to="/contact">Contact</RouterLink>
+        <RouterLink class="five" to="/contact">{{ $t('navigation.contact') }}</RouterLink>
       </li>
     </ul>
   </div>
+  <button @click="changeLanguage('en')">{{ $t('navigation.language.english') }}</button>
+  <button @click="changeLanguage('fr')">{{ $t('navigation.language.french') }}</button>
 </template>
 
 <style scoped>

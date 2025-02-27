@@ -3,16 +3,7 @@
     <div class="box">
       <h1>Bruno Pesenti</h1>
       <div class="introduction">
-        <p>
-          Depuis près de 50 ans, j'ai la chance de vivre de mes passions:
-          <g>l'horlogerie et les antiquités</g>. J'ai eu la chance de pouvoir
-          ouvrir mon propre atelier dans le quartier des
-          <a href="/cabinotiers">Cabinotiers Genevois</a>. <br />
-          En 2018, j'ai également mis en place une
-          <a href="/exposition">exposition</a>. <br /><gr
-            >Aujourd'hui, je suis spécialisé dans la réparation et la
-            restauration de montres et horloges ancienne.</gr
-          >
+        <p v-html="$t('home.introduction.description')">
         </p>
         <img
           src="../assets/img/bruno.png"
@@ -25,7 +16,7 @@
           Vous cherchez une pièce, une montre, horloge ou autre chose lié aux
           antiquités ? Ou votre montre ne fonctionne plus ? Venez voir l'atelier
           !
-          <br /><br />
+          <br>
           <gr>Mon atelier est ouvert du lundi au Jeudi entre 14h30 et 17h.</gr>
           <br />
           Je suis situé à Genève, à la

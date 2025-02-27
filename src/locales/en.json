@@ -1,0 +1,44 @@
+{
+    "welcome": "Welcome",
+    "cookiePolicy": {
+        "title": "Cookie Policy",
+        "description": "My website uses cookies to improve your experience and analyze traffic. I use Google Analytics to know how many people visit my website and where they come from.",
+        "title2": "Google Analytics Cookies",
+        "description2": "Google Analytics is a web analytics service provided by Google. Google uses the collected data to track and examine the use of this site, prepare reports on its activities, and share them with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.",
+        "title3": "Consent",
+        "description3": "By accepting, you agree to the use of cookies. You can change your mind by going to the footer of the website.",
+        "more": "For more information on the cookies used by Google Analytics, you can consult:",
+        "buttons": {
+            "accept": "Accept",
+            "decline": "Decline"
+        }
+    },
+    "footer": {
+        "cookies": {
+            "accepted": "Cookies accepted",
+            "declined": "Cookies declined",
+            "other": "Cookies"
+        },
+        "developer": {
+            "by": "Elodie Perring"
+        }
+    },
+    "navigation": {
+        "home": "Home",
+        "exposition": "Museum",
+        "cabinotiers": "Cabinotiers",
+        "catalogue": "Catalog",
+        "contact": "Contact",
+        "language": {
+            "french": "French",
+            "english": "English"
+        }
+    },
+    "home": {
+        "introduction": {
+            "description": "For nearly 50 years, I have had the chance to live my passions: <g>watchmaking and antiques</g>. I was fortunate to be able to open my own workshop in the <a href='/cabinotiers'>Cabinotiers Genevois</a> district. <br /> In 2018, I also set up an <a href='/exposition'>exhibition</a>. <br /><g>Today, I specialize in the repair and restoration of old watches and clocks.</g>"
+
+        }
+
+    }
+}
