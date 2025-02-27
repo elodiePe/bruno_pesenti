@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
@@ -8,9 +8,17 @@ const route = useRoute();
 const { locale } = useI18n();
 const changeLanguage = (lang) => {
   locale.value = lang;
-  router.push({ path: `/${lang}${route.path.replace(/^\/(en|fr)/, '')}` });
+  localStorage.setItem('language', lang);
+  router.push({ path: `/${lang}${route.path.replace(/^\/(en|fr|it)/, '')}` });
 
 };
+watch(route, (newRoute) => {
+  const lang = newRoute.path.split('/')[1];
+  if (['en', 'fr', 'it'].includes(lang)) {
+    locale.value = lang;
+    localStorage.setItem('language', lang);
+  }
+});
 
 const isMenuOpen = ref(false);
 
@@ -58,10 +66,17 @@ onUnmounted(() => {
       <li class="navText">
         <RouterLink class="five" to="/contact">{{ $t('navigation.contact') }}</RouterLink>
       </li>
+      <li class="navText">
+        <select @change="changeLanguage($event.target.value)" :value="locale">
+          <option value="en">{{ $t('navigation.language.english') }}</option>
+          <option value="fr">{{ $t('navigation.language.french') }}</option>
+          <option value="it">{{ $t('navigation.language.italian') }}</option>
+        </select>
+      </li>
     </ul>
   </div>
-  <button @click="changeLanguage('en')">{{ $t('navigation.language.english') }}</button>
-  <button @click="changeLanguage('fr')">{{ $t('navigation.language.french') }}</button>
+  <!-- <button @click="changeLanguage('en')">{{ $t('navigation.language.english') }}</button>
+  <button @click="changeLanguage('fr')">{{ $t('navigation.language.french') }}</button> -->
 </template>
 
 <style scoped>

@@ -1,0 +1,64 @@
+{
+    "welcome": "Benvenuto",
+    "cookiePolicy": {
+        "title": "Politica sui Cookie",
+        "description": "Il mio sito web utilizza i cookie per migliorare la tua esperienza e analizzare il traffico. Utilizzo Google Analytics per sapere quante persone visitano il mio sito web e da dove provengono.",
+        "title2": "Cookie di Google Analytics",
+        "description2": "Google Analytics è un servizio di analisi web fornito da Google. Google utilizza i dati raccolti per tracciare ed esaminare l'utilizzo di questo sito, preparare rapporti sulle sue attività e condividerli con altri servizi Google. Google può utilizzare i dati raccolti per contestualizzare e personalizzare gli annunci del proprio network pubblicitario.",
+        "title3": "Consenso",
+        "description3": "Accettando, accetti l'uso dei cookie. Puoi cambiare idea andando a vedere il piè di pagina del sito web",
+        "more": "Per ulteriori informazioni sui cookie utilizzati da Google Analytics, puoi consultare:",
+        "buttons": {
+            "accept": "Accetta",
+            "decline": "Rifiuta"
+        }
+    },
+    "footer": {
+        "cookies": {
+            "accepted": "Cookie accettati",
+            "declined": "Cookie rifiutati",
+            "other": "Cookie"
+        },
+        "developper": {
+            "by": "Elodie Perring"
+        }
+    },
+    "navigation": {
+        "home": "Home",
+        "exposition": "Esposizione",
+        "cabinotiers": "Cabinotiers",
+        "catalogue": "Catalogo",
+        "contact": "Contatto",
+        "language": {
+            "french": "Francese",
+            "english": "Inglese",
+            "italian": "Italiano"
+        }
+    },
+    "home": {
+        "introduction": {
+            "description": "Da quasi 50 anni, ho la fortuna di vivere delle mie passioni: <g>l'orologeria e le antichità</g>. Ho avuto la fortuna di poter aprire il mio laboratorio nel quartiere dei <a href='/cabinotiers'>Cabinotiers di Ginevra</a>. <br /> Nel 2018, ho anche allestito una <a href='/exposition'>esposizione</a>. <br /> <gr> Oggi, sono specializzato nella riparazione e nel restauro di orologi e orologi antichi.</gr>"
+        },
+        "atelier":{
+            "title": "Il mio laboratorio",
+            "description": "Cerchi un pezzo, un orologio o qualcos'altro legato alle antichità? O il tuo orologio non funziona più? Vieni a vedere il laboratorio! <br> <gr>Il mio laboratorio è aperto dal lunedì al giovedì tra le 14:30 e le 17:00.</gr> <br /> Sono situato a Ginevra, in <gr>Rue des Corps-Saints 10, 1201 Ginevra.</gr>"
+        }
+    },
+    "exposition": {
+        "title": "Esposizione",
+        "description": "Nel 2018, ho fondato una piccola esposizione permanente chiamata <g>Le curiosità orologiere</g>. Ti invito a scoprire il mio mondo e a condividere la mia passione per l'orologeria. <br />L'esposizione è situata in un piccolo villaggio, nel cantone di Ginevra. È aperta al pubblico e puoi visitarla su appuntamento. Massimo 5 persone per visita. <a href='/contact'>Contattami qui</a>."
+    },
+    "cabinotiers": {
+        "title": "Cos'è un cabinotier?",
+        "description":
+        "La parola 'cabinotier' è di origine ginevrina. Combinando precisione tecnica e innovazione, l'arte dei cabinotiers di Saint-Gervais ha contribuito alla distinzione di Ginevra. Dal XVIII secolo la parola 'cabinotier' raggruppa i mestieri legati all'orologeria, ad esempio i montatori di casse, guillocheurs, cesellatori, incassatori, doratori e smaltatori. Lavoravano a domicilio o in minuscole 'cabine' sotto i tetti delle case. <br /> Per ulteriori informazioni sulla storia dei cabinotiers e sulla mia collezione orologiera <a href='catalogue'>vai a vedere il mio catalogo</a>, o vieni a <a href='/exposition'>visitare la mia esposizione</a>."
+    },
+    "catalogue": {
+        "title": "Il mio catalogo: <g>Il Cabinotier</g>",
+        "description": " <g>Il Cabinotier</g> è un piccolo catalogo che racconta la storia dei cabinotiers e presenta una piccola parte della mia collezione orologiera. Il catalogo è stato realizzato da <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> nell'ambito del suo lavoro di maturità specializzato. <br /> Per acquistare il catalogo passa al laboratorio o <a href='/contact'>contattami</a>."
+    },
+    "contact": {
+        "title": "Contattami",
+        "description":"<gr>Per favore contattami tramite il mio numero di telefono: </gr> <a href='tel:022-731-75-75'>022 731 75 75</a>"
+    }
+}

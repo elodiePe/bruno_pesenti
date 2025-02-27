@@ -5,40 +5,54 @@ import Exposition from '../views/Exposition.vue'
 import CabinotierView from '../views/CabinotierView.vue'
 import Catalogue from '../views/Catalogue.vue'
 import NotFound from '../views/NotFound.vue'
+
+const lang = localStorage.getItem('language') || 'fr';
+
+const routes = [
+  {
+    path: `/:lang(fr|en|it)?/`,
+    name: 'Accueil',
+    component: AccueilView,
+  },
+  {
+    path: `/:lang(fr|en|it)?/exposition`,
+    name: 'exposition',
+    component: Exposition,
+  },
+  {
+    path: `/:lang(fr|en|it)?/cabinotiers`,
+    name: 'cabinoteriers',
+    component: CabinotierView,
+  },
+  {
+    path: `/:lang(fr|en|it)?/catalogue`,
+    name: 'catalogue',
+    component: Catalogue,
+  },
+  {
+    path: `/:lang(fr|en|it)?/contact`,
+    name: 'contact',
+    component: Contact,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound,
+  }
+];
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/:lang(en|fr)?',
-      name: 'Accueil',
-      component: AccueilView,
-    },
-    {
-      path: '/:lang(en|fr)?/exposition',
-      name: 'exposition',
-      component: Exposition,
-    },
-    {
-      path: '/:lang(en|fr)?/cabinotiers',
-      name: 'cabinoteriers',
-      component: CabinotierView,
-    },
-    {
-      path: '/:lang(en|fr)?/catalogue',
-      name: 'catalogue',
-      component: Catalogue,
-    },
-    {
-      path: '/:lang(en|fr)?/contact',
-      name: 'contact',
-      component: Contact,
-    },
-    {
-      path: '/:pathMatch(.*)*',
-      name: 'NotFound',
-      component: NotFound,
-    }
-  ],
-})
+  routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  const { lang } = to.params;
+  if (!lang) {
+    next(`/${localStorage.getItem('language') || 'fr'}${to.path}`);
+  } else {
+    next();
+  }
+});
+
+export default router;
