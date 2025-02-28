@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
+import { RouterLink } from "vue-router";
 
 const {t, locale} = useI18n();
 const consentStatus = ref(localStorage.getItem("cookieConsent") || "unknown");
@@ -33,7 +34,7 @@ function openCookies() {
       <li><a href="https://elodieperring.figweb.site/">@Elodie Perring</a></li>
       <li><a href="https://brunopesenti.ch/">Bruno Pesenti</a></li>
       <li >2024</li>
-    <li id="pointer"><a href="/cookies">cookies</a></li>
+   <li> <RouterLink class="one" to="/cookies">cookies</RouterLink></li> 
     </ul>
   </footer>
 </template>
