@@ -3,10 +3,47 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
+
+
+import fs from 'fs';
+import path from 'path';
+
+function generateDuplicateIndexHtmlPlugin() {
+  return {
+    name: 'duplicate-index-html',
+    apply: 'build',
+    writeBundle() {
+      const indexPath = path.resolve(__dirname, 'dist/index.html');
+      const routes = [
+        '/:lang(fr|en|it)?/', 
+        '/:lang(fr|en|it)?/cookies', 
+        '/:lang(fr|en|it)?/catalogue', 
+        '/:lang(fr|en|it)?/contact', 
+        '/:lang(fr|en|it)?/cabinotiers', 
+        '/:lang(fr|en|it)?/exposition'
+      ];
+      routes.forEach(route => {
+        const lang = route.match(/:lang\((.*?)\)/)[1].split('|');
+        lang.forEach(l => {
+          const indexHtml = fs.readFileSync(indexPath, 'utf-8');
+          const outputPath = path.resolve(__dirname, `dist/${l}${route.replace('/:lang(fr|en|it)?', '')}/index.html`);
+          fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+          fs.writeFileSync(outputPath, indexHtml.replace('<html lang="fr">', `<html lang="${l}">`));
+        });
+      });
+    },
+    generateBundle() {
+      const distPath = path.resolve(__dirname, 'dist');
+      if (!fs.existsSync(distPath)) {
+        fs.mkdirSync(distPath, { recursive: true });
+      }
+    }
+  };
+}
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue(), generateDuplicateIndexHtmlPlugin(),
     vueDevTools(),
   ],
   resolve: {

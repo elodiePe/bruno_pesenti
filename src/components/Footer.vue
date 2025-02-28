@@ -33,7 +33,7 @@ function openCookies() {
       <li><a href="https://elodieperring.figweb.site/">@Elodie Perring</a></li>
       <li><a href="https://brunopesenti.ch/">Bruno Pesenti</a></li>
       <li >2024</li>
-    <li @click="openCookies" id="pointer">{{ consentMessage }}</li>
+    <li id="pointer"><a href="/cookies">cookies</a></li>
     </ul>
   </footer>
 </template>

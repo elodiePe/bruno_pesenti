@@ -83,6 +83,9 @@ onUnmounted(() => {
 .navText .router-link-exact-active {
   background-color: #f0f0f0;
 }
+.one:active {
+  background-color: #e0e0e0;
+}
 .one:hover {
   background-color: #e0e0e0;
 }

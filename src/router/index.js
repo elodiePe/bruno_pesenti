@@ -5,7 +5,7 @@ import Exposition from '../views/Exposition.vue'
 import CabinotierView from '../views/CabinotierView.vue'
 import Catalogue from '../views/Catalogue.vue'
 import NotFound from '../views/NotFound.vue'
-
+import Cookies from '../views/Cookies.vue'
 const lang = localStorage.getItem('language') || 'fr';
 
 const routes = [
@@ -38,6 +38,11 @@ const routes = [
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: NotFound,
+  },
+  {
+    path: "/:lang(fr|en|it)?/cookies",
+    name: 'Cookies',
+    component: Cookies,
   }
 ];
 

@@ -31,19 +31,19 @@ import { ref, onMounted, watch} from 'vue';
 
 const checkConsent = ref(null);
 const consentStatus = ref("");
-watch(consentStatus, (value) => {
-  localStorage.setItem("cookieConsent", value);
-window.location.reload();
+// watch(consentStatus, (value) => {
+//   localStorage.setItem("cookieConsent", value);
+// window.location.reload();
   
-});
-onMounted(() => {
-  checkConsent.value = checkCookieConsent();
-  if (localStorage.getItem("cookieConsent") === null) {
-    document.getElementById("cookieConsentBanner").style.display = "block";
-  } else if (localStorage.getItem("cookieConsent") === "accepted") {
-    activateGoogleAnalytics();
-  }
-});
+// });
+// onMounted(() => {
+//   checkConsent.value = checkCookieConsent();
+//   if (localStorage.getItem("cookieConsent") === null) {
+//     document.getElementById("cookieConsentBanner").style.display = "block";
+//   } else if (localStorage.getItem("cookieConsent") === "accepted") {
+//     activateGoogleAnalytics();
+//   }
+// });
 
 // Fonction pour accepter les cookies
 function acceptCookies() {
