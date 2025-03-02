@@ -37,17 +37,7 @@
     },
     "home": {
         "introduction": {
-            "description": "Depuis près de 50 ans, j'ai eu la chance de vivre mes passions : ",
-            "highlight1": "l'horlogerie et les antiquités",
-            "description2": ". J'ai eu la chance de pouvoir ouvrir mon propre atelier dans le ",
-            "link1": {
-                "text": "quartier des Cabinotiers Genevois."
-            },
-            "description3": "En 2018, j'ai également mis en place une ",
-            "link2": {
-                "text": "exposition"
-            },
-            "highlight2": ". Aujourd'hui, je me spécialise dans la réparation et la restauration de montres et horloges anciennes."
+            "description": "Depuis près de 50 ans, j'ai la chance de vivre de mes passions: <g>l'horlogerie et les antiquités</g>. En effet, j'ai ouvert mon propre atelier dans le quartier des <a href='cabinotiers'>Cabinotiers Genevois</a>. <br /> En 2018, j'ai également mis en place une <a href='exposition'>exposition</a>. <br /> <gr> Aujourd'hui, je suis spécialisé dans la réparation et la restauration de montres et horloges ancienne.</gr>"
         },
         "atelier":{
             "title": "Mon atelier",
@@ -56,16 +46,16 @@
     },
     "exposition": {
         "title": "Exposition",
-        "description": "En 2018, j'ai fondé une petite exposition permanente qui s'appelle <g>Les curiosités horlogères</g>. Je vous invite à venir découvrir mon univers et à partager ma passion pour l'horlogerie. <br />L'exposition est localisée dans un petit village, dans le canton de Genève. Elle est ouverte au public et vous pouvez venir la visiter sur rendez-vous. Maximum 5 personnes par visite. <a href='/contact'>Contactez-moi ici</a>."
+        "description": "En 2018, j'ai fondé une petite exposition permanente qui s'appelle <g>Les curiosités horlogères</g>. Je vous invite à venir découvrir mon univers et à partager ma passion pour l'horlogerie. <br />L'exposition est localisée dans un petit village, dans le canton de Genève. Elle est ouverte au public et vous pouvez venir la visiter sur rendez-vous. Maximum 5 personnes par visite. <a href='contact'>Contactez-moi ici</a>."
     },
     "cabinotiers": {
         "title": "Un cabinotier, c'est quoi ?",
         "description":
-        "Le mot 'cabinotier' est d'origine genevoise. Alliant minutie, précision technique et innovation, l'art des cabinotiers de Saint-Gervais à contribué à la distinction de Genève. Dès le XVIIIème siècle le mot 'cabinotier' regroupe les métiers liés à l'horlogerie, par exemple les monteurs de boîtes, guillocheurs, ciseleurs, emboîteurs, doreurs et émailleurs. Ils travaillaient à domicile ou dans de minuscules 'cabines' sous les toits des maisons. <br /> Pour avoir plus d'informations sur l'histoire des cabinotiers et sur ma collection horlogère <a href=' catalogue'>allez voir mon catalogue</a>, ou venez <a href='/exposition'>visiter mon exposition</a>."
+        "Le mot 'cabinotier' est d'origine genevoise. Alliant minutie, précision technique et innovation, l'art des cabinotiers de Saint-Gervais à contribué à la distinction de Genève. Dès le XVIIIème siècle le mot 'cabinotier' regroupe les métiers liés à l'horlogerie, par exemple les monteurs de boîtes, guillocheurs, ciseleurs, emboîteurs, doreurs et émailleurs. Ils travaillaient à domicile ou dans de minuscules 'cabines' sous les toits des maisons. <br /> Pour avoir plus d'informations sur l'histoire des cabinotiers et sur ma collection horlogère <a href=' catalogue'>allez voir mon catalogue</a>, ou venez <a href='exposition'>visiter mon exposition</a>."
     },
     "catalogue": {
         "title": "Mon catalogue : <g>Le Cabinotier</g>",
-        "description": " <g>Le Cabinotier</g> est un petit catalogue qui raconte l'histoire des cabinotiers et présente une petite partie de ma collection horlogère. Le catalogue a été réalisé par <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> dans le cadre de son travail de maturité spécialisé. <br /> Pour acheter le catalogue passez à l’atelier ou <a href='/contact'>contactez-moi</a>."
+        "description": " <g>Le Cabinotier</g> est un petit catalogue qui raconte l'histoire des cabinotiers et présente une petite partie de ma collection horlogère. Le catalogue a été réalisé par <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> dans le cadre de son travail de maturité spécialisé. <br /> Pour acheter le catalogue passez à l’atelier ou <a href='contact'>contactez-moi</a>."
     },
     "contact": {
         "title": "Me contacter",

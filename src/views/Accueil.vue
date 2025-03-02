@@ -3,15 +3,8 @@
     <div class="box">
       <h1>Bruno Pesenti</h1>
       <div class="introduction">
-        <p>
-          {{ $t("home.introduction.description") }}
-          <gr>{{ $t("home.introduction.highlight1") }}</gr>
-          {{ $t("home.introduction.description2") }}
-          <RouterLink to="/cabinotiers">{{ $t("home.introduction.link1.text") }}</RouterLink>
-          <br>
-          {{ $t("home.introduction.description3") }}
-          <RouterLink to="/exposition">{{ $t("home.introduction.link2.text") }}</RouterLink>
-          <gr>{{ $t("home.introduction.highlight2") }}</gr>
+        <p v-html="$t('home.introduction.description')">
+
         </p>
 
         <img

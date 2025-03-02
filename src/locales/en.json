@@ -37,30 +37,16 @@
     },
     "home": {
         "introduction": {
-            "description": "For nearly 50 years, I have had the chance to live my passions: ",
-            "highlight1": "watchmaking and antiques",
-            "description2": ". I was fortunate to be able to open my own workshop in the ",
-            "link1": {
-            "text": "Cabinotier Genevois district.",
-            "url": "/cabinotier"
-            },
-            "description3": "In 2018, I also set up an ",
-            "link2": {
-            "text": "exhibition",
-            "url": "/exposition"
-            },
-            "highlight2": ". Today, I specialize in the repair and restoration of old watches and clocks."
+            "description": "For nearly 50 years, I have had the chance to live my passions: <g>watchmaking and antiques</g>. I was fortunate to be able to open my own workshop in the <a href='cabinotiers'>Cabinotiers Genevois</a> district. <br /> In 2018, I also set up an <a href='exposition'>exhibition</a>. <br /><g>Today, I specialize in the repair and restoration of old watches and clocks.</g>"
         },
-        
         "atelier": {
             "title": "My Workshop",
             "description": "Are you looking for a watch, a clock, or something else related to antiques? Or is your watch not working anymore? Come visit my workshop! <br> <gr>My workshop is open from Monday to Thursday between 2:30 PM and 5:00 PM.</gr> <br /> I am located in Geneva, at <gr>Rue des Corps-Saints 10, 1201 Geneva.</gr>"
         }
-        },
-       
+    },
     "exposition": {
         "title": "Exhibition",
-        "description": "In 2018, I founded a small permanent exhibition called <g>The Watchmaking Curiosities</g>. I invite you to come and discover my world and share my passion for watchmaking. <br />The exhibition is located in a small village in the canton of Geneva. It is open to the public and you can visit it by appointment. Maximum 5 people per visit. <a href='/contact'>Contact me here</a>."
+        "description": "In 2018, I founded a small permanent exhibition called <g>The Watchmaking Curiosities</g>. I invite you to come and discover my world and share my passion for watchmaking. <br />The exhibition is located in a small village in the canton of Geneva. It is open to the public and you can visit it by appointment. Maximum 5 people per visit. <a href='contact'>Contact me here</a>."
     },
     "cabinotiers": {
         "title": "What is a cabinotier?",
@@ -68,7 +54,7 @@
     },
     "catalogue": {
         "title": "My catalog: <g>Le Cabinotier</g>",
-        "description": "<g>Le Cabinotier</g> is a small catalog that tells the story of the cabinotiers and presents a small part of my watchmaking collection. The catalog was created by <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> as part of her specialized maturity work. <br /> To purchase the catalog, visit the workshop or <a href='/contact'>contact me</a>."
+        "description": "<g>Le Cabinotier</g> is a small catalog that tells the story of the cabinotiers and presents a small part of my watchmaking collection. The catalog was created by <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> as part of her specialized maturity work. <br /> To purchase the catalog, visit the workshop or <a href='contact'>contact me</a>."
     },
     "contact": {
         "title": "Contact information",
