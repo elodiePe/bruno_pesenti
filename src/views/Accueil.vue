@@ -3,6 +3,7 @@
     <div class="box">
       <h1>Bruno Pesenti</h1>
       <div class="introduction">
+
         <p v-html="$t('home.introduction.description')">
         </p>
         <img
@@ -25,3 +26,7 @@
     </div>
   </div>
 </template>
+<script setup>
+import { RouterLink, useRoute, useRouter } from 'vue-router';
+const lang = localStorage.getItem('language') || 'fr';
+</script>
