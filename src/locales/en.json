@@ -7,7 +7,7 @@
         "description2": "Google Analytics is a web analytics service provided by Google. Google uses the collected data to track and examine the use of this site, prepare reports on its activities, and share them with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.",
         "title3": "Consent",
         "description3": "By accepting, you agree to the use of cookies. You can change your mind by going to the footer of the website.",
-        "more": "For more information on the cookies used by Google Analytics, you can consult:",
+        "more": "For more information about the cookies used by Google Analytics, you can consult:",
         "buttons": {
             "accept": "Accept",
             "decline": "Decline"
@@ -19,15 +19,15 @@
             "declined": "Cookies declined",
             "other": "Cookies"
         },
-        "developer": {
+        "developper": {
             "by": "Elodie Perring"
         }
     },
     "navigation": {
         "home": "Home",
-        "exposition": "Museum",
+        "exposition": "Exposition",
         "cabinotiers": "Cabinotiers",
-        "catalogue": "Catalog",
+        "catalogue": "Catalogue",
         "contact": "Contact",
         "language": {
             "french": "French",
@@ -37,27 +37,44 @@
     },
     "home": {
         "introduction": {
-            "description": "For nearly 50 years, I have had the chance to live my passions: <g>watchmaking and antiques</g>. I was fortunate to be able to open my own workshop in the <a href='cabinotiers'>Cabinotiers Genevois</a> district. <br /> In 2018, I also set up an <a href='exposition'>exhibition</a>. <br /><g>Today, I specialize in the repair and restoration of old watches and clocks.</g>"
+            "description": "For almost 50 years, I have been fortunate to live my passions: ",
+            "highlight1": "watchmaking and antiques",
+            "description2": ". I was lucky enough to open my workshop in the ",
+            "link1": {
+                "text": "Cabinotiers district of Geneva."
+            },
+            "description3": "In 2018, I also set up an ",
+            "link2": {
+                "text": "exhibition"
+            },
+            "highlight2": ". Today I specialize in the repair and restoration of antique clocks and watches."
         },
         "atelier": {
-            "title": "My Workshop",
-            "description": "Are you looking for a watch, a clock, or something else related to antiques? Or is your watch not working anymore? Come visit my workshop! <br> <gr>My workshop is open from Monday to Thursday between 2:30 PM and 5:00 PM.</gr> <br /> I am located in Geneva, at <gr>Rue des Corps-Saints 10, 1201 Geneva.</gr>"
+            "title": "My workshop",
+            "description": "Looking for a part, a watch, or something else related to antiques? Or your watch is not working anymore? Come and see the workshop! <br> <gr>My workshop is open from Monday to Thursday between 2:30 PM and 5:00 PM.</gr> <br /> I am located in Geneva, at <gr>Rue des Corps-Saints 10, 1201 Geneva.</gr>"
         }
     },
     "exposition": {
-        "title": "Exhibition",
-        "description": "In 2018, I founded a small permanent exhibition called <g>The Watchmaking Curiosities</g>. I invite you to come and discover my world and share my passion for watchmaking. <br />The exhibition is located in a small village in the canton of Geneva. It is open to the public and you can visit it by appointment. Maximum 5 people per visit. <a href='contact'>Contact me here</a>."
+        "title": "Exposition",
+        "description": "In 2018, I founded a small permanent exhibition called <g>The Watchmaking Curiosities</g>. I invite you to discover my world and share my passion for watchmaking. <br />The exhibition is located in a small village in the canton of Geneva. It is open to the public and you can visit it by appointment. Maximum 5 people per visit.",
+        "contact": "Contact me here"
     },
     "cabinotiers": {
         "title": "What is a cabinotier?",
-        "description": "The word 'cabinotier' is of Genevan origin. Combining meticulousness, technical precision, and innovation, the art of the cabinotiers of Saint-Gervais contributed to the distinction of Geneva. Since the 18th century, the word 'cabinotier' has encompassed professions related to watchmaking, such as case assemblers, guillocheurs, engravers, watchmakers, gilders, and enamelers. They worked from home or in tiny 'cabins' under the roofs of houses. <br /> For more information on the history of the cabinotiers and my watchmaking collection, <a href='catalogue'>check out my catalog</a>, or come <a href='exposition'>visit my exhibition</a>."
+        "description": "The word 'cabinotier' is of Geneva origin. Combining technical precision and innovation, the art of the cabinotiers of Saint-Gervais has contributed to the distinction of Geneva. Since the 18th century, the word 'cabinotier' has grouped together the trades related to watchmaking, such as case assemblers, guillocheurs, engravers, setters, gilders, and enamelers. They worked at home or in tiny 'cabins' under the roofs of houses.",
+        "buttons": {
+            "catalogue": "Catalogue",
+            "exposition": "Visit the exhibition"
+        }
     },
     "catalogue": {
-        "title": "My catalog: <g>Le Cabinotier</g>",
-        "description": "<g>Le Cabinotier</g> is a small catalog that tells the story of the cabinotiers and presents a small part of my watchmaking collection. The catalog was created by <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> as part of her specialized maturity work. <br /> To purchase the catalog, visit the workshop or <a href='contact'>contact me</a>."
+        "title": "My catalogue: <g>The Cabinotier</g>",
+        "description": "<g>The Cabinotier</g> is a small catalogue that tells the story of the cabinotiers and presents a small part of my watchmaking collection. The catalogue was created by <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> as part of her specialized maturity work.",
+        "description2": "To purchase the catalogue, visit the workshop or",
+        "textLink": "contact me"
     },
     "contact": {
-        "title": "Contact information",
-        "description":"<gr>To contact me, use the following number :  </gr> <a href='tel:022-731-75-75'>022 731 75 75</a>"
+        "title": "Contact me",
+        "description": "<gr>Please contact me via my phone number: </gr> <a href='tel:022-731-75-75'>022 731 75 75</a>"
     }
 }

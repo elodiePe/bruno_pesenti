@@ -67,7 +67,7 @@ onUnmounted(() => {
         <RouterLink class="five" to="/contact">{{ $t('navigation.contact') }}</RouterLink>
       </li>
       <li class="navText">
-        <select @change="changeLanguage($event.target.value)" :value="locale">
+        <select @change="changeLanguage($event.target.value)" :value="locale" >
           <option value="en">{{ $t('navigation.language.english') }}</option>
           <option value="fr">{{ $t('navigation.language.french') }}</option>
           <option value="it">{{ $t('navigation.language.italian') }}</option>
@@ -81,8 +81,15 @@ onUnmounted(() => {
 
 <style scoped>
 .navText .router-link-exact-active {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0; /* Change this to your desired active color */
+  color: #c86412; /* Change this to your desired active text color */
 }
+
+.navText .router-link-active {
+  background-color: #e0e0e0; /* Change this to your desired hover color */
+  color: #c86412; /* Change this to your desired hover text color */
+}
+
 .one:active {
   background-color: #e0e0e0;
 }
