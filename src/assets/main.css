@@ -282,8 +282,10 @@ gr{
   gap: 1rem;
   padding-bottom: 2rem;
 }
+
 .introduction p{
   width: 60%;
+
 }
 .introduction a {
   text-decoration: none;
