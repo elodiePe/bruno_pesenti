@@ -37,7 +37,17 @@
     },
     "home": {
         "introduction": {
-            "description": "Depuis près de 50 ans, j'ai la chance de vivre de mes passions: <g>l'horlogerie et les antiquités</g>. En effet, j'ai ouvert mon propre atelier dans le quartier des <a href='/cabinotiers'>Cabinotiers Genevois</a>. <br /> En 2018, j'ai également mis en place une <a href='/exposition'>exposition</a>. <br /> <gr> Aujourd'hui, je suis spécialisé dans la réparation et la restauration de montres et horloges ancienne.</gr>"
+            "description": "Depuis près de 50 ans, j'ai eu la chance de vivre mes passions : ",
+            "highlight1": "l'horlogerie et les antiquités",
+            "description2": ". J'ai eu la chance de pouvoir ouvrir mon propre atelier dans le ",
+            "link1": {
+                "text": "quartier des Cabinotiers Genevois."
+            },
+            "description3": "En 2018, j'ai également mis en place une ",
+            "link2": {
+                "text": "exposition"
+            },
+            "highlight2": ". Aujourd'hui, je me spécialise dans la réparation et la restauration de montres et horloges anciennes."
         },
         "atelier":{
             "title": "Mon atelier",

@@ -37,8 +37,21 @@
     },
     "home": {
         "introduction": {
-            "description": "For nearly 50 years, I have had the chance to live my passions: <g>watchmaking and antiques</g>. I was fortunate to be able to open my own workshop in the <routerLink='/cabinotiers'>Cabinotiers Genevois </routerLink> district. <br /> In 2018, I also set up an <routerLink='/exposition'> exhibition</routerLink> . <br /><g>Today, I specialize in the repair and restoration of old watches and clocks.</g>"
+            "description": "For nearly 50 years, I have had the chance to live my passions: ",
+            "highlight1": "watchmaking and antiques",
+            "description2": ". I was fortunate to be able to open my own workshop in the ",
+            "link1": {
+            "text": "Cabinotier Genevois district.",
+            "url": "/cabinotier"
+            },
+            "description3": "In 2018, I also set up an ",
+            "link2": {
+            "text": "exhibition",
+            "url": "/exposition"
+            },
+            "highlight2": ". Today, I specialize in the repair and restoration of old watches and clocks."
         },
+        
         "atelier": {
             "title": "My Workshop",
             "description": "Are you looking for a watch, a clock, or something else related to antiques? Or is your watch not working anymore? Come visit my workshop! <br> <gr>My workshop is open from Monday to Thursday between 2:30 PM and 5:00 PM.</gr> <br /> I am located in Geneva, at <gr>Rue des Corps-Saints 10, 1201 Geneva.</gr>"

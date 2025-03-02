@@ -4,7 +4,8 @@
   
   <script setup>
   import { computed } from 'vue';
-  import { useRouter } from 'vue-router';
+
+  import { useRouter, RouterLink } from 'vue-router';
   
   const props = defineProps({
     content: {
@@ -17,7 +18,7 @@
   
   const processedContent = computed(() => {
     return props.content.replace(/<routerLink='([^']+)'>([^<]+)<\/routerLink>/g, (match, path, text) => {
-      return `<a href="${router.resolve(path).href}">${text}</a>`;
+      return `<RouterLink to="${path}">${text}</RouterLink>`;
     });
   });
   </script>

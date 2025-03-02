@@ -37,7 +37,17 @@
     },
     "home": {
         "introduction": {
-            "description": "Da quasi 50 anni, ho la fortuna di vivere delle mie passioni: <g>l'orologeria e le antichità</g>. Ho avuto la fortuna di poter aprire il mio laboratorio nel quartiere dei <a href='/cabinotiers'>Cabinotiers di Ginevra</a>. <br /> Nel 2018, ho anche allestito una <a href='/exposition'>esposizione</a>. <br /> <gr> Oggi, sono specializzato nella riparazione e nel restauro di orologi e orologi antichi.</gr>"
+            "description": "Da quasi 50 anni, ho avuto la fortuna di vivere le mie passioni: ",
+            "highlight1": "l'orologeria e le antichità",
+            "description2": ". Ho avuto la fortuna di poter aprire il mio laboratorio nel ",
+            "link1": {
+                "text": "quartiere dei Cabinotiers di Ginevra."
+            },
+            "description3": "Nel 2018, ho anche allestito una ",
+            "link2": {
+                "text": "esposizione"
+            },
+            "highlight2": ". Oggi mi specializzo nella riparazione e restauro di orologi e pendole antiche."
         },
         "atelier":{
             "title": "Il mio laboratorio",
