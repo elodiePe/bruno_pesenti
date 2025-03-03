@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -7,8 +8,7 @@
       var path = window.location.pathname;
       var query = window.location.search;
       var hash = window.location.hash;
-      const lang = localStorage.getItem('language') || 'fr';
-      window.location.replace(`www.brunopesenti.ch/${lang}/notfound`);	
+      window.location.replace('/index.html?redirect=' + encodeURIComponent(path + query + hash));
     </script>
   </head>
   <body>

@@ -13,7 +13,13 @@ router.beforeEach((to, from, next) => {
   const lang = savedLanguage;
   i18n.global.locale.value = lang;
   localStorage.setItem("language", lang);
-  next();
+  // Handle redirection from 404.html
+  const redirect = to.query.redirect;
+  if (redirect) {
+    next({ path: redirect });
+  } else {
+    next();
+  }
 });
 
 app.use(router).use(i18n).mount("#app");

@@ -35,7 +35,7 @@ const routes = [
     component: Contact,
   },
   {
-    path: '/:lang(fr|en|it)?/notfound',
+    path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: NotFound,
   },
