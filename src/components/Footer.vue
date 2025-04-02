@@ -7,6 +7,7 @@ const {t, locale} = useI18n();
 const consentStatus = ref(localStorage.getItem("cookieConsent") || "unknown");
 
 
+
 const consentMessage = ref("");
 
 function updateConsentMessage() {
@@ -35,7 +36,12 @@ function openCookies() {
       <li><a href="https://brunopesenti.ch/">Bruno Pesenti</a></li>
       <li >2024</li>
    <li> <RouterLink class="one" to="/cookies">cookies</RouterLink></li> 
-    </ul>
+  <li>
+    <a href="https://fr.tripadvisor.ch/Attraction_Review-g188057-d33001420-Reviews-Lecabinotier-Geneva.html'" target="_blank">
+     <img src="../assets/img/tripadvisor.png" alt="TripAdvisor" style="height: 20px;">
+    </a>
+  </li>
+   </ul>
   </footer>
 </template>
   <style scoped>
