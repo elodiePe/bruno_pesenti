@@ -40,7 +40,7 @@
             type="email"
             id="email"
             v-model="formData.email"
-            placeholder="antoin.john@gmail.com"
+            placeholder="antoine.john@gmail.com"
             required
           />
         </div>
