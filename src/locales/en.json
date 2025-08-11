@@ -30,9 +30,9 @@
         "catalogue": "Catalogue",
         "contact": "Contact",
         "language": {
-            "french": "French",
+            "french": "Français",
             "english": "English",
-            "italian": "Italian"
+            "italian": "Italiano"
         }
     },
     "home": {
@@ -75,6 +75,20 @@
     },
     "contact": {
         "title": "Contact me",
-        "description": "<gr>Please contact me via my phone number: </gr> <a href='tel:022-731-75-75'>022 731 75 75</a>"
+        "description": "For any questions or requests, feel free to contact me with my phone number or with the contact form:",
+        "phone": "Phone : ",
+        "phoneNumber": "<a href='tel:022-731-75-75'>022 731 75 75</a>",
+        "address": "Address : ",
+        "addressDetails": "Rue des Corps-Saints 10, 1201 Geneva",
+        "Form" : {
+            "title": "Contact Form",
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone Number",
+            "message": "Message",
+            "send": "Send",
+            "success": "Your message has been sent successfully!",
+            "error": "There was an error sending your message. Please try again later."
+        }
     }
 }

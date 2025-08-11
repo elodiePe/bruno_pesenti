@@ -30,8 +30,8 @@
         "catalogue": "Catalogo",
         "contact": "Contatto",
         "language": {
-            "french": "Francese",
-            "english": "Inglese",
+           "french": "Français",
+            "english": "English",
             "italian": "Italiano"
         }
     },
@@ -76,6 +76,20 @@
     },
     "contact": {
         "title": "Contattami",
-        "description":"<gr>Per favore contattami tramite il mio numero di telefono: </gr> <a href='tel:022-731-75-75'>022 731 75 75</a>"
+        "description": "Per qualsiasi domanda o richiesta, non esitare a contattarmi tramite il mio numero di telefono o tramite il modulo di contatto:",
+        "phone": "Telefono : ",
+        "phoneNumber": "<a href='tel:022-731-75-75'>022 731 75 75</a>",
+        "address": "Indirizzo : ",
+        "addressDetails": "Rue des Corps-Saints 10, 1201 Ginevra",
+        "Form": {
+            "title": "Modulo di Contatto",
+            "name": "Nome",
+            "email": "Email",
+            "phone": "Numero di telefono",
+            "message": "Messaggio",
+            "send": "Invia",
+            "success": "Il tuo messaggio è stato inviato con successo!",
+            "error": "Si è verificato un errore durante l'invio del messaggio. Per favore riprova più tardi."
+        }
     }
 }

@@ -30,9 +30,9 @@
         "catalogue": "Catalogue",
         "contact": "Contact",
         "language": {
-            "french": "Français",
-            "english": "Anglais",
-            "italian": "Italien"
+           "french": "Français",
+            "english": "English",
+            "italian": "Italiano"
         }
     },
     "home": {
@@ -75,6 +75,20 @@
     },
     "contact": {
         "title": "Contactez-moi",
-        "description": "<gr>Veuillez me contacter via mon numéro de téléphone : </gr> <a href='tel:022-731-75-75'>022 731 75 75</a>"
+        "description": "Pour toute question ou demande, n'hésitez pas à me contacter par téléphone ou via le formulaire de contact :",
+        "phone": "Téléphone : ",
+        "phoneNumber": "<a href='tel:022-731-75-75'>022 731 75 75</a>",
+        "address": "Adresse : ",
+        "addressDetails": "Rue des Corps-Saints 10, 1201 Genève",
+        "Form": {
+            "title": "Formulaire de contact",
+            "name": "Nom",
+            "email": "E-mail",
+            "phone": "Numéro de téléphone",
+            "message": "Message",
+            "send": "Envoyer",
+            "success": "Votre message a été envoyé avec succès !",
+            "error": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard."
+        }
     }
 }
