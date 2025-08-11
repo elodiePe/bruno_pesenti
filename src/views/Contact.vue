@@ -1,41 +1,80 @@
 <template>
-    <div class="boxes">
-     <div class="box">
-      <h1>{{ $t('contact.title') }}</h1>
-      <p> {{ $t('contact.description') }}</p>
-      <p><strong>{{ $t('contact.phone')}}</strong><a href='tel:022-731-75-75'>022 731 75 75</a></p>
-      <p><strong>{{ $t('contact.address') }}</strong> {{ $t('contact.addressDetails') }}</p>
-     
+  <div class="boxes">
+    <div class="box">
+      <h1>{{ $t("contact.title") }}</h1>
+      <p>{{ $t("contact.description") }}</p>
+      <p>
+        <strong>{{ $t("contact.phone") }}</strong
+        ><a href="tel:022-731-75-75">022 731 75 75</a>
+      </p>
+      <p>
+        <strong>{{ $t("contact.address") }}</strong>
+        {{ $t("contact.addressDetails") }}
+      </p>
     </div>
-     <div class="box">
-      <h2>{{ $t('contact.Form.title') }}</h2>
+    <div class="box">
+      <h2>{{ $t("contact.Form.title") }}</h2>
       <form @submit.prevent="sendEmail" class="contact-form">
         <div class="form-group">
-          <label for="name">{{ $t('contact.Form.name') }}</label>
-          <input type="text" id="name" v-model="formData.name" placeholder="Antoine John" required />
-
+          <label for="name">{{ $t("contact.Form.name") + "*" }}</label>
+          <input
+            type="text"
+            id="name"
+            v-model="formData.name"
+            placeholder="Antoine John"
+            required
+          />
         </div>
         <div class="form-group">
-          <label for="phone">{{ $t('contact.Form.phone') }}</label>
-          <input type="tel" id="phone" v-model="formData.phone" placeholder="+41 78 234 12 11" required />
+          <label for="phone">{{ $t("contact.Form.phone") }}</label>
+          <input
+            type="tel"
+            id="phone"
+            v-model="formData.phone"
+            placeholder="+41 78 234 12 11"
+          />
         </div>
         <div class="form-group">
-          <label for="email">{{ $t('contact.Form.email') }}</label>
-          <input type="email" id="email" v-model="formData.email" placeholder="antoin.john@gmail.com" required />
+          <label for="email">{{ $t("contact.Form.email") + "*" }}</label>
+          <input
+            type="email"
+            id="email"
+            v-model="formData.email"
+            placeholder="antoin.john@gmail.com"
+            required
+          />
         </div>
         <div class="form-group">
-          <label for="message">{{ $t('contact.Form.message') }}</label>
+          <label for="message">{{ $t("contact.Form.message") + "*" }}</label>
           <textarea id="message" v-model="formData.message" required></textarea>
         </div>
-        <button type="submit" class="submit-btn">{{ $t('contact.Form.send') }}</button>
-        <p v-if="successMessage" class="success-message">{{ $t('contact.Form.success') }}</p>
-        <p v-if="errorMessage" class="error-message">{{ $t('contact.Form.error') }}</p>
-      </form>
+        <div class="form-group" style="flex-direction: row">
+          <input
+            type="checkbox"
+            id="privacy"
+            v-model="formData.privacyAccepted"
+            style="width: 20px; height: 20px; margin-right: 10px"
+            required
+          />
+          <label for="privacy">
+            {{ $t("contact.Form.privacy") }}
 
-       
+            *
+          </label>
+        </div>
+        <p>* {{ $t("contact.Form.required") }}</p>
+        <button type="submit" class="submit-btn">
+          {{ $t("contact.Form.send") }}
+        </button>
+        <p v-if="successMessage" class="success-message">
+          {{ $t("contact.Form.success") }}
+        </p>
+        <p v-if="errorMessage" class="error-message">
+          {{ $t("contact.Form.error") }}
+        </p>
+      </form>
     </div>
   </div>
-
 </template>
 
 <style scoped>
@@ -46,11 +85,10 @@
   flex-direction: row;
 
   gap: 0rem;
- padding-bottom:1rem;
+  padding-bottom: 1rem;
 }
 
 .box {
-
   padding: 2.5rem 2rem;
   /* padding-top: 0rem; */
   border-radius: 16px;
@@ -60,15 +98,13 @@
 }
 .boxes .box:nth-child(2) {
   background: #3537391c;
-padding: 0rem;
-padding-bottom: 2rem;
-padding-left: 2rem;
-padding-right: 2rem;
-margin-top: 1rem;
-  
-
+  padding: 0rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-top: 1rem;
 }
- h1 {
+h1 {
   text-align: center;
   margin-bottom: 1.5rem;
   color: #222;
@@ -81,7 +117,7 @@ form .form-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-max-width: 96%;
+  max-width: 96%;
 }
 
 form label {
@@ -89,7 +125,6 @@ form label {
   margin-bottom: 0.4rem;
   color: #444;
   font-weight: 500;
-
 }
 
 form .form-group input,
@@ -112,7 +147,6 @@ form input:focus,
 form textarea:focus {
   border-color: #deb887;
   background: #fff;
-
 }
 
 form textarea {
@@ -154,57 +188,58 @@ form textarea {
 </style>
 
 <script setup>
-import { reactive, ref } from 'vue'
-import emailjs from 'emailjs-com'
+import { reactive, ref } from "vue";
+import emailjs from "emailjs-com";
 
 const formData = reactive({
-  name: '',
-  email: '',
-  message: '',
-  phone: ''
-})
+  name: "",
+  email: "",
+  message: "",
+  phone: "",
+});
 
-const successMessage = ref('')
-const errorMessage = ref('')
+const successMessage = ref("");
+const errorMessage = ref("");
 
 function sendEmail() {
   // Envoie le premier email
-  emailjs.send(
-    'service_wlps3ma',      // Service ID pour le premier email
-    'template_shxcace',     // Template ID pour le premier email
-    {
-      name: formData.name,
-      phone: formData.phone,
-      email: formData.email,
-      message: formData.message
-    },
-    'ekbm0CKwiyRefhra9'     // User ID (public key)
-  )
-  .then(() => {
-    // Envoie le second email après le succès du premier
-    return emailjs.send(
-      'service_wlps3ma',    // Service ID pour le second email
-      'template_9j7r5mm',   // Template ID pour le second email
+  emailjs
+    .send(
+      "service_wlps3ma", // Service ID pour le premier email
+      "template_shxcace", // Template ID pour le premier email
       {
         name: formData.name,
         phone: formData.phone,
         email: formData.email,
-        message: formData.message
+        message: formData.message,
       },
-      'ekbm0CKwiyRefhra9'   // User ID (public key)
+      "ekbm0CKwiyRefhra9" // User ID (public key)
     )
-  })
-  .then(() => {
-    successMessage.value = 'Message envoyé !'
-    errorMessage.value = ''
-    formData.name = ''
-    formData.phone = ''
-    formData.email = ''
-    formData.message = ''
-  })
-  .catch((error) => {
-    errorMessage.value = "Erreur lors de l'envoi : " + error.text
-    successMessage.value = ''
-  })
+    .then(() => {
+      // Envoie le second email après le succès du premier
+      return emailjs.send(
+        "service_wlps3ma", // Service ID pour le second email
+        "template_9j7r5mm", // Template ID pour le second email
+        {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message,
+        },
+        "ekbm0CKwiyRefhra9" // User ID (public key)
+      );
+    })
+    .then(() => {
+      successMessage.value = "Message envoyé !";
+      errorMessage.value = "";
+      formData.name = "";
+      formData.phone = "";
+      formData.email = "";
+      formData.message = "";
+    })
+    .catch((error) => {
+      errorMessage.value = "Erreur lors de l'envoi : " + error.text;
+      successMessage.value = "";
+    });
 }
 </script>

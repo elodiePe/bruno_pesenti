@@ -86,6 +86,8 @@
             "email": "E-mail",
             "phone": "Numéro de téléphone",
             "message": "Message",
+            "privacy": "J'ai lu et j'accepte la politique de confidentialité",
+            "required": "Obligatoires",
             "send": "Envoyer",
             "success": "Votre message a été envoyé avec succès !",
             "error": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard."
