@@ -33,7 +33,8 @@
            "french": "Français",
             "english": "English",
             "italian": "Italiano"
-        }
+        },
+        "blog": "Blog"
     },
 "home": {
         "introduction": {
@@ -74,6 +75,17 @@
         "description2": "Per acquistare il catalogo passa al laboratorio o",
         "textLink":"contattami"
     },
+    "confidentiality": {
+        "title": "Politica sulla riservatezza",
+        "intro": "Attribuiamo grande importanza alla protezione dei tuoi dati personali. Questa politica sulla riservatezza spiega quali informazioni vengono raccolte quando utilizzi il nostro sito, come vengono utilizzate e protette.",
+        "responsible": "Il responsabile del trattamento dei dati è: Bruno Pesenti, info@brunopesenti.ch",
+        "data_collected": "Quando utilizzi il modulo di contatto, raccogliamo: nome, indirizzo e-mail, messaggio, consenso alla politica sulla riservatezza.",
+        "emailjs": "Per l'invio dei messaggi tramite il modulo di contatto, utilizziamo il servizio EmailJS. I dati inseriti vengono trasmessi a EmailJS, che li invia poi al nostro indirizzo e-mail. Consulta la politica sulla riservatezza di EmailJS per maggiori informazioni.",
+        "retention": "I tuoi dati vengono conservati solo per il tempo necessario all'elaborazione della tua richiesta. Non vengono né rivenduti né trasmessi a terzi per scopi commerciali.",
+        "security": "Adottiamo misure adeguate per proteggere i tuoi dati da accessi non autorizzati, perdite o divulgazioni.",
+        "rights": "Hai il diritto di accesso, rettifica, cancellazione, opposizione e limitazione del trattamento. Per esercitare questi diritti, contattaci a info@brunopesenti.ch.",
+        "update": "Ultimo aggiornamento: agosto 2025"
+    },
     "contact": {
         "title": "Contattami",
         "description": "Per qualsiasi domanda o richiesta, non esitare a contattarmi tramite il mio numero di telefono o tramite il modulo di contatto:",
@@ -89,9 +101,22 @@
             "message": "Messaggio",
             "privacy": "Ho letto e accetto la politica sulla privacy",
             "required": "Obbligatorio",
+            "newsletter": {
+                "text": "Iscriviti alla newsletter",
+                "yes": "Sì",
+                "No": "No"
+            },
             "send": "Invia",
             "success": "Il tuo messaggio è stato inviato con successo!",
             "error": "Si è verificato un errore durante l'invio del messaggio. Per favore riprova più tardi."
+        }
+    },
+    "Newsletter": {
+        "unsubscribing": {
+            "title": "Annulla l'iscrizione alla newsletter",
+            "description": "Per annullare l'iscrizione alla newsletter, inserisci il tuo indirizzo email qui sotto.",
+            "label": "Indirizzo email",
+            "button": "Annulla iscrizione"
         }
     }
 }

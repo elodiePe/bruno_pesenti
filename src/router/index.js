@@ -6,6 +6,10 @@ import CabinotierView from '../views/CabinotierView.vue'
 import Catalogue from '../views/Catalogue.vue'
 import NotFound from '../views/NotFound.vue'
 import Cookies from '../views/Cookies.vue'
+import Blog from '../views/Blog.vue'
+import Confidentiality from '@/views/Confidentiality.vue'
+import Form from '@/views/Form.vue'
+import Unsuscribe_Newsletter from '@/views/Unsuscribe_Newsletter.vue'
 const lang = localStorage.getItem('language') || 'fr';
 
 const routes = [
@@ -34,10 +38,39 @@ const routes = [
     name: 'contact',
     component: Contact,
   },
+    {
+    path: `/:lang(fr|en|it)?/blog`,
+    name: 'blog',
+    component: Blog,
+  },
+      {
+    path: `/:lang(fr|en|it)?/blog/:id`,
+    name: 'BlogArticle',
+    component: Blog,
+  },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: NotFound,
+  },
+    {
+    path: "/:lang(fr|en|it)?/confidentialite",
+    name: 'Confidentiality',
+    component: Confidentiality,
+  },
+      {
+    path: "/:lang(fr|en|it)?/form",
+    name: 'From',
+    component: Form,
+  },
+        {
+    path: "/:lang(fr|en|it)?/Desinscription",
+    name: 'Unsuscribe_Newsletter',
+    component: Unsuscribe_Newsletter,
+  },
+  {
+    name: 'Cookies',
+    component: Cookies,
   },
   {
     path: "/:lang(fr|en|it)?/cookies",

@@ -63,8 +63,12 @@ onUnmounted(() => {
       <li class="navText">
         <RouterLink class="four" to="/catalogue">{{ $t('navigation.catalogue') }}</RouterLink>
       </li>
+    
       <li class="navText">
         <RouterLink class="five" to="/contact">{{ $t('navigation.contact') }}</RouterLink>
+      </li>
+        <li class="navText">
+        <RouterLink class="six" to="/blog">{{ $t('navigation.blog') }}</RouterLink>
       </li>
       <li class="navText">
         <select @change="changeLanguage($event.target.value)" :value="locale" >
@@ -106,6 +110,9 @@ onUnmounted(() => {
   background-color: #e0e0e0;
 }
 .five:hover {
+  background-color: #e0e0e0;
+}
+.six:hover {
   background-color: #e0e0e0;
 }
 .burger {

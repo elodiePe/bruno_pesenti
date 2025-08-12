@@ -33,7 +33,8 @@
            "french": "Français",
             "english": "English",
             "italian": "Italiano"
-        }
+        },
+        "blog": "Blog"
     },
     "home": {
         "introduction": {
@@ -73,6 +74,17 @@
         "description2": "Pour acheter le catalogue, passez à l'atelier ou",
         "textLink": "contactez-moi"
     },
+     "confidentiality": {
+    "title": "Politique de confidentialité",
+    "intro": "Nous attachons une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique quelles informations sont collectées lorsque vous utilisez notre site, comment elles sont utilisées et protégées.",
+    "responsible": "Le responsable du traitement des données est : Bruno Pesenti, info@brunopesenti.ch",
+    "data_collected": "Lorsque vous utilisez le formulaire de contact, nous collectons : nom, adresse e-mail, message, consentement à la politique de confidentialité.",
+    "emailjs": "Pour l’envoi des messages via le formulaire de contact, nous utilisons le service EmailJS. Les données saisies sont transmises à EmailJS, qui les envoie ensuite à notre adresse e-mail. Consultez la politique de confidentialité d’EmailJS pour plus d’informations.",
+    "retention": "Vos données ne sont conservées que le temps nécessaire au traitement de votre demande. Elles ne sont ni revendues, ni transmises à des tiers à des fins commerciales.",
+    "security": "Nous mettons en œuvre des mesures appropriées pour protéger vos données contre tout accès non autorisé, perte ou divulgation.",
+    "rights": "Vous disposez des droits d’accès, de rectification, d’effacement, d’opposition et de limitation du traitement. Pour exercer ces droits, contactez-nous à info@brunopesenti.ch.",
+    "update": "Dernière mise à jour : août 2025"
+  },
     "contact": {
         "title": "Contactez-moi",
         "description": "Pour toute question ou demande, n'hésitez pas à me contacter par téléphone ou via le formulaire de contact :",
@@ -87,10 +99,24 @@
             "phone": "Numéro de téléphone",
             "message": "Message",
             "privacy": "J'ai lu et j'accepte la politique de confidentialité",
-            "required": "Obligatoires",
+            "required": "Obligatoire",
+            "newsletter": {
+                "text": "S'abonner à la newsletter",
+                "yes": "Oui",
+                "No": "Non"
+            
+            },
             "send": "Envoyer",
             "success": "Votre message a été envoyé avec succès !",
             "error": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard."
+        }
+    },
+    "Newsletter": {
+        "unsubscribing": {
+            "title": "Se désabonner de la newsletter",
+            "description": "Pour vous désabonner de la newsletter, veuillez saisir votre adresse e-mail ci-dessous.",
+            "label": "Adresse e-mail",
+            "button": "Se désabonner"
         }
     }
 }

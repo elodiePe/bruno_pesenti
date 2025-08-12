@@ -4,8 +4,8 @@
       <h1>{{ $t("contact.title") }}</h1>
       <p>{{ $t("contact.description") }}</p>
       <p>
-        <strong>{{ $t("contact.phone") }}</strong
-        ><a href="tel:022-731-75-75">022 731 75 75</a>
+        <strong>{{ $t("contact.phone") }}</strong>
+        <a href="tel:022-731-75-75">022 731 75 75</a>
       </p>
       <p>
         <strong>{{ $t("contact.address") }}</strong>
@@ -45,7 +45,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="message">{{ $t("contact.Form.message") + "*" }}</label>
+          <label for="message">{{ $t("contact.Form.message") + "*" }} </label>
           <textarea id="message" v-model="formData.message" required></textarea>
         </div>
         <div class="form-group" style="flex-direction: row">
@@ -57,10 +57,36 @@
             required
           />
           <label for="privacy">
-            {{ $t("contact.Form.privacy") }}
-
-            *
+            <RouterLink class="six" to="/confidentialite">
+              {{ $t("contact.Form.privacy") }} *
+            </RouterLink>
           </label>
+        </div>
+        <div
+          class="form-group"
+          style="flex-direction: row; align-items: center"
+        >
+          <label style="margin-right: 10px">{{
+            $t("contact.Form.newsletter.text")
+          }}</label>
+          <input
+            type="radio"
+            id="newsletter-yes"
+            value="true"
+            v-model="formData.newsletter"
+            style="width: 20px; height: 20px; margin-right: 5px"
+          />
+          <label for="newsletter-yes" style="margin-right: 15px">{{
+            $t("contact.Form.newsletter.yes")
+          }}</label>
+          <input
+            type="radio"
+            id="newsletter-no"
+            value="false"
+            v-model="formData.newsletter"
+            style="width: 20px; height: 20px; margin-right: 5px"
+          />
+          <label for="newsletter-no">{{ $t("contact.Form.newsletter.No") }}</label>
         </div>
         <p>* {{ $t("contact.Form.required") }}</p>
         <button type="submit" class="submit-btn">
@@ -77,22 +103,99 @@
   </div>
 </template>
 
+<script setup>
+import { reactive, ref } from "vue";
+import emailjs from "emailjs-com";
+import { RouterLink } from "vue-router";
+
+const formData = reactive({
+  name: "",
+  email: "",
+  message: "",
+  phone: "",
+  privacyAccepted: false,
+  newsletter: true,
+});
+
+const successMessage = ref("");
+const errorMessage = ref("");
+
+function sendEmail() {
+  // Si la personne a coché oui pour la newsletter
+  if (formData.newsletter === true) {
+    const langue = localStorage.getItem("language");
+    const url =
+      "https://script.google.com/macros/s/AKfycbzjEngEt4UANtQ6iOZu8RN0WCIuv6NFx2SVeMjfR0qNwmhtldKeSgcrVj_ij21LD3tr/exec"; // Remplace par ton URL
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `Name=${encodeURIComponent(
+        formData.name
+      )}&Email=${encodeURIComponent(
+        formData.email
+      )}&Langue=${encodeURIComponent(langue)}`,
+    })
+      .then((res) => res.text())
+      .then((data) => {
+        alert(data);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  emailjs
+    .send(
+      "service_wlps3ma",
+      "template_shxcace",
+      {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message,
+      },
+      "ekbm0CKwiyRefhra9"
+    )
+    .then(() => {
+      return emailjs.send(
+        "service_wlps3ma",
+        "template_9j7r5mm",
+        {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message,
+        },
+        "ekbm0CKwiyRefhra9"
+      );
+    })
+    .then(() => {
+      successMessage.value = "Message envoyé !";
+      errorMessage.value = "";
+      formData.name = "";
+      formData.phone = "";
+      formData.email = "";
+      formData.message = "";
+      formData.privacyAccepted = false;
+    })
+    .catch((error) => {
+      errorMessage.value = "Erreur lors de l'envoi : " + error.text;
+      successMessage.value = "";
+    });
+}
+</script>
+
 <style scoped>
 .boxes {
   display: flex;
   background: #fff;
   width: 100%;
   flex-direction: row;
-
   gap: 0rem;
   padding-bottom: 1rem;
 }
 
 .box {
   padding: 2.5rem 2rem;
-  /* padding-top: 0rem; */
   border-radius: 16px;
-  /* box-shadow: 0 4px 24px rgba(0,0,0,0.08); */
   width: 100%;
   max-width: 420px;
 }
@@ -164,7 +267,6 @@ form textarea {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-
   margin-top: 0.5rem;
 }
 
@@ -186,60 +288,3 @@ form textarea {
   font-weight: 500;
 }
 </style>
-
-<script setup>
-import { reactive, ref } from "vue";
-import emailjs from "emailjs-com";
-
-const formData = reactive({
-  name: "",
-  email: "",
-  message: "",
-  phone: "",
-});
-
-const successMessage = ref("");
-const errorMessage = ref("");
-
-function sendEmail() {
-  // Envoie le premier email
-  emailjs
-    .send(
-      "service_wlps3ma", // Service ID pour le premier email
-      "template_shxcace", // Template ID pour le premier email
-      {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        message: formData.message,
-      },
-      "ekbm0CKwiyRefhra9" // User ID (public key)
-    )
-    .then(() => {
-      // Envoie le second email après le succès du premier
-      return emailjs.send(
-        "service_wlps3ma", // Service ID pour le second email
-        "template_9j7r5mm", // Template ID pour le second email
-        {
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          message: formData.message,
-        },
-        "ekbm0CKwiyRefhra9" // User ID (public key)
-      );
-    })
-    .then(() => {
-      successMessage.value = "Message envoyé !";
-      errorMessage.value = "";
-      formData.name = "";
-      formData.phone = "";
-      formData.email = "";
-      formData.message = "";
-    })
-    .catch((error) => {
-      errorMessage.value = "Erreur lors de l'envoi : " + error.text;
-      successMessage.value = "";
-    });
-}
-</script>

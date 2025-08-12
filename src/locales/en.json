@@ -33,7 +33,8 @@
             "french": "Français",
             "english": "English",
             "italian": "Italiano"
-        }
+        },
+        "blog": "Blog"
     },
     "home": {
         "introduction": {
@@ -73,6 +74,17 @@
         "description2": "To purchase the catalogue, visit the workshop or",
         "textLink": "contact me"
     },
+    "confidentiality": {
+        "title": "Privacy Policy",
+        "intro": "We attach great importance to the protection of your personal data. This privacy policy explains what information is collected when you use our site, how it is used and protected.",
+        "responsible": "The data controller is: Bruno Pesenti, info@brunopesenti.ch",
+        "data_collected": "When you use the contact form, we collect: name, email address, message, consent to the privacy policy.",
+        "emailjs": "For sending messages via the contact form, we use the EmailJS service. The data entered is transmitted to EmailJS, which then sends it to our email address. See the EmailJS privacy policy for more information.",
+        "retention": "Your data is only kept for the time necessary to process your request. It is neither sold nor transmitted to third parties for commercial purposes.",
+        "security": "We implement appropriate measures to protect your data against unauthorized access, loss, or disclosure.",
+        "rights": "You have the rights of access, rectification, erasure, objection, and restriction of processing. To exercise these rights, contact us at info@brunopesenti.ch.",
+        "update": "Last updated: August 2025"
+    },
     "contact": {
         "title": "Contact me",
         "description": "For any questions or requests, feel free to contact me with my phone number or with the contact form:",
@@ -88,9 +100,24 @@
             "message": "Message",
             "privacy": "I have read and accept the privacy policy",
             "required": "Required",
+            "newsletter" :{
+                "text": "Subscribe to the newsletter",
+                "yes" : "Yes",
+                "No": "No"
+            },
             "send": "Send",
             "success": "Your message has been sent successfully!",
             "error": "There was an error sending your message. Please try again later."
+        }
+    },
+    "Newsletter": {
+        "unsubscribing": {
+            "title": "Unsubscribe from the newsletter",
+            "description": "To unsubscribe from the newsletter, please enter your email address below.",
+            "label": "Email address",
+            "button": "Unsubscribe",
+            "successMessage": "You have successfully unsubscribed from the newsletter.",
+            "errorMessage": "There was an error unsubscribing from the newsletter. Please try again later."
         }
     }
 }
