@@ -20,10 +20,10 @@
             {{ $t("Newsletter.unsubscribing.button") }}
           </button>
           <p v-if="successMessage" class="success-message">
-            {{ $t("Newsletter.unsubscribing.successMessage") }}
+            {{ successMessage }}
           </p>
           <p v-if="errorMessage" class="error-message">
-            {{ $t("Newsletter.unsubscribing.errorMessage") }}
+            {{ errorMessage}}
           </p>
         </form>
       </div>
@@ -42,22 +42,35 @@ const formData = ref({
 const successMessage = ref("");
 const errorMessage = ref("");
 function handleSubmit() {
+  errorMessage.value = "";
+  successMessage.value = "";
   const url =
-    "https://script.google.com/macros/s/AKfycbzjEngEt4UANtQ6iOZu8RN0WCIuv6NFx2SVeMjfR0qNwmhtldKeSgcrVj_ij21LD3tr/exec"; // Remplace par ton URL
+    "https://script.google.com/macros/s/AKfycbwy814udc3xW5Iqi0-ksKoQwKelXMUKnLq4rFBr5ZWtEi3vY8jZpkLq_kem76-mDIW3/exec"; // Remplace par ton URL
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: `action=supprimer&Email=${encodeURIComponent(formData.value.email)}`,
   })
     .then((res) => {
-      return res.text();
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.json();
     })
 
     .then((data) => {
-      alert(data);
+      if (data.success) {
+        successMessage.value = "Vous avez été désinscrit avec succès.";
+        formData.value.email = ""; // Réinitialise le champ email
+      } else{
+        errorMessage.value = "La désinscription n'a pas fonctionné. Vérifiez l'email ou réessayez.";
+      }
+
     })
     .catch((error) => {
       console.log(error);
+            errorMessage.value = "Erreur technique, veuillez réessayer.";
+      successMessage.value = "";
     
     });
 }

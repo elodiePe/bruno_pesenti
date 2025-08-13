@@ -59,7 +59,7 @@ const routes = [
     component: Confidentiality,
   },
       {
-    path: "/:lang(fr|en|it)?/form",
+    path: "/:lang(fr|en|it)?/verification",
     name: 'From',
     component: Form,
   },

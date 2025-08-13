@@ -86,17 +86,19 @@
             v-model="formData.newsletter"
             style="width: 20px; height: 20px; margin-right: 5px"
           />
-          <label for="newsletter-no">{{ $t("contact.Form.newsletter.No") }}</label>
+          <label for="newsletter-no">{{
+            $t("contact.Form.newsletter.No")
+          }}</label>
         </div>
         <p>* {{ $t("contact.Form.required") }}</p>
         <button type="submit" class="submit-btn">
           {{ $t("contact.Form.send") }}
         </button>
         <p v-if="successMessage" class="success-message">
-          {{ $t("contact.Form.success") }}
+          {{ successMessage }}
         </p>
         <p v-if="errorMessage" class="error-message">
-          {{ $t("contact.Form.error") }}
+          {{ errorMessage }}
         </p>
       </form>
     </div>
@@ -108,7 +110,7 @@ import { reactive, ref } from "vue";
 import emailjs from "emailjs-com";
 import { RouterLink } from "vue-router";
 
-const formData = reactive({
+const formData = ref({
   name: "",
   email: "",
   message: "",
@@ -121,65 +123,113 @@ const successMessage = ref("");
 const errorMessage = ref("");
 
 function sendEmail() {
+  const url =
+    "https://script.google.com/macros/s/AKfycbwy814udc3xW5Iqi0-ksKoQwKelXMUKnLq4rFBr5ZWtEi3vY8jZpkLq_kem76-mDIW3/exec"; // Remplace par ton UR
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `action=demande&Name=${encodeURIComponent(
+      formData.value.name
+    )}&Email=${encodeURIComponent(
+      formData.value.email
+    )}&Message=${encodeURIComponent(
+      formData.value.message
+    )}&Phone=${encodeURIComponent(formData.value.phone)}`,
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      if (data.successFirstemail && data.successSecondemail) {
+        successMessage.value = "Votre message a été envoyé avec succès";
+        // formData.value.name = "";
+        // formData.value.email = "";
+        // formData.value.message = "";
+        // formData.value.phone = "";
+        // formData.value.privacyAccepted = false;
+      } else {
+        errorMessage.value = "Erreur lors de l'envoi du message";
+      }
+    })
+    .catch((error) => console.log(error));
+
   // Si la personne a coché oui pour la newsletter
-  if (formData.newsletter === true) {
+  if (formData.value.newsletter === true) {
     const langue = localStorage.getItem("language");
-    const url =
-      "https://script.google.com/macros/s/AKfycbzjEngEt4UANtQ6iOZu8RN0WCIuv6NFx2SVeMjfR0qNwmhtldKeSgcrVj_ij21LD3tr/exec"; // Remplace par ton URL
+
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: `Name=${encodeURIComponent(
-        formData.name
+        formData.value.name
       )}&Email=${encodeURIComponent(
-        formData.email
+        formData.value.email
       )}&Langue=${encodeURIComponent(langue)}`,
     })
-      .then((res) => res.text())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
       .then((data) => {
-        alert(data);
+        if (data.success) {
+          formData.value.name = "";
+          formData.value.email = "";
+        } else {
+          errorMessage.value =
+            "Erreur lors de l'inscription à la newsletter.Vérifiez votre mail ou réessayez.";
+        }
       })
       .catch((error) => console.log(error));
+       formData.value.name = "";
+        formData.value.email = "";
+        formData.value.message = "";
+        formData.value.phone = "";
+        formData.value.privacyAccepted = false;
   }
 
-  emailjs
-    .send(
-      "service_wlps3ma",
-      "template_shxcace",
-      {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        message: formData.message,
-      },
-      "ekbm0CKwiyRefhra9"
-    )
-    .then(() => {
-      return emailjs.send(
-        "service_wlps3ma",
-        "template_9j7r5mm",
-        {
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          message: formData.message,
-        },
-        "ekbm0CKwiyRefhra9"
-      );
-    })
-    .then(() => {
-      successMessage.value = "Message envoyé !";
-      errorMessage.value = "";
-      formData.name = "";
-      formData.phone = "";
-      formData.email = "";
-      formData.message = "";
-      formData.privacyAccepted = false;
-    })
-    .catch((error) => {
-      errorMessage.value = "Erreur lors de l'envoi : " + error.text;
-      successMessage.value = "";
-    });
+  // emailjs
+  //   .send(
+  //     "service_wlps3ma",
+  //     "template_shxcace",
+  //     {
+  //       name: formData.name,
+  //       phone: formData.phone,
+  //       email: formData.email,
+  //       message: formData.message,
+  //     },
+  //     "ekbm0CKwiyRefhra9"
+  //   )
+  //   .then(() => {
+  //     return emailjs.send(
+  //       "service_wlps3ma",
+  //       "template_9j7r5mm",
+  //       {
+  //         name: formData.name,
+  //         phone: formData.phone,
+  //         email: formData.email,
+  //         message: formData.message,
+  //       },
+  //       "ekbm0CKwiyRefhra9"
+  //     );
+  //   })
+  //   .then(() => {
+  //     successMessage.value = "Message envoyé !";
+  //     errorMessage.value = "";
+  //     formData.name = "";
+  //     formData.phone = "";
+  //     formData.email = "";
+  //     formData.message = "";
+  //     formData.privacyAccepted = false;
+  //   })
+  //   .catch((error) => {
+  //     errorMessage.value = "Erreur lors de l'envoi : " + error.text;
+  //     successMessage.value = "";
+  //   });
 }
 </script>
 

@@ -47,11 +47,11 @@ function openCookies() {
           S'inscrire à la newsletter
         </a>
       </li>
-      <li>
+      <!-- <li>
         <RouterLink class="six" to="/desinscription">{{
           $t("Newsletter.unsubscribing.title")
         }}</RouterLink>
-      </li>
+      </li> -->
 
       <li>
         <a

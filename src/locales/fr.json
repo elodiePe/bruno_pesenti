@@ -117,6 +117,13 @@
             "description": "Pour vous désabonner de la newsletter, veuillez saisir votre adresse e-mail ci-dessous.",
             "label": "Adresse e-mail",
             "button": "Se désabonner"
+        },
+        "subscribing": {
+            "title": "S'abonner à la newsletter",
+            "description": "Pour vous abonner à la newsletter, veuillez saisir votre adresse e-mail ci-dessous.",
+            "button": "S'abonner",
+            "successMessage": "Vous vous êtes abonné(e) à la newsletter avec succès.",
+            "errorMessage": "Une erreur est survenue lors de l'abonnement à la newsletter. Veuillez réessayer plus tard."
         }
     }
 }

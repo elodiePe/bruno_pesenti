@@ -118,6 +118,13 @@
             "button": "Unsubscribe",
             "successMessage": "You have successfully unsubscribed from the newsletter.",
             "errorMessage": "There was an error unsubscribing from the newsletter. Please try again later."
+        },
+        "subscribing": {
+            "title": "Subscribe to the newsletter",
+            "description": "To subscribe to the newsletter, please enter your email address below.",
+            "button": "Subscribe",
+            "successMessage": "You have successfully subscribed to the newsletter.",
+            "errorMessage": "There was an error subscribing to the newsletter. Please try again later."
         }
     }
 }

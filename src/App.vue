@@ -6,11 +6,13 @@ import Footer from "./components/Footer.vue";
 import CookieConsent from "./components/CookieConsent.vue";
 import Header from "./components/Header.vue";
 import { useI18n } from "vue-i18n";
+import { errorMessages } from "vue/compiler-sfc";
 const formData = ref({
   name: "",
   email: "",
 });
 
+const errorMessage = ref("");
 const showNewsletterPopup = ref(false);
 
 function openNewsletterPopup() {
@@ -31,7 +33,7 @@ onMounted(() => {
 function handleSubmit() {
   const langue = localStorage.getItem("language");
   const url =
-    "https://script.google.com/macros/s/AKfycbzjEngEt4UANtQ6iOZu8RN0WCIuv6NFx2SVeMjfR0qNwmhtldKeSgcrVj_ij21LD3tr/exec"; // Remplace par ton URL
+    "https://script.google.com/macros/s/AKfycbwy814udc3xW5Iqi0-ksKoQwKelXMUKnLq4rFBr5ZWtEi3vY8jZpkLq_kem76-mDIW3/exec"; // Remplace par ton URL
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -41,15 +43,32 @@ function handleSubmit() {
       formData.value.email
     )}&Langue=${encodeURIComponent(langue)}`,
   })
-    .then((res) => res.text())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.json();
+    })
     .then((data) => {
-      alert(data);
-      closeNewsletterPopup(); // <-- Ferme le popup après soumission
+      if (data.success) {
+        formData.value.name = "";
+        formData.value.email = "";
+        closeNewsletterPopup(); // <-- Ferme le popup après soumission
+      } else {
+        errorMessage.value =  "Erreur lors de l'inscription à la newsletter.Vérifiez votre mail ou réessayez.";
+      }
+  
     })
     .catch((error) => console.log(error));
+  
 }
 
 function closeNewsletterPopup() {
+
+  errorMessage.value = "";
+  
+  formData.value.name = "";
+  formData.value.email = "";
   showNewsletterPopup.value = false;
   sessionStorage.setItem("newsletterClosed", "1");
 }
@@ -68,8 +87,8 @@ function closeNewsletterPopup() {
   <div v-if="showNewsletterPopup" class="newsletter-popup">
     <div class="newsletter-content">
       <button class="close-btn" @click="closeNewsletterPopup">×</button>
-      <h2>Abonnez-vous à la newsletter</h2>
-      <p>Recevez les dernières actualités et conseils horlogers.</p>
+      <h2>{{ $t("Newsletter.subscribing.title") }}</h2>
+      <p>{{ $t("Newsletter.subscribing.description") }}</p>
       <!-- Replace this form with your Mailchimp/Brevo/Google Form if needed -->
       <form @submit.prevent="handleSubmit">
         <div class="form-group">
@@ -102,9 +121,12 @@ function closeNewsletterPopup() {
             </RouterLink>
           </label>
            </div>
-
-        <button type="submit" class="submit-btn">Add</button>
+   <p v-if="errorMessage" class="error-message">
+            {{ errorMessage}}
+          </p>
+        <button type="submit" class="submit-btn">{{ $t("Newsletter.subscribing.button") }}</button>
       </form>
+      
     </div>
   </div>
 </template>
@@ -180,5 +202,11 @@ form .form-group input {
 }
 .newsletter-form button:hover {
   background: #a04e0a;
+}
+.error-message {
+  color: #ff3333;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
 }
 </style>
