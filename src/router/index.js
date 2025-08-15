@@ -7,8 +7,8 @@ import Catalogue from '../views/Catalogue.vue'
 import NotFound from '../views/NotFound.vue'
 import Cookies from '../views/Cookies.vue'
 import Blog from '../views/Blog.vue'
-import Confidentiality from '@/views/Confidentiality.vue'
-import Form from '@/views/Form.vue'
+import Confidentialite from '@/views/Confidentialite.vue'
+import Verification from '@/views/Verification.vue'
 import Unsuscribe_Newsletter from '@/views/Unsuscribe_Newsletter.vue'
 const lang = localStorage.getItem('language') || 'fr';
 
@@ -55,16 +55,16 @@ const routes = [
   },
     {
     path: "/:lang(fr|en|it)?/confidentialite",
-    name: 'Confidentiality',
-    component: Confidentiality,
+    name: 'Confidentialite',
+    component: Confidentialite,
   },
       {
     path: "/:lang(fr|en|it)?/verification",
-    name: 'From',
-    component: Form,
+    name: 'Verification',
+    component: Verification,
   },
         {
-    path: "/:lang(fr|en|it)?/Desinscription",
+    path: "/:lang(fr|en|it)?/desinscription",
     name: 'Unsuscribe_Newsletter',
     component: Unsuscribe_Newsletter,
   },
