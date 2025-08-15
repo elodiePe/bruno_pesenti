@@ -22,6 +22,7 @@
         />
       </div>
       <h1>{{ $t("home.atelier.title") }}</h1>
+      <h2>bienvenue</h2>
       <div class="introduction">
         <p v-html="$t('home.atelier.description')"> </p>
         <iframe
