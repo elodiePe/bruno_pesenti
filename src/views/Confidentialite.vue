@@ -1,7 +1,6 @@
 <template>
       <div class="boxes">
         <div class="box">
-          <h1>confidentialite</h1>
     <h1>{{ $t('confidentiality.title') }}</h1>
     <p>{{ $t('confidentiality.intro') }}</p>
     <p>{{ $t('confidentiality.responsible') }}</p>

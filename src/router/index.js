@@ -7,9 +7,9 @@ import Catalogue from '../views/Catalogue.vue'
 import NotFound from '../views/NotFound.vue'
 import Cookies from '../views/Cookies.vue'
 import Blog from '../views/Blog.vue'
-import Confidentialite from '@/views/Confidentialite.vue'
-import Verification from '@/views/Verification.vue'
-import Unsuscribe_Newsletter from '@/views/Unsuscribe_Newsletter.vue'
+import Confidentialite from '../views/Confidentialite.vue'
+import Verification from '../views/Verification.vue'
+import Unsuscribe_Newsletter from '../views/Unsuscribe_Newsletter.vue'
 const lang = localStorage.getItem('language') || 'fr';
 
 const routes = [
