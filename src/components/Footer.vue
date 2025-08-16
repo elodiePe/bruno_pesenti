@@ -44,7 +44,7 @@ function openCookies() {
           href="#"
           @click.prevent="$emit('open-newsletter')"
         >
-          S'inscrire à la newsletter
+          {{ $t("Newsletter.subscribing.title") }}
         </a>
       </li>
       <!-- <li>

@@ -2,11 +2,11 @@
       <div class="boxes">
     <div class="box">
     <div>
-        <h1>Vérification du compte pour l'inscription à la newsletter</h1>
+        <h1>{{ $t("Newsletter.verification.title") }}</h1>
          <form @submit.prevent="handleSubmit">
           <div class="form-group">
             <label for="email" style="margin-right: 10px">
-              {{ $t("Newsletter.unsubscribing.label") }}
+              {{ $t("Newsletter.verification.email") }}
             </label>
             <input
               v-model="formData.email"
@@ -18,19 +18,19 @@
           </div>
           <div class="form-group">
             <label for="code" style="margin-right: 10px">
-              {{ $t("Newsletter.doubleOptIn.codeLabel") || "Code de vérification" }}
+              {{ $t("Newsletter.verification.code") }}
             </label>
             <input
               v-model="formData.code"
               name="code"
               type="text"
               required
-              placeholder="Entrez le code reçu par email"
+              placeholder="11Sh21"
             />
           </div>
 
           <button type="submit" class="submit-btn">
-        Vérifier le compte
+        {{ $t("Newsletter.verification.button") }}
           </button>
           <p v-if="successMessage" class="success-message">
             {{ successMessage }}
@@ -57,7 +57,7 @@ const successMessage = ref("");
 const errorMessage = ref("");
 function handleSubmit() {
 
-    const url = "https://script.google.com/macros/s/AKfycbwy814udc3xW5Iqi0-ksKoQwKelXMUKnLq4rFBr5ZWtEi3vY8jZpkLq_kem76-mDIW3/exec"; // Remplace par ton URL
+    const url = "https://script.google.com/macros/s/AKfycbzjkiK-PqXzUiCsb7JNikMPLu7lmgUDtUmCp8-z2AlJXm2Ebsp5KOXFctFe5ZExDF0/exec"; // Remplace par ton URL
     fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -72,17 +72,17 @@ function handleSubmit() {
 
     .then((data) => {
       if (data.success) {
-        successMessage.value = "Votre compte a été vérifié avec succès";
+        successMessage.value = "Votre compte a été inscrit avec succès.";
         formData.value.email = ""; // Réinitialise le champ email
         formData.value.code = ""; // Réinitialise le champ code
       } else{
-        errorMessage.value = "Votre compte n'a pas pu être vérifié. Vérifiez le code et votre mail !";
+        errorMessage.value = "La vérification n'a pas fonctionné. Vérifiez l'email, le code ou réessayez.";
       }
 
     })
     .catch((error) => {
       console.log(error);
-            errorMessage.value = "Erreur technique, veuillez réessayer.";
+      errorMessage.value = "Erreur technique, veuillez réessayer.";
       successMessage.value = "";
     
     });

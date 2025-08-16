@@ -30,13 +30,13 @@
         "catalogue": "Catalogo",
         "contact": "Contatto",
         "language": {
-           "french": "Français",
+            "french": "Français",
             "english": "English",
             "italian": "Italiano"
         },
         "blog": "Blog"
     },
-"home": {
+    "home": {
         "introduction": {
             "description": "Da quasi 50 anni, ho avuto la fortuna di vivere le mie passioni: ",
             "highlight1": "l'orologeria e le antichità",
@@ -50,7 +50,7 @@
             },
             "highlight2": ". Oggi mi specializzo nella riparazione e restauro di orologi e pendole antiche."
         },
-        "atelier":{
+        "atelier": {
             "title": "Il mio laboratorio",
             "description": "Cerchi un pezzo, un orologio o qualcos'altro legato alle antichità? O il tuo orologio non funziona più? Vieni a vedere il laboratorio! <br> <gr>Il mio laboratorio è aperto dal lunedì al giovedì tra le 14:30 e le 17:00.</gr> <br /> Sono situato a Ginevra, in <gr>Rue des Corps-Saints 10, 1201 Ginevra.</gr>"
         }
@@ -62,8 +62,7 @@
     },
     "cabinotiers": {
         "title": "Cos'è un cabinotier?",
-        "description":
-        "La parola 'cabinotier' è di origine ginevrina. Combinando precisione tecnica e innovazione, l'arte dei cabinotiers di Saint-Gervais ha contribuito alla distinzione di Ginevra. Dal XVIII secolo la parola 'cabinotier' raggruppa i mestieri legati all'orologeria, ad esempio i montatori di casse, guillocheurs, cesellatori, incassatori, doratori e smaltatori. Lavoravano a domicilio o in minuscole 'cabine' sotto i tetti delle case.",
+        "description": "La parola 'cabinotier' è di origine ginevrina. Combinando precisione tecnica e innovazione, l'arte dei cabinotiers di Saint-Gervais ha contribuito alla distinzione di Ginevra. Dal XVIII secolo la parola 'cabinotier' raggruppa i mestieri legati all'orologeria, ad esempio i montatori di casse, guillocheurs, cesellatori, incassatori, doratori e smaltatori. Lavoravano a domicilio o in minuscole 'cabine' sotto i tetti delle case.",
         "buttons": {
             "catalogue": "Catalogo",
             "exposition": "Visita l'esposizione"
@@ -73,17 +72,18 @@
         "title": "Il mio catalogo: <g>Il Cabinotier</g>",
         "description": " <g>Il Cabinotier</g> è un piccolo catalogo che racconta la storia dei cabinotiers e presenta una piccola parte della mia collezione orologiera. Il catalogo è stato realizzato da <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> nell'ambito del suo lavoro di maturità specializzato. ",
         "description2": "Per acquistare il catalogo passa al laboratorio o",
-        "textLink":"contattami"
+        "textLink": "contattami"
     },
     "confidentiality": {
         "title": "Politica sulla riservatezza",
         "intro": "Attribuiamo grande importanza alla protezione dei tuoi dati personali. Questa politica sulla riservatezza spiega quali informazioni vengono raccolte quando utilizzi il nostro sito, come vengono utilizzate e protette.",
-        "responsible": "Il responsabile del trattamento dei dati è: Bruno Pesenti, info@brunopesenti.ch",
-        "data_collected": "Quando utilizzi il modulo di contatto, raccogliamo: nome, indirizzo e-mail, messaggio, consenso alla politica sulla riservatezza.",
-        "emailjs": "Per l'invio dei messaggi tramite il modulo di contatto, utilizziamo il servizio EmailJS. I dati inseriti vengono trasmessi a EmailJS, che li invia poi al nostro indirizzo e-mail. Consulta la politica sulla riservatezza di EmailJS per maggiori informazioni.",
-        "retention": "I tuoi dati vengono conservati solo per il tempo necessario all'elaborazione della tua richiesta. Non vengono né rivenduti né trasmessi a terzi per scopi commerciali.",
-        "security": "Adottiamo misure adeguate per proteggere i tuoi dati da accessi non autorizzati, perdite o divulgazioni.",
-        "rights": "Hai il diritto di accesso, rettifica, cancellazione, opposizione e limitazione del trattamento. Per esercitare questi diritti, contattaci a info@brunopesenti.ch.",
+        "responsible": "Il responsabile del trattamento dei dati è Bruno Pesenti e il suo team.",
+        "data_collected": "Quando utilizzi il modulo di contatto o ti iscrivi alla newsletter, raccogliamo: nome, indirizzo email, data di creazione dell'account e se l'account è stato verificato.",
+        "storage": "I dati sono archiviati in un foglio Google Sheet sicuro.",
+        "newsletter_verification": "Se l'account non è stato verificato, viene eliminato il giorno successivo alla richiesta di iscrizione alla newsletter.",
+        "retention": "I tuoi dati vengono conservati solo per il tempo necessario a gestire la tua richiesta. Non vengono né venduti né trasmessi a terzi per scopi commerciali.",
+        "security": "Adottiamo misure adeguate per proteggere i tuoi dati da accessi non autorizzati, perdita o divulgazione.",
+        "rights": "Hai il diritto di accesso, rettifica, cancellazione, opposizione e limitazione del trattamento. Per esercitare questi diritti, contattaci al numero di telefono o tramite il modulo di contatto disponibile nella pagina dei contatti.",
         "update": "Ultimo aggiornamento: agosto 2025"
     },
     "contact": {
@@ -114,16 +114,34 @@
     "Newsletter": {
         "unsubscribing": {
             "title": "Annulla l'iscrizione alla newsletter",
-            "description": "Per annullare l'iscrizione alla newsletter, inserisci il tuo indirizzo email qui sotto.",
+            "description": "Per annullare l'iscrizione alla newsletter, inserisci il tuo indirizzo email qui sotto. Ti verrà inviato un codice per confermare la disiscrizione. Questo codice sarà valido per 1 giorno.",
             "label": "Indirizzo email",
-            "button": "Annulla iscrizione"
+            "button": "Richiedi il codice per la disiscrizione",
+            "Verification": {
+                "title": "Verifica dell'indirizzo email",
+                "email": "Indirizzo email",
+                "code": "Il tuo codice",
+                "button": "Annulla l'iscrizione alla newsletter",
+                "successMessage": "Hai annullato con successo l'iscrizione alla newsletter.",
+                "errorMessage": "Si è verificato un errore durante la disiscrizione dalla newsletter. Per favore riprova più tardi."
+            }
         },
         "subscribing": {
-            "title": "Abonnez-vous à la newsletter",
-            "description": "Pour vous abonner à la newsletter, veuillez saisir votre adresse e-mail ci-dessous.",
-            "button": "S'abonner",
-            "successMessage": "Vous vous êtes abonné(e) à la newsletter avec succès.",
-            "errorMessage": "Une erreur s'est produite lors de l'abonnement à la newsletter. Veuillez réessayer plus tard."
+            "title": "Iscriviti alla newsletter",
+            "description": "Per iscriverti alla newsletter, inserisci il tuo indirizzo email qui sotto.",
+            "button": "Iscriviti",
+            "successMessage": "Ti sei iscritto con successo alla newsletter.",
+            "errorMessage": "Si è verificato un errore durante l'iscrizione alla newsletter. Per favore riprova più tardi."
+        },
+        "verification": {
+            "title": "Verifica dell'account per l'iscrizione alla newsletter",
+            "email": "Indirizzo email",
+            "code": "Il tuo codice",
+            "codePlaceholder": "Inserisci il codice ricevuto via email",
+            "button": "Verifica account",
+            "successMessage": "Il tuo account è stato verificato con successo.",
+            "errorMessage": "Il tuo account non è stato verificato. Controlla il codice e la tua email!",
+            "errorTechnique": "Si è verificato un errore tecnico. Per favore riprova più tardi."
         }
     }
 }

@@ -30,7 +30,7 @@
         "catalogue": "Catalogue",
         "contact": "Contact",
         "language": {
-           "french": "Français",
+            "french": "Français",
             "english": "English",
             "italian": "Italiano"
         },
@@ -74,17 +74,18 @@
         "description2": "Pour acheter le catalogue, passez à l'atelier ou",
         "textLink": "contactez-moi"
     },
-     "confidentiality": {
-    "title": "Politique de confidentialité",
-    "intro": "Nous attachons une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique quelles informations sont collectées lorsque vous utilisez notre site, comment elles sont utilisées et protégées.",
-    "responsible": "Le responsable du traitement des données est : Bruno Pesenti, info@brunopesenti.ch",
-    "data_collected": "Lorsque vous utilisez le formulaire de contact, nous collectons : nom, adresse e-mail, message, consentement à la politique de confidentialité.",
-    "emailjs": "Pour l’envoi des messages via le formulaire de contact, nous utilisons le service EmailJS. Les données saisies sont transmises à EmailJS, qui les envoie ensuite à notre adresse e-mail. Consultez la politique de confidentialité d’EmailJS pour plus d’informations.",
-    "retention": "Vos données ne sont conservées que le temps nécessaire au traitement de votre demande. Elles ne sont ni revendues, ni transmises à des tiers à des fins commerciales.",
-    "security": "Nous mettons en œuvre des mesures appropriées pour protéger vos données contre tout accès non autorisé, perte ou divulgation.",
-    "rights": "Vous disposez des droits d’accès, de rectification, d’effacement, d’opposition et de limitation du traitement. Pour exercer ces droits, contactez-nous à info@brunopesenti.ch.",
-    "update": "Dernière mise à jour : août 2025"
-  },
+    "confidentiality": {
+        "title": "Politique de confidentialité",
+        "intro": "Nous attachons une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique quelles informations sont collectées lorsque vous utilisez notre site, comment elles sont utilisées et protégées.",
+        "responsible": "Le responsable du traitement des données est Bruno Pesenti et son équipe.",
+        "data_collected": "Lorsque vous utilisez le formulaire de contact ou vous abonnez à la newsletter, nous collectons : nom, adresse e-mail, date de création du compte, et si le compte a été vérifié.",
+        "storage": "Les données sont stockées dans une feuille Google Sheet sécurisée.",
+        "newsletter_verification": "Si le compte n'a pas été vérifié, il est supprimé le jour suivant la demande d'abonnement à la newsletter.",
+        "retention": "Vos données ne sont conservées que le temps nécessaire au traitement de votre demande. Elles ne sont ni vendues ni transmises à des tiers à des fins commerciales.",
+        "security": "Nous mettons en œuvre des mesures appropriées pour protéger vos données contre tout accès non autorisé, perte ou divulgation.",
+        "rights": "Vous disposez des droits d'accès, de rectification, d'effacement, d'opposition et de limitation du traitement. Pour exercer ces droits, contactez-nous au numéro de téléphone ou via le formulaire de contact disponible sur la page de contact.",
+        "update": "Dernière mise à jour : août 2025"
+    },
     "contact": {
         "title": "Contactez-moi",
         "description": "Pour toute question ou demande, n'hésitez pas à me contacter par téléphone ou via le formulaire de contact :",
@@ -104,7 +105,6 @@
                 "text": "S'abonner à la newsletter",
                 "yes": "Oui",
                 "No": "Non"
-            
             },
             "send": "Envoyer",
             "success": "Votre message a été envoyé avec succès !",
@@ -114,9 +114,18 @@
     "Newsletter": {
         "unsubscribing": {
             "title": "Se désabonner de la newsletter",
-            "description": "Pour vous désabonner de la newsletter, veuillez saisir votre adresse e-mail ci-dessous.",
+            "description": "Pour vous désabonner de la newsletter, veuillez saisir votre adresse e-mail ci-dessous. Un code vous sera envoyé afin de confirmer votre désincription. Ce code sera valide pendant 1 jour.",
             "label": "Adresse e-mail",
-            "button": "Se désabonner"
+            "button": "Demander le code, pour le désabonnement",
+            "Verification": {
+                "title": "Vérification de l'adresse e-mail",
+                "email": "Adresse e-mail",
+                "code": "Votre code",
+                "button": "Se désabonner de la newsletter",
+                "successMessage": "Vous vous êtes désabonné(e) de la newsletter avec succès.",
+                "errorMessage": "Une erreur est survenue lors de la désinscription de la newsletter. Veuillez réessayer plus tard."
+
+            }
         },
         "subscribing": {
             "title": "S'abonner à la newsletter",
@@ -124,6 +133,16 @@
             "button": "S'abonner",
             "successMessage": "Vous vous êtes abonné(e) à la newsletter avec succès.",
             "errorMessage": "Une erreur est survenue lors de l'abonnement à la newsletter. Veuillez réessayer plus tard."
+        },
+        "verification": {
+            "title": "Vérification du compte pour l'inscription à la newsletter",
+            "email": "Adresse email",
+            "code": "Votre code",
+            "codePlaceholder": "Entrez le code reçu par email",
+            "button": "Vérifier compte",
+            "successMessage": "Votre compte a été vérifié avec succès.",
+            "errorMessage": "Votre compte n'a pas pu être vérifié. Vérifiez le code et votre mail !",
+            "errorTechnique": "Une erreur technique est survenue. Veuillez réessayer plus tard."
         }
     }
 }

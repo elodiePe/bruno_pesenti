@@ -77,12 +77,13 @@
     "confidentiality": {
         "title": "Privacy Policy",
         "intro": "We attach great importance to the protection of your personal data. This privacy policy explains what information is collected when you use our site, how it is used and protected.",
-        "responsible": "The data controller is: Bruno Pesenti, info@brunopesenti.ch",
-        "data_collected": "When you use the contact form, we collect: name, email address, message, consent to the privacy policy.",
-        "emailjs": "For sending messages via the contact form, we use the EmailJS service. The data entered is transmitted to EmailJS, which then sends it to our email address. See the EmailJS privacy policy for more information.",
-        "retention": "Your data is only kept for the time necessary to process your request. It is neither sold nor transmitted to third parties for commercial purposes.",
+        "responsible": "The data controller is Bruno Pesenti and his team.",
+        "data_collected": "When you use the contact form or subscribe to the newsletter, we collect: name, email address, account creation date, and whether the account has been verified.",
+        "storage": "Data is stored in a secure Google Sheet.",
+        "newsletter_verification": "If the account has not been verified, it is deleted the day after the newsletter subscription request.",
+        "retention": "Your data is kept only as long as necessary to process your request. It is neither sold nor passed on to third parties for commercial purposes.",
         "security": "We implement appropriate measures to protect your data against unauthorized access, loss, or disclosure.",
-        "rights": "You have the rights of access, rectification, erasure, objection, and restriction of processing. To exercise these rights, contact us at info@brunopesenti.ch.",
+        "rights": "You have the rights of access, rectification, erasure, objection, and restriction of processing. To exercise these rights, contact us by phone or via the contact form available on the contact page.",
         "update": "Last updated: August 2025"
     },
     "contact": {
@@ -92,7 +93,7 @@
         "phoneNumber": "<a href='tel:022-731-75-75'>022 731 75 75</a>",
         "address": "Address : ",
         "addressDetails": "Rue des Corps-Saints 10, 1201 Geneva",
-        "Form" : {
+        "Form": {
             "title": "Contact Form",
             "name": "Name",
             "email": "Email",
@@ -100,9 +101,9 @@
             "message": "Message",
             "privacy": "I have read and accept the privacy policy",
             "required": "Required",
-            "newsletter" :{
+            "newsletter": {
                 "text": "Subscribe to the newsletter",
-                "yes" : "Yes",
+                "yes": "Yes",
                 "No": "No"
             },
             "send": "Send",
@@ -113,11 +114,17 @@
     "Newsletter": {
         "unsubscribing": {
             "title": "Unsubscribe from the newsletter",
-            "description": "To unsubscribe from the newsletter, please enter your email address below.",
+            "description": "To unsubscribe from the newsletter, please enter your email address below. A code will be sent to you to confirm your unsubscription. This code will be valid for 1 day.",
             "label": "Email address",
-            "button": "Unsubscribe",
+            "button": "Request code for unsubscription",
+            "Verification": {
+            "title": "Email address verification",
+            "email": "Email address",
+            "code": "Your code",
+            "button": "Unsubscribe from the newsletter",
             "successMessage": "You have successfully unsubscribed from the newsletter.",
-            "errorMessage": "There was an error unsubscribing from the newsletter. Please try again later."
+            "errorMessage": "An error occurred while unsubscribing from the newsletter. Please try again later."
+            }
         },
         "subscribing": {
             "title": "Subscribe to the newsletter",
@@ -125,6 +132,16 @@
             "button": "Subscribe",
             "successMessage": "You have successfully subscribed to the newsletter.",
             "errorMessage": "There was an error subscribing to the newsletter. Please try again later."
+        },
+        "verification": {
+            "title": "Account verification for newsletter subscription",
+            "email": "Email address",
+            "code": "Your code",
+            "codePlaceholder": "Enter the code received by email",
+            "button": "Verify account",
+            "successMessage": "Your account has been successfully verified.",
+            "errorMessage": "Your account could not be verified. Please check the code and your email!",
+            "errorTechnique": "A technical error occurred. Please try again later."
         }
     }
 }

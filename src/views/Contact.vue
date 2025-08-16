@@ -124,7 +124,7 @@ const errorMessage = ref("");
 
 function sendEmail() {
   const url =
-    "https://script.google.com/macros/s/AKfycbwy814udc3xW5Iqi0-ksKoQwKelXMUKnLq4rFBr5ZWtEi3vY8jZpkLq_kem76-mDIW3/exec"; // Remplace par ton UR
+    "https://script.google.com/macros/s/AKfycbzjkiK-PqXzUiCsb7JNikMPLu7lmgUDtUmCp8-z2AlJXm2Ebsp5KOXFctFe5ZExDF0/exec"; // Remplace par ton UR
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },

@@ -1,23 +1,36 @@
 <template>
-  <div class="boxes">
+      <div class="boxes">
     <div class="box">
-      <div>
-        <h1>{{ $t("Newsletter.unsubscribing.title") }}</h1>
-        <p>{{ $t("Newsletter.unsubscribing.description") }}</p>
-
-        <form @submit.prevent="handleSubmit">
+    <div>
+        <h1>{{ $t("Newsletter.unsubscribing.Verification.title") }}</h1>
+         <form @submit.prevent="handleSubmit">
           <div class="form-group">
-            <label for="email" style="margin-right: 10px">{{
-              $t("Newsletter.unsubscribing.label")
-            }}</label>
+            <label for="email" style="margin-right: 10px">
+              {{ $t("Newsletter.unsubscribing.Verification.email") }}
+            </label>
             <input
               v-model="formData.email"
               name="email"
+              type="email"
+              required
               placeholder="Antoine.john@gmail.com"
             />
           </div>
+          <div class="form-group">
+            <label for="code" style="margin-right: 10px">
+              {{ $t("Newsletter.unsubscribing.Verification.code") }}
+            </label>
+            <input
+              v-model="formData.code"
+              name="code"
+              type="text"
+              required
+              placeholder="11Sh21"
+            />
+          </div>
+
           <button type="submit" class="submit-btn">
-            {{ $t("Newsletter.unsubscribing.button") }}
+        {{ $t("Newsletter.unsubscribing.Verification.button") }}
           </button>
           <p v-if="successMessage" class="success-message">
             {{ successMessage }}
@@ -26,31 +39,30 @@
             {{ errorMessage}}
           </p>
         </form>
-      </div>
     </div>
-  </div>
+    </div>
+        </div>
+
+
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { errorMessages } from "vue/compiler-sfc";
+import { ref } from 'vue';
 
 const formData = ref({
-  name: "",
-  email: "",
+    code: '',
+    email: '',
 });
 const successMessage = ref("");
 const errorMessage = ref("");
 function handleSubmit() {
-  errorMessage.value = "";
-  successMessage.value = "";
-  const url =
-    "https://script.google.com/macros/s/AKfycbzjkiK-PqXzUiCsb7JNikMPLu7lmgUDtUmCp8-z2AlJXm2Ebsp5KOXFctFe5ZExDF0/exec"; // Remplace par ton URL
-  fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: `action=supprimer&Email=${encodeURIComponent(formData.value.email)}`,
-  })
+
+    const url = "https://script.google.com/macros/s/AKfycbzjkiK-PqXzUiCsb7JNikMPLu7lmgUDtUmCp8-z2AlJXm2Ebsp5KOXFctFe5ZExDF0/exec"; // Remplace par ton URL
+    fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `action=verificationDesabonnement&Email=${encodeURIComponent(formData.value.email)}&Code=${encodeURIComponent(formData.value.code)}`
+    })
     .then((res) => {
       if (!res.ok) {
         throw new Error("Network response was not ok");
@@ -60,22 +72,24 @@ function handleSubmit() {
 
     .then((data) => {
       if (data.success) {
-        successMessage.value = "Votre code vous a été envoyé avec succès.";
+        successMessage.value ="Votre compte a été désinscrit avec succès.";
         formData.value.email = ""; // Réinitialise le champ email
+        formData.value.code = ""; // Réinitialise le champ code
       } else{
-        errorMessage.value = "La demande du code n'a pas fonctionné. Veuillez réessayer.";
+        errorMessage.value = "La désinscription n'a pas fonctionné. Vérifiez l'email ou réessayez.";
       }
 
     })
     .catch((error) => {
       console.log(error);
-            errorMessage.value = "Erreur technique, veuillez réessayer.";
+      errorMessage.value = "Erreur technique, veuillez réessayer.";
       successMessage.value = "";
     
     });
 }
 </script>
 <style scoped>
+
 form .form-group {
   margin-bottom: 1.2rem;
   display: flex;
