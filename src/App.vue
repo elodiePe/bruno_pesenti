@@ -33,7 +33,7 @@ onMounted(() => {
 function handleSubmit() {
   const langue = localStorage.getItem("language");
   const url =
-    "https://script.google.com/macros/s/AKfycbwy814udc3xW5Iqi0-ksKoQwKelXMUKnLq4rFBr5ZWtEi3vY8jZpkLq_kem76-mDIW3/exec"; // Remplace par ton URL
+    "https://script.google.com/macros/s/AKfycbyzDwjS76lOvhttf-aAF-zd6mrqRKs0hrhKj_teVSaj2HkKjbZXpvnokf93d1ri_U5twg/exec"; // Remplace par ton URL
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },

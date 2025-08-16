@@ -57,7 +57,7 @@ const successMessage = ref("");
 const errorMessage = ref("");
 function handleSubmit() {
 
-    const url = "https://script.google.com/macros/s/AKfycbzjkiK-PqXzUiCsb7JNikMPLu7lmgUDtUmCp8-z2AlJXm2Ebsp5KOXFctFe5ZExDF0/exec"; // Remplace par ton URL
+    const url = "https://script.google.com/macros/s/AKfycbyzDwjS76lOvhttf-aAF-zd6mrqRKs0hrhKj_teVSaj2HkKjbZXpvnokf93d1ri_U5twg/exec"; // Remplace par ton URL
     fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
