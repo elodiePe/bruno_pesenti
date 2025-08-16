@@ -23,7 +23,7 @@ function generateDuplicateIndexHtmlPlugin() {
         '/:lang(fr|en|it)?/exposition',
         '/:lang(fr|en|it)?/verification',
         '/:lang(fr|en|it)?/desinscription',
-
+        '/:lang(fr|en|it)?/verificationDesinscription',
         '/:lang(fr|en|it)?/blog',
         '/:lang(fr|en|it)?/confidentialite'
       ];
