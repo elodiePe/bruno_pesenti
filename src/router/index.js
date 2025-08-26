@@ -10,7 +10,8 @@ import Blog from "../views/Blog.vue";
 import Confident from "../views/Confident.vue";
 import Verification from "../views/Verification.vue";
 import Unsuscribe_Newsletter from "../views/Unsuscribe_Newsletter.vue";
-import VerificationDesinscription from "@/views/VerificationDesinscription.vue";
+import VerificationDesinscription from "../views/VerificationDesinscription.vue";
+import Concours from "../views/Concours.vue";
 const lang = localStorage.getItem("language") || "fr";
 
 const routes = [
@@ -82,6 +83,11 @@ const routes = [
     path: "/:lang(fr|en|it)?/cookies",
     name: "Cookies",
     component: Cookies,
+  },
+    {
+    path: "/:lang(fr|en|it)?/concours",
+    name: "Concours",
+    component: Concours,
   },
 ];
 

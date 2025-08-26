@@ -25,7 +25,8 @@ function generateDuplicateIndexHtmlPlugin() {
         '/:lang(fr|en|it)?/desinscription',
         '/:lang(fr|en|it)?/desinscriptionVerification',
         '/:lang(fr|en|it)?/blog',
-        '/:lang(fr|en|it)?/confidentialite'
+        '/:lang(fr|en|it)?/confidentialite',
+        '/:lang(fr|en|it)?/concours'
       ];
       routes.forEach(route => {
         const lang = route.match(/:lang\((.*?)\)/)[1].split('|');
