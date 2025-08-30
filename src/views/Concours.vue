@@ -205,8 +205,6 @@ div img {
 }
 .box:first-child {
 padding-left: 0;
-
-
 }
 .boxes .box:nth-child(2) {
 border-radius: 16px;
@@ -333,7 +331,9 @@ padding-top: 0rem;
       width: 100%;
     }
 
-
+.box:first-child {
+padding-left: 1rem;
+}
 
   .boxess {
     width: 80%;
