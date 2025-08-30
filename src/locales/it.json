@@ -4,10 +4,10 @@
         "title": "Politica sui Cookie",
         "description": "Il mio sito web utilizza i cookie per migliorare la tua esperienza e analizzare il traffico. Utilizzo Google Analytics per sapere quante persone visitano il mio sito web e da dove provengono.",
         "title2": "Cookie di Google Analytics",
-        "description2": "Google Analytics è un servizio di analisi web fornito da Google. Google utilizza i dati raccolti per tracciare ed esaminare l'utilizzo di questo sito, preparare rapporti sulle sue attività e condividerli con altri servizi Google. Google può utilizzare i dati raccolti per contestualizzare e personalizzare gli annunci del proprio network pubblicitario.",
+        "description2": "Google Analytics è un servizio di analisi web fornito da Google. Google utilizza i dati raccolti per monitorare e analizzare l'utilizzo di questo sito, preparare rapporti sulle sue attività e condividerli con altri servizi Google. Google può utilizzare i dati raccolti per contestualizzare e personalizzare gli annunci della propria rete pubblicitaria.",
         "title3": "Consenso",
-        "description3": "Accettando, accetti l'uso dei cookie. Puoi cambiare idea andando a vedere il piè di pagina del sito web",
-        "more": "Per ulteriori informazioni sui cookie utilizzati da Google Analytics, puoi consultare:",
+        "description3": "Accettando, acconsenti all'uso dei cookie. Puoi cambiare idea visitando il piè di pagina del sito web.",
+        "more": "Per maggiori informazioni sui cookie utilizzati da Google Analytics, puoi consultare:",
         "buttons": {
             "accept": "Accetta",
             "decline": "Rifiuta"
@@ -29,6 +29,7 @@
         "cabinotiers": "Cabinotiers",
         "catalogue": "Catalogo",
         "contact": "Contatto",
+        "concours": "Concorso",
         "language": {
             "french": "Français",
             "english": "English",
@@ -38,65 +39,110 @@
     },
     "home": {
         "introduction": {
-            "description": "Da quasi 50 anni, ho avuto la fortuna di vivere le mie passioni: ",
+            "description": "Da quasi 50 anni ho avuto la fortuna di vivere le mie passioni: ",
             "highlight1": "l'orologeria e le antichità",
             "description2": ". Ho avuto la fortuna di poter aprire il mio laboratorio nel ",
             "link1": {
                 "text": "quartiere dei Cabinotiers di Ginevra."
             },
-            "description3": "Nel 2018, ho anche allestito una ",
+            "description3": "Nel 2018 ho anche organizzato una ",
             "link2": {
                 "text": "esposizione"
             },
-            "highlight2": ". Oggi mi specializzo nella riparazione e restauro di orologi e pendole antiche."
+            "highlight2": ". Oggi mi specializzo nella riparazione e nel restauro di orologi e pendole antiche."
         },
         "atelier": {
             "title": "Il mio laboratorio",
-            "description": "Cerchi un pezzo, un orologio o qualcos'altro legato alle antichità? O il tuo orologio non funziona più? Vieni a vedere il laboratorio! <br> <gr>Il mio laboratorio è aperto dal lunedì al giovedì tra le 14:30 e le 17:00.</gr> <br /> Sono situato a Ginevra, in <gr>Rue des Corps-Saints 10, 1201 Ginevra.</gr>"
+            "description": "Cerchi un pezzo, un orologio o altro legato alle antichità? Oppure il tuo orologio non funziona più? Vieni a vedere il laboratorio! <br> <gr>Il mio laboratorio è aperto dal lunedì al giovedì tra le 14:30 e le 17:00.</gr> <br /> Sono situato a Ginevra, in <gr>Rue des Corps-Saints 10, 1201 Ginevra.</gr>"
         }
     },
     "exposition": {
         "title": "Esposizione",
-        "description": "Nel 2018, ho fondato una piccola esposizione permanente chiamata <g>Le curiosità orologiere</g>. Ti invito a scoprire il mio mondo e a condividere la mia passione per l'orologeria. <br />L'esposizione è situata in un piccolo villaggio, nel cantone di Ginevra. È aperta al pubblico e puoi visitarla su appuntamento. Massimo 5 persone per visita",
+        "description": "Nel 2018 ho fondato una piccola esposizione permanente chiamata <g>Le curiosità orologiere</g>. Ti invito a scoprire il mio universo e a condividere la mia passione per l'orologeria. <br />L'esposizione si trova in un piccolo villaggio, nel cantone di Ginevra. È aperta al pubblico e puoi visitarla su appuntamento. Massimo 5 persone per visita.",
         "contact": "Contattami qui"
     },
     "cabinotiers": {
         "title": "Cos'è un cabinotier?",
-        "description": "La parola 'cabinotier' è di origine ginevrina. Combinando precisione tecnica e innovazione, l'arte dei cabinotiers di Saint-Gervais ha contribuito alla distinzione di Ginevra. Dal XVIII secolo la parola 'cabinotier' raggruppa i mestieri legati all'orologeria, ad esempio i montatori di casse, guillocheurs, cesellatori, incassatori, doratori e smaltatori. Lavoravano a domicilio o in minuscole 'cabine' sotto i tetti delle case.",
+        "description": "La parola 'cabinotier' è di origine ginevrina. Combinando precisione tecnica e innovazione, l'arte dei cabinotier di Saint-Gervais ha contribuito alla distinzione di Ginevra. Dal XVIII secolo, la parola 'cabinotier' raggruppa i mestieri legati all'orologeria, ad esempio montatori di casse, guillocheur, cesellatori, incassatori, doratori ed emailleur. Lavoravano a domicilio o in minuscole 'cabine' sotto i tetti delle case.",
         "buttons": {
             "catalogue": "Catalogo",
             "exposition": "Visita l'esposizione"
         }
     },
     "catalogue": {
-        "title": "Il mio catalogo: <g>Il Cabinotier</g>",
-        "description": " <g>Il Cabinotier</g> è un piccolo catalogo che racconta la storia dei cabinotiers e presenta una piccola parte della mia collezione orologiera. Il catalogo è stato realizzato da <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> nell'ambito del suo lavoro di maturità specializzato. ",
-        "description2": "Per acquistare il catalogo passa al laboratorio o",
+        "title": "Il mio catalogo: <g>Le Cabinotier</g>",
+        "description": " <g>Le Cabinotier</g> è un piccolo catalogo che racconta la storia dei cabinotier e presenta una piccola parte della mia collezione orologiera. Il catalogo è stato realizzato da <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> nell'ambito del suo lavoro di maturità specializzata.",
+        "description2": "Per acquistare il catalogo, passa al laboratorio oppure",
         "textLink": "contattami"
     },
     "confidentiality": {
-        "title": "Politica sulla riservatezza",
-        "intro": "Attribuiamo grande importanza alla protezione dei tuoi dati personali. Questa politica sulla riservatezza spiega quali informazioni vengono raccolte quando utilizzi il nostro sito, come vengono utilizzate e protette.",
+        "title": "Politica sulla privacy",
+        "intro": "Attribuiamo grande importanza alla protezione dei tuoi dati personali. Questa politica sulla privacy spiega quali informazioni vengono raccolte quando utilizzi il nostro sito, come vengono utilizzate e protette.",
         "responsible": "Il responsabile del trattamento dei dati è Bruno Pesenti e il suo team.",
-        "data_collected": "Quando utilizzi il modulo di contatto o ti iscrivi alla newsletter, raccogliamo: nome, indirizzo email, data di creazione dell'account e se l'account è stato verificato.",
-        "storage": "I dati sono archiviati in un foglio Google Sheet sicuro.",
+        "data_collected": "Quando utilizzi il modulo di contatto o ti iscrivi alla newsletter, raccogliamo: nome, indirizzo e-mail, data di creazione dell'account e se l'account è stato verificato.",
+        "storage": "I dati sono archiviati in un database sicuro.",
         "newsletter_verification": "Se l'account non è stato verificato, viene eliminato il giorno successivo alla richiesta di iscrizione alla newsletter.",
         "retention": "I tuoi dati vengono conservati solo per il tempo necessario a gestire la tua richiesta. Non vengono né venduti né trasmessi a terzi per scopi commerciali.",
         "security": "Adottiamo misure adeguate per proteggere i tuoi dati da accessi non autorizzati, perdita o divulgazione.",
-        "rights": "Hai il diritto di accesso, rettifica, cancellazione, opposizione e limitazione del trattamento. Per esercitare questi diritti, contattaci al numero di telefono o tramite il modulo di contatto disponibile nella pagina dei contatti.",
-        "update": "Ultimo aggiornamento: agosto 2025"
+        "rights": "Hai il diritto di accesso, rettifica, cancellazione, opposizione e limitazione del trattamento. Per esercitare questi diritti, contattaci tramite il modulo di contatto disponibile nella pagina dei contatti.",
+        "update": "Ultimo aggiornamento: agosto 2025",
+        "concours": {
+            "title": "Politica di partecipazione al concorso",
+            "description": "Questa politica descrive le regole e le condizioni di partecipazione al concorso.",
+            "rules": "Per partecipare al concorso, devi compilare il modulo di partecipazione, accettare questa politica e iscriverti alla newsletter. La partecipazione è aperta a tutti. È consentita una sola partecipazione per persona. Il vincitore sarà estratto a sorte tra le risposte corrette. Se non ci sono risposte corrette, la persona più vicina sarà la vincitrice.",
+            "contact": " Il vincitore sarà contattato via mail se ha risposto tramite il modulo online e telefonicamente se ha risposto tramite il foglio cartaceo. I dati raccolti nell'ambito del concorso saranno utilizzati solo per la gestione del concorso e non saranno trasmessi a terzi. La partecipazione implica l'accettazione di queste regole.",
+            "author": "Bruno Pesenti, il 28.08.2025"
+        }
+    },
+    "concours": {
+        "title": "VINCI una sveglia Jaeger LeCoultre!",
+        "cta": "Partecipa al concorso",
+        "cta2": "Come partecipare?",
+        "description": "Partecipa al mio concorso per vincere una sveglia Jaeger LeCoultre!",
+        "banner_description": "Conta il numero di orologi meccanici con sveglia esposti nella vetrina!",
+        "rules": "Per partecipare, passa al laboratorio e conta il numero di orologi meccanici con sveglia esposti nella vetrina! Un'estrazione a sorte sarà effettuata tra le risposte corrette.",
+        "questions": "Per qualsiasi domanda o richiesta, non esitare a contattarmi telefonicamente, tramite il modulo di contatto o passa al laboratorio.",
+        "Lieu": "Laboratorio di Bruno Pesenti, Rue des Corps-Saints 10, 1201 Ginevra",
+        "form": {
+            "title": "Modulo di partecipazione al concorso",
+            "name": "Nome",
+            "email": "E-mail",
+            "reveils": "Numero di orologi meccanici con sveglia nella vetrina",
+            "privacy": "Ho letto e accetto la politica sulla privacy e la politica di partecipazione al concorso",
+            "required": "Obbligatorio",
+            "politics1": "e",
+            "politics": "La politica di partecipazione al concorso",
+            "politics2": "e accetto di iscrivermi alla newsletter",
+            "send": "Invia la mia partecipazione",
+            "success": "La tua partecipazione è stata inviata con successo!",
+            "error": "Si è verificato un errore durante l'invio della tua partecipazione. Riprova più tardi."
+        },
+        "steps": {
+            "step1": {
+                "title": "Fase 1: Trova il laboratorio",
+                "description": "Recati al laboratorio, a Ginevra, per trovare la vetrina del laboratorio."
+            },
+            "step2": {
+                "title": "Fase 2: Trova gli orologi con sveglia",
+                "description": "Conta il numero di orologi meccanici con sveglia nella vetrina."
+            },
+            "step3": {
+                "title": "Fase 3: Compila il modulo",
+                "description": "Un'estrazione a sorte sarà effettuata tra le risposte corrette."
+            }
+        }
     },
     "contact": {
         "title": "Contattami",
-        "description": "Per qualsiasi domanda o richiesta, non esitare a contattarmi tramite il mio numero di telefono o tramite il modulo di contatto:",
-        "phone": "Telefono : ",
+        "description": "Per qualsiasi domanda o richiesta, non esitare a contattarmi telefonicamente o tramite il modulo di contatto:",
+        "phone": "Telefono: ",
         "phoneNumber": "<a href='tel:022-731-75-75'>022 731 75 75</a>",
-        "address": "Indirizzo : ",
+        "address": "Indirizzo: ",
         "addressDetails": "Rue des Corps-Saints 10, 1201 Ginevra",
         "Form": {
-            "title": "Modulo di Contatto",
+            "title": "Modulo di contatto",
             "name": "Nome",
-            "email": "Email",
+            "email": "E-mail",
             "phone": "Numero di telefono",
             "message": "Messaggio",
             "privacy": "Ho letto e accetto la politica sulla privacy",
@@ -108,40 +154,40 @@
             },
             "send": "Invia",
             "success": "Il tuo messaggio è stato inviato con successo!",
-            "error": "Si è verificato un errore durante l'invio del messaggio. Per favore riprova più tardi."
+            "error": "Si è verificato un errore durante l'invio del tuo messaggio. Riprova più tardi."
         }
     },
     "Newsletter": {
         "unsubscribing": {
             "title": "Annulla l'iscrizione alla newsletter",
-            "description": "Per annullare l'iscrizione alla newsletter, inserisci il tuo indirizzo email qui sotto. Ti verrà inviato un codice per confermare la disiscrizione. Questo codice sarà valido per 1 giorno.",
-            "label": "Indirizzo email",
+            "description": "Per annullare l'iscrizione alla newsletter, inserisci il tuo indirizzo e-mail qui sotto. Ti verrà inviato un codice per confermare la disiscrizione. Questo codice sarà valido per 1 giorno.",
+            "label": "Indirizzo e-mail",
             "button": "Richiedi il codice per la disiscrizione",
             "Verification": {
-                "title": "Verifica dell'indirizzo email",
-                "email": "Indirizzo email",
+                "title": "Verifica dell'indirizzo e-mail",
+                "email": "Indirizzo e-mail",
                 "code": "Il tuo codice",
                 "button": "Annulla l'iscrizione alla newsletter",
-                "successMessage": "Hai annullato con successo l'iscrizione alla newsletter.",
-                "errorMessage": "Si è verificato un errore durante la disiscrizione dalla newsletter. Per favore riprova più tardi."
+                "successMessage": "Ti sei disiscritto/a con successo dalla newsletter.",
+                "errorMessage": "Si è verificato un errore durante la disiscrizione dalla newsletter. Riprova più tardi."
             }
         },
         "subscribing": {
             "title": "Iscriviti alla newsletter",
-            "description": "Per iscriverti alla newsletter, inserisci il tuo indirizzo email qui sotto.",
+            "description": "Per iscriverti alla newsletter, inserisci il tuo indirizzo e-mail qui sotto.",
             "button": "Iscriviti",
-            "successMessage": "Ti sei iscritto con successo alla newsletter.",
-            "errorMessage": "Si è verificato un errore durante l'iscrizione alla newsletter. Per favore riprova più tardi."
+            "successMessage": "Ti sei iscritto/a con successo alla newsletter.",
+            "errorMessage": "Si è verificato un errore durante l'iscrizione alla newsletter. Riprova più tardi."
         },
         "verification": {
             "title": "Verifica dell'account per l'iscrizione alla newsletter",
-            "email": "Indirizzo email",
+            "email": "Indirizzo e-mail",
             "code": "Il tuo codice",
-            "codePlaceholder": "Inserisci il codice ricevuto via email",
+            "codePlaceholder": "Inserisci il codice ricevuto via e-mail",
             "button": "Verifica account",
             "successMessage": "Il tuo account è stato verificato con successo.",
-            "errorMessage": "Il tuo account non è stato verificato. Controlla il codice e la tua email!",
-            "errorTechnique": "Si è verificato un errore tecnico. Per favore riprova più tardi."
+            "errorMessage": "Impossibile verificare il tuo account. Controlla il codice e la tua e-mail!",
+            "errorTechnique": "Si è verificato un errore tecnico. Riprova più tardi."
         }
     }
 }

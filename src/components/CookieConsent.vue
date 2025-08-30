@@ -47,20 +47,40 @@ const consentStatus = ref("");
 
 // Fonction pour accepter les cookies
 function acceptCookies() {
-  localStorage.setItem("cookieConsent", "accepted");
+  setConsent("accepted");
   consentStatus.value = "accepted";
   document.getElementById("cookieConsentBanner").style.display = "none";
   checkCookieConsent();
-  // Activer Google Analytics
   activateGoogleAnalytics();
 }
 
 // Fonction pour refuser les cookies
 function declineCookies() {
-  localStorage.setItem("cookieConsent", "declined");
+  clearAllStorageAndCookies();
+  setConsent("declined");
   consentStatus.value = "declined";
   document.getElementById("cookieConsentBanner").style.display = "none";
   checkCookieConsent();
+}
+// Fonction utilitaire pour définir le consentement
+function setConsent(status) {
+  if (status === "accepted") {
+    localStorage.setItem("cookieConsent", "accepted");
+  } else if (status === "declined") {
+    // Ne rien stocker si refusé
+  }
+}
+
+// Fonction pour tout supprimer
+function clearAllStorageAndCookies() {
+  // Supprime localStorage
+  localStorage.clear();
+  // Supprime sessionStorage
+  sessionStorage.clear();
+  // Supprime tous les cookies
+  document.cookie.split(";").forEach(function(c) {
+    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
+  });
 }
 function renderCookieConsentBanner() {
   var banner = document.getElementById("cookieConsentBanner");
@@ -69,31 +89,24 @@ function renderCookieConsentBanner() {
 
 
 // Vérifier si l'utilisateur a déjà donné son consentement
-window.onload = function () {
+onMounted(() => {
   checkCookieConsent();
-  if (localStorage.getItem("cookieConsent") === null) {
-    document.getElementById("cookieConsentBanner").style.display = "block";
-  } else if (localStorage.getItem("cookieConsent") === "accepted") {
-    // Activer Google Analytics si le consentement est déjà donné
+  let consent = localStorage.getItem("cookieConsent");
+  if (consent === "accepted") {
     activateGoogleAnalytics();
+    document.getElementById("cookieConsentBanner").style.display = "none";
+  } else {
+    document.getElementById("cookieConsentBanner").style.display = "block";
+    clearAllStorageAndCookies();
   }
-};
+});
 
 // Fonction pour vérifier le consentement aux cookies
 function checkCookieConsent() {
-  var consentStatus = localStorage.getItem("cookieConsent");
-  var consentMessage = "";
-
-  if (consentStatus === "accepted") {
-    consentMessage = "Vous avez accepté les cookies : modifier";
-  } else if (consentStatus === "declined") {
-    consentMessage = "Vous avez refusé les cookies : modifier";
-  } else {
-    consentMessage =
-      "Vous n'avez pas encore donné votre consentement pour les cookies : modifier";
+  let consentStatus = localStorage.getItem("cookieConsent");
+  if (consentStatus !== "accepted") {
+    clearAllStorageAndCookies();
   }
-
-//   document.getElementById("cookieConsentStatus").innerText = consentMessage;
 }
 
 // Fonction pour activer Google Analytics

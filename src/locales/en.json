@@ -4,10 +4,10 @@
         "title": "Cookie Policy",
         "description": "My website uses cookies to improve your experience and analyze traffic. I use Google Analytics to know how many people visit my website and where they come from.",
         "title2": "Google Analytics Cookies",
-        "description2": "Google Analytics is a web analytics service provided by Google. Google uses the collected data to track and examine the use of this site, prepare reports on its activities, and share them with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.",
+        "description2": "Google Analytics is a web analytics service provided by Google. Google uses the collected data to track and examine the use of this site, prepare reports on its activities, and share them with other Google services. Google may use the collected data to contextualize and personalize ads in its own advertising network.",
         "title3": "Consent",
-        "description3": "By accepting, you agree to the use of cookies. You can change your mind by going to the footer of the website.",
-        "more": "For more information about the cookies used by Google Analytics, you can consult:",
+        "description3": "By accepting, you agree to the use of cookies. You can change your mind by visiting the website footer.",
+        "more": "For more information about cookies used by Google Analytics, you can consult:",
         "buttons": {
             "accept": "Accept",
             "decline": "Decline"
@@ -25,10 +25,11 @@
     },
     "navigation": {
         "home": "Home",
-        "exposition": "Exposition",
+        "exposition": "Exhibition",
         "cabinotiers": "Cabinotiers",
         "catalogue": "Catalogue",
         "contact": "Contact",
+        "concours": "Contest",
         "language": {
             "french": "Français",
             "english": "English",
@@ -38,9 +39,9 @@
     },
     "home": {
         "introduction": {
-            "description": "For almost 50 years, I have been fortunate to live my passions: ",
+            "description": "For nearly 50 years, I have had the chance to live my passions: ",
             "highlight1": "watchmaking and antiques",
-            "description2": ". I was lucky enough to open my workshop in the ",
+            "description2": ". I was lucky to be able to open my workshop in the ",
             "link1": {
                 "text": "Cabinotiers district of Geneva."
             },
@@ -48,30 +49,30 @@
             "link2": {
                 "text": "exhibition"
             },
-            "highlight2": ". Today I specialize in the repair and restoration of antique clocks and watches."
+            "highlight2": ". Today, I specialize in the repair and restoration of antique watches and clocks."
         },
         "atelier": {
             "title": "My workshop",
-            "description": "Looking for a part, a watch, or something else related to antiques? Or your watch is not working anymore? Come and see the workshop! <br> <gr>My workshop is open from Monday to Thursday between 2:30 PM and 5:00 PM.</gr> <br /> I am located in Geneva, at <gr>Rue des Corps-Saints 10, 1201 Geneva.</gr>"
+            "description": "Are you looking for a part, a watch, or something else related to antiques? Or is your watch not working anymore? Come visit the workshop! <br> <gr>My workshop is open from Monday to Thursday between 2:30 pm and 5:00 pm.</gr> <br /> I am located in Geneva, at <gr>Rue des Corps-Saints 10, 1201 Geneva.</gr>"
         }
     },
     "exposition": {
-        "title": "Exposition",
-        "description": "In 2018, I founded a small permanent exhibition called <g>The Watchmaking Curiosities</g>. I invite you to discover my world and share my passion for watchmaking. <br />The exhibition is located in a small village in the canton of Geneva. It is open to the public and you can visit it by appointment. Maximum 5 people per visit.",
+        "title": "Exhibition",
+        "description": "In 2018, I founded a small permanent exhibition called <g>Les curiosités horlogères</g>. I invite you to discover my world and share my passion for watchmaking. <br />The exhibition is located in a small village, in the canton of Geneva. It is open to the public and you can visit by appointment. Maximum 5 people per visit.",
         "contact": "Contact me here"
     },
     "cabinotiers": {
         "title": "What is a cabinotier?",
-        "description": "The word 'cabinotier' is of Geneva origin. Combining technical precision and innovation, the art of the cabinotiers of Saint-Gervais has contributed to the distinction of Geneva. Since the 18th century, the word 'cabinotier' has grouped together the trades related to watchmaking, such as case assemblers, guillocheurs, engravers, setters, gilders, and enamelers. They worked at home or in tiny 'cabins' under the roofs of houses.",
+        "description": "The word 'cabinotier' is of Genevan origin. By combining technical precision and innovation, the art of the cabinotiers of Saint-Gervais contributed to Geneva's distinction. Since the 18th century, the word 'cabinotier' has encompassed trades related to watchmaking, such as case assemblers, guillocheurs, engravers, casemakers, gilders, and enamellers. They worked at home or in tiny 'cabins' under the roofs of houses.",
         "buttons": {
             "catalogue": "Catalogue",
             "exposition": "Visit the exhibition"
         }
     },
     "catalogue": {
-        "title": "My catalogue: <g>The Cabinotier</g>",
-        "description": "<g>The Cabinotier</g> is a small catalogue that tells the story of the cabinotiers and presents a small part of my watchmaking collection. The catalogue was created by <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> as part of her specialized maturity work.",
-        "description2": "To purchase the catalogue, visit the workshop or",
+        "title": "My catalogue: <g>Le Cabinotier</g>",
+        "description": "<g>Le Cabinotier</g> is a small catalogue that tells the story of the cabinotiers and presents a small part of my watchmaking collection. The catalogue was created by <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> as part of her specialized maturity work.",
+        "description2": "To buy the catalogue, come to the workshop or",
         "textLink": "contact me"
     },
     "confidentiality": {
@@ -79,25 +80,70 @@
         "intro": "We attach great importance to the protection of your personal data. This privacy policy explains what information is collected when you use our site, how it is used and protected.",
         "responsible": "The data controller is Bruno Pesenti and his team.",
         "data_collected": "When you use the contact form or subscribe to the newsletter, we collect: name, email address, account creation date, and whether the account has been verified.",
-        "storage": "Data is stored in a secure Google Sheet.",
+        "storage": "Data is stored in a secure database.",
         "newsletter_verification": "If the account has not been verified, it is deleted the day after the newsletter subscription request.",
-        "retention": "Your data is kept only as long as necessary to process your request. It is neither sold nor passed on to third parties for commercial purposes.",
+        "retention": "Your data is kept only as long as necessary to process your request. It is neither sold nor transmitted to third parties for commercial purposes.",
         "security": "We implement appropriate measures to protect your data against unauthorized access, loss, or disclosure.",
-        "rights": "You have the rights of access, rectification, erasure, objection, and restriction of processing. To exercise these rights, contact us by phone or via the contact form available on the contact page.",
-        "update": "Last updated: August 2025"
+        "rights": "You have the rights of access, rectification, erasure, objection, and restriction of processing. To exercise these rights, contact us via the contact form available on the contact page.",
+        "update": "Last update: August 2025",
+        "concours": {
+            "title": "Contest Participation Policy",
+            "description": "This policy describes the rules and conditions for participating in the contest.",
+            "rules": "To participate in the contest, you must fill out the participation form, accept this policy, and subscribe to the newsletter. Participation is open to everyone. Only one entry per person is allowed. The winner will be drawn among the correct answers. If there is no correct answer, the person closest will be the winner.",
+            "contact": "The winner will be contacted by email if they responded via the online form and by phone if they responded via paper. Data collected for the contest will only be used for contest management and will not be shared with third parties. Participation implies acceptance of these rules.",
+            "author": "Bruno Pesenti, 28.08.2025"
+        }
+    },
+    "concours": {
+        "title": "WIN a Jaeger LeCoultre alarm clock!",
+        "cta": "Enter the contest",
+        "cta2": "How to participate?",
+        "description": "Enter my contest to win a Jaeger LeCoultre alarm clock!",
+        "banner_description": "Count the number of mechanical watches with alarms displayed in the showcase!",
+        "rules": "To participate, come to the workshop and count the number of mechanical watches with alarms displayed in the showcase! A draw will be made among the correct answers.",
+        "questions": "For any questions or requests, feel free to contact me by phone, via the contact form, or come to the workshop.",
+        "Lieu": "Bruno Pesenti's workshop, Rue des Corps-Saints 10, 1201 Geneva",
+        "form": {
+            "title": "Contest participation form",
+            "name": "Name",
+            "email": "Email",
+            "reveils": "Number of mechanical watches with alarms in the showcase",
+            "privacy": "I have read and accept the privacy policy and the contest participation policy",
+            "required": "Required",
+            "politics1": "and",
+            "politics": "The contest participation policy",
+            "politics2": "and I agree to subscribe to the newsletter",
+            "send": "Send my entry",
+            "success": "Your entry has been sent successfully!",
+            "error": "An error occurred while sending your entry. Please try again later."
+        },
+        "steps": {
+            "step1": {
+                "title": "Step 1: Find the workshop",
+                "description": "Go to the workshop in Geneva to find the showcase."
+            },
+            "step2": {
+                "title": "Step 2: Find the watches with alarms",
+                "description": "Count the number of mechanical watches with alarms in the showcase."
+            },
+            "step3": {
+                "title": "Step 3: Fill out the form",
+                "description": "A draw will be made among the correct answers."
+            }
+        }
     },
     "contact": {
         "title": "Contact me",
-        "description": "For any questions or requests, feel free to contact me with my phone number or with the contact form:",
-        "phone": "Phone : ",
+        "description": "For any questions or requests, feel free to contact me by phone or via the contact form:",
+        "phone": "Phone: ",
         "phoneNumber": "<a href='tel:022-731-75-75'>022 731 75 75</a>",
-        "address": "Address : ",
+        "address": "Address: ",
         "addressDetails": "Rue des Corps-Saints 10, 1201 Geneva",
         "Form": {
-            "title": "Contact Form",
+            "title": "Contact form",
             "name": "Name",
             "email": "Email",
-            "phone": "Phone Number",
+            "phone": "Phone number",
             "message": "Message",
             "privacy": "I have read and accept the privacy policy",
             "required": "Required",
@@ -108,7 +154,7 @@
             },
             "send": "Send",
             "success": "Your message has been sent successfully!",
-            "error": "There was an error sending your message. Please try again later."
+            "error": "An error occurred while sending your message. Please try again later."
         }
     },
     "Newsletter": {
@@ -118,12 +164,12 @@
             "label": "Email address",
             "button": "Request code for unsubscription",
             "Verification": {
-            "title": "Email address verification",
-            "email": "Email address",
-            "code": "Your code",
-            "button": "Unsubscribe from the newsletter",
-            "successMessage": "You have successfully unsubscribed from the newsletter.",
-            "errorMessage": "An error occurred while unsubscribing from the newsletter. Please try again later."
+                "title": "Email address verification",
+                "email": "Email address",
+                "code": "Your code",
+                "button": "Unsubscribe from the newsletter",
+                "successMessage": "You have successfully unsubscribed from the newsletter.",
+                "errorMessage": "An error occurred while unsubscribing from the newsletter. Please try again later."
             }
         },
         "subscribing": {
@@ -131,7 +177,7 @@
             "description": "To subscribe to the newsletter, please enter your email address below.",
             "button": "Subscribe",
             "successMessage": "You have successfully subscribed to the newsletter.",
-            "errorMessage": "There was an error subscribing to the newsletter. Please try again later."
+            "errorMessage": "An error occurred while subscribing to the newsletter. Please try again later."
         },
         "verification": {
             "title": "Account verification for newsletter subscription",
@@ -140,7 +186,7 @@
             "codePlaceholder": "Enter the code received by email",
             "button": "Verify account",
             "successMessage": "Your account has been successfully verified.",
-            "errorMessage": "Your account could not be verified. Please check the code and your email!",
+            "errorMessage": "Your account could not be verified. Check the code and your email!",
             "errorTechnique": "A technical error occurred. Please try again later."
         }
     }

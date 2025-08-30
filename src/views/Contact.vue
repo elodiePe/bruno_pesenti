@@ -11,6 +11,14 @@
         <strong>{{ $t("contact.address") }}</strong>
         {{ $t("contact.addressDetails") }}
       </p>
+       <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2671.301969766683!2d6.139181811594909!3d46.20678758346663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c654a80b38465%3A0x2e9bab052586a8ed!2sLe%20Cabinotier!5e1!3m2!1sfr!2sch!4v1717845152318!5m2!1sfr!2sch"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
     </div>
     <div class="box">
       <h2>{{ $t("contact.Form.title") }}</h2>
@@ -40,7 +48,7 @@
             type="email"
             id="email"
             v-model="formData.email"
-            placeholder="antoine.john@gmail.com"
+            placeholder="exemple@email.com"
             required
           />
         </div>
@@ -57,7 +65,7 @@
             required
           />
           <label for="privacy">
-            <RouterLink class="six" to="/confidentialite">
+            <RouterLink class="six" to="/confidentialite" target="_blank">
               {{ $t("contact.Form.privacy") }} *
             </RouterLink>
           </label>
@@ -97,6 +105,9 @@
         <p v-if="successMessage" class="success-message">
           {{ successMessage }}
         </p>
+        <p v-if="successNewsletter" class="success-message">
+          {{ successNewsletter }}
+        </p>
         <p v-if="errorMessage" class="error-message">
           {{ errorMessage }}
         </p>
@@ -121,10 +132,10 @@ const formData = ref({
 
 const successMessage = ref("");
 const errorMessage = ref("");
-
+const successNewsletter = ref("");
 function sendEmail() {
   const url =
-    "https://script.google.com/macros/s/AKfycbyzDwjS76lOvhttf-aAF-zd6mrqRKs0hrhKj_teVSaj2HkKjbZXpvnokf93d1ri_U5twg/exec"; // Remplace par ton UR
+    "https://script.google.com/macros/s/AKfycbx5WQsbUU1y0VLMkc4xvTouayxvDJTHje_tvtxAu9vIzRxptY1qgshOXQ8eHme4VNdkbQ/exec"; // Remplace par ton UR
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -179,6 +190,7 @@ function sendEmail() {
         if (data.success) {
           formData.value.name = "";
           formData.value.email = "";
+          successNewsletter.value = "Votre inscription à la newsletter a bien été envoyée, vérifiez que vous avez bien reçu un mail pour confirmer votre inscription.";
         } else {
           errorMessage.value =
             "Erreur lors de l'inscription à la newsletter.Vérifiez votre mail ou réessayez.";
@@ -192,49 +204,13 @@ function sendEmail() {
         formData.value.privacyAccepted = false;
   }
 
-  // emailjs
-  //   .send(
-  //     "service_wlps3ma",
-  //     "template_shxcace",
-  //     {
-  //       name: formData.name,
-  //       phone: formData.phone,
-  //       email: formData.email,
-  //       message: formData.message,
-  //     },
-  //     "ekbm0CKwiyRefhra9"
-  //   )
-  //   .then(() => {
-  //     return emailjs.send(
-  //       "service_wlps3ma",
-  //       "template_9j7r5mm",
-  //       {
-  //         name: formData.name,
-  //         phone: formData.phone,
-  //         email: formData.email,
-  //         message: formData.message,
-  //       },
-  //       "ekbm0CKwiyRefhra9"
-  //     );
-  //   })
-  //   .then(() => {
-  //     successMessage.value = "Message envoyé !";
-  //     errorMessage.value = "";
-  //     formData.name = "";
-  //     formData.phone = "";
-  //     formData.email = "";
-  //     formData.message = "";
-  //     formData.privacyAccepted = false;
-  //   })
-  //   .catch((error) => {
-  //     errorMessage.value = "Erreur lors de l'envoi : " + error.text;
-  //     successMessage.value = "";
-  //   });
+
 }
 </script>
 
 <style scoped>
 .boxes {
+
   display: flex;
   background: #fff;
   width: 100%;
@@ -336,5 +312,11 @@ form textarea {
   margin-top: 1rem;
   text-align: center;
   font-weight: 500;
+}
+@media (max-width: 1050px) {
+    .boxes{
+    border-radius: 16px;
+    padding-bottom: 0%;
+    }
 }
 </style>

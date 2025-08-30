@@ -29,6 +29,7 @@
         "cabinotiers": "Cabinotiers",
         "catalogue": "Catalogue",
         "contact": "Contact",
+        "concours": "Concours",
         "language": {
             "french": "Français",
             "english": "English",
@@ -79,12 +80,57 @@
         "intro": "Nous attachons une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique quelles informations sont collectées lorsque vous utilisez notre site, comment elles sont utilisées et protégées.",
         "responsible": "Le responsable du traitement des données est Bruno Pesenti et son équipe.",
         "data_collected": "Lorsque vous utilisez le formulaire de contact ou vous abonnez à la newsletter, nous collectons : nom, adresse e-mail, date de création du compte, et si le compte a été vérifié.",
-        "storage": "Les données sont stockées dans une feuille Google Sheet sécurisée.",
+        "storage": "Les données sont stockées dans une base de données sécurisée.",
         "newsletter_verification": "Si le compte n'a pas été vérifié, il est supprimé le jour suivant la demande d'abonnement à la newsletter.",
         "retention": "Vos données ne sont conservées que le temps nécessaire au traitement de votre demande. Elles ne sont ni vendues ni transmises à des tiers à des fins commerciales.",
         "security": "Nous mettons en œuvre des mesures appropriées pour protéger vos données contre tout accès non autorisé, perte ou divulgation.",
-        "rights": "Vous disposez des droits d'accès, de rectification, d'effacement, d'opposition et de limitation du traitement. Pour exercer ces droits, contactez-nous au numéro de téléphone ou via le formulaire de contact disponible sur la page de contact.",
-        "update": "Dernière mise à jour : août 2025"
+        "rights": "Vous disposez des droits d'accès, de rectification, d'effacement, d'opposition et de limitation du traitement. Pour exercer ces droits, contactez-nous via le formulaire de contact disponible sur la page de contact.",
+        "update": "Dernière mise à jour : août 2025",
+        "concours": {
+            "title": "Politique de participation au concours",
+            "description": "Cette politique décrit les règles et conditions de participation au concours.",
+            "rules": "Pour participer au concours, vous devez remplir le formulaire de participation, accepter la présente politique et s'inscrire à la newsletter. La participation est ouverte à toute personne. Une seule participation par personne est autorisée. Le gagnant sera tiré au sort parmi les bonnes réponses. Si il n'y aucune réponse correcte, la personne qui est la plus proche sera la gagnante.",
+            "contact": " Le gagnant sera contacté par mail s'il a répondu sur le formulaire en ligne et par téléphone s'il a répondu via la feuille de papier. Les données collectées dans le cadre du concours ne seront utilisées que pour la gestion du concours et ne seront pas transmises à des tiers. La participation implique l'acceptation de ces règles.",
+            "author": "Bruno Pesenti, le 28.08.2025"
+        }
+    },
+    "concours": {
+        "title": "GAGNEZ un réveil Jaeger LeCoultre!",
+        "cta": "Participez au concours",
+        "cta2": "Comment participer ?",
+        "description": "Participez à mon concours pour gagner un réveil Jaeger LeCoultre!",
+        "banner_description": "Compter le nombre de montres mécaniques avec réveils qui sont exposés dans la vitrine!",
+        "rules": "Pour participer, passez à l'atelier et comptez le nombre de montres mécaniques avec réveils qui sont exposés dans la vitrine ! Un tirage au sort sera effectué parmis les bonnes réponses.",
+        "questions": "Pour toute question ou demande, n'hésitez pas à me contacter par téléphone, via le formulaire de contact ou passez à l'atelier.",
+        "Lieu": "Atelier de Bruno Pesenti, Rue des Corps-Saints 10, 1201 Genève",
+        "form": {
+            "title": "Formulaire de participation au concours",
+            "name": "Nom",
+            "email": "E-mail",
+            "reveils": "Nombre de montres mécaniques avec réveils dans la vitrine",
+            "privacy": "J'ai lu et j'accepte la politique de confidentialité et la politique de participation au concours",
+            "required": "Obligatoire",
+            "politics1": "et",
+            "politics": "La politique de participation au concours",
+            "politics2": "et j'accepte de m'inscrire à la newsletter",
+            "send": "Envoyer ma participation",
+            "success": "Votre participation a été envoyée avec succès !",
+            "error": "Une erreur est survenue lors de l'envoi de votre participation. Veuillez réessayer plus tard."
+        },
+        "steps": {
+            "step1": {
+                "title": "Étape 1 : Trouver l'atelier",
+                "description": "Rendez-vous à l'atelier, à Genève, pour trouver la vitrine de l'atelier."
+            },
+            "step2": {
+                "title": "Étape 2 : Trouver les montres avec réveil",
+                "description": "Comptez le nombre de montres mécaniques avec réveils dans la vitrine."
+            },
+            "step3": {
+                "title": "Étape 3 : Remplissez le formulaire",
+                "description": "Un tirage au sort sera effectué parmi les bonnes réponses."
+            }
+        }
     },
     "contact": {
         "title": "Contactez-moi",

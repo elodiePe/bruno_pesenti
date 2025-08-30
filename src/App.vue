@@ -15,25 +15,55 @@ const formData = ref({
 const errorMessage = ref("");
 const showNewsletterPopup = ref(false);
 
+function getCookieConsent() {
+  return localStorage.getItem("cookieConsent") === "accepted";
+}
+
+function clearAllStorageAndCookies() {
+  localStorage.clear();
+  sessionStorage.clear();
+  document.cookie.split(";").forEach(function(c) {
+    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
+  });
+}
+
 function openNewsletterPopup() {
-  showNewsletterPopup.value = true;
-  sessionStorage.removeItem("newsletterClosed");
+  if (getCookieConsent()) {
+    showNewsletterPopup.value = true;
+    sessionStorage.removeItem("newsletterClosed");
+  }
 }
 
 defineExpose({ openNewsletterPopup }); // <-- expose la fonction
 
 onMounted(() => {
-  // Show popup after 3 seconds (only if not already closed in this session)
-  if (!sessionStorage.getItem("newsletterClosed")) {
-    setTimeout(() => {
-      showNewsletterPopup.value = true;
-    }, 3000);
+  if (getCookieConsent()) {
+    const lastShown = localStorage.getItem("newsletterLastShown");
+    const now = new Date();
+    let show = true;
+    if (lastShown) {
+      const lastDate = new Date(lastShown);
+      show = (now - lastDate) > 24 * 60 * 60 * 1000;
+    }
+    if (show) {
+      setTimeout(() => {
+        showNewsletterPopup.value = true;
+        localStorage.setItem("newsletterLastShown", now.toISOString());
+      }, 3000);
+    }
+  } else {
+    clearAllStorageAndCookies();
   }
 });
 function handleSubmit() {
-  const langue = localStorage.getItem("language");
+  let langue = "";
+  if (getCookieConsent()) {
+    langue = localStorage.getItem("language");
+  } else {
+    langue = "fr";
+  }
   const url =
-    "https://script.google.com/macros/s/AKfycbyzDwjS76lOvhttf-aAF-zd6mrqRKs0hrhKj_teVSaj2HkKjbZXpvnokf93d1ri_U5twg/exec"; // Remplace par ton URL
+    "https://script.google.com/macros/s/AKfycbx5WQsbUU1y0VLMkc4xvTouayxvDJTHje_tvtxAu9vIzRxptY1qgshOXQ8eHme4VNdkbQ/exec"; // Remplace par ton URL
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -57,20 +87,20 @@ function handleSubmit() {
       } else {
         errorMessage.value =  "Erreur lors de l'inscription à la newsletter.Vérifiez votre mail ou réessayez.";
       }
-  
     })
     .catch((error) => console.log(error));
-  
 }
 
 function closeNewsletterPopup() {
-
   errorMessage.value = "";
-  
   formData.value.name = "";
   formData.value.email = "";
   showNewsletterPopup.value = false;
-  sessionStorage.setItem("newsletterClosed", "1");
+  if (getCookieConsent()) {
+    sessionStorage.setItem("newsletterClosed", "1");
+  } else {
+    clearAllStorageAndCookies();
+  }
 }
 </script>
 
@@ -103,7 +133,7 @@ function closeNewsletterPopup() {
           <input
             v-model="formData.email"
             name="email"
-            placeholder="antoine.john@gmail.com"
+            placeholder="exemple@email.com"
             required
           />
         </div>

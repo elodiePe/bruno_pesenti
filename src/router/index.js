@@ -12,6 +12,7 @@ import Verification from "../views/Verification.vue";
 import Unsuscribe_Newsletter from "../views/Unsuscribe_Newsletter.vue";
 import VerificationDesinscription from "../views/VerificationDesinscription.vue";
 import Concours from "../views/Concours.vue";
+import ConfidentConcours from "../views/ConfidentConcours.vue";
 const lang = localStorage.getItem("language") || "fr";
 
 const routes = [
@@ -89,6 +90,11 @@ const routes = [
     name: "Concours",
     component: Concours,
   },
+      {
+    path: "/:lang(fr|en|it)?/concourspolitique",
+    name: "ConfidentConcours",
+    component: ConfidentConcours,
+  }
 ];
 
 const router = createRouter({

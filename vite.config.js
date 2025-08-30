@@ -2,9 +2,6 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueDevTools from 'vite-plugin-vue-devtools';
-
-
-
 import fs from 'fs';
 import path from 'path';
 
@@ -26,7 +23,7 @@ function generateDuplicateIndexHtmlPlugin() {
         '/:lang(fr|en|it)?/desinscriptionVerification',
         '/:lang(fr|en|it)?/blog',
         '/:lang(fr|en|it)?/confidentialite',
-        '/:lang(fr|en|it)?/concours'
+        '/:lang(fr|en|it)?/concourspolitique'
       ];
       routes.forEach(route => {
         const lang = route.match(/:lang\((.*?)\)/)[1].split('|');

@@ -1,5 +1,6 @@
 <template>
   <div class="boxes">
+  <Concours />
     <div class="box">
       <h1>Bruno Pesenti</h1>
       <div class="introduction">
@@ -40,5 +41,6 @@
 <script setup>
 import CustomLink from "../components/CustomLink.vue";
 import { RouterLink, useRoute, useRouter } from "vue-router";
+import Concours from "../components/Concours.vue";
 const lang = localStorage.getItem("language") || "fr";
 </script>

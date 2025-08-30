@@ -6,17 +6,36 @@ import { useI18n } from 'vue-i18n';
 const router = useRouter();
 const route = useRoute();
 const { locale } = useI18n();
+function getCookieConsent() {
+  return localStorage.getItem('cookieConsent') === 'accepted';
+}
+
+function clearAllStorageAndCookies() {
+  localStorage.clear();
+  sessionStorage.clear();
+  document.cookie.split(';').forEach(function(c) {
+    document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date(0).toUTCString() + ';path=/');
+  });
+}
+
 const changeLanguage = (lang) => {
   locale.value = lang;
-  localStorage.setItem('language', lang);
+  if (getCookieConsent()) {
+    localStorage.setItem('language', lang);
+  } else {
+    clearAllStorageAndCookies();
+  }
   router.push({ path: `/${lang}${route.path.replace(/^\/(en|fr|it)/, '')}` });
-
 };
 watch(route, (newRoute) => {
   const lang = newRoute.path.split('/')[1];
   if (['en', 'fr', 'it'].includes(lang)) {
     locale.value = lang;
-    localStorage.setItem('language', lang);
+    if (getCookieConsent()) {
+      localStorage.setItem('language', lang);
+    } else {
+      clearAllStorageAndCookies();
+    }
   }
 });
 
@@ -70,6 +89,9 @@ onUnmounted(() => {
         <!-- <li class="navText">
         <RouterLink class="six" to="/blog">{{ $t('navigation.blog') }}</RouterLink>
       </li> -->
+         <li class="navText">
+        <RouterLink class="six" to="/concours">{{ $t('navigation.concours') }}</RouterLink>
+      </li>
       <li class="navText">
         <select @change="changeLanguage($event.target.value)" :value="locale" >
           <option value="en">{{ $t('navigation.language.english') }}</option>
@@ -79,6 +101,7 @@ onUnmounted(() => {
       </li>
     </ul>
   </div>
+   
   <!-- <button @click="changeLanguage('en')">{{ $t('navigation.language.english') }}</button>
   <button @click="changeLanguage('fr')">{{ $t('navigation.language.french') }}</button> -->
 </template>
@@ -115,10 +138,44 @@ onUnmounted(() => {
 .six:hover {
   background-color: #e0e0e0;
 }
+.navText select {
+  background-color: #c86412;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin: 0;
+  align-self: center;
+  padding: 0.3rem 0.5rem;
+
+  cursor: pointer;
+  vertical-align: middle;
+}
+.navText:last-child {
+padding: 0%;
+margin: 0%;
+}
+
+.navText select:hover,
+.navText select:focus {
+  background-color: #fff;
+  color: #c86412;
+  outline: none;
+}
+ul li {
+  gap: 10px;
+}
 .burger {
   display: none;
 }
-
+@media (max-width: 1500px) {
+  .navigation ul {
+    display: flex;
+gap: 10px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
 @media (max-width: 1050px) {
   .burger {
     display: block;
@@ -170,6 +227,12 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    flex-wrap: wrap-reverse;
+    gap: 0rem;
   }
+
+  /* Suppression du style qui écrase le gap sur mobile */
+
 }
+
 </style>

@@ -4,18 +4,29 @@ import { ref, onMounted } from "vue";
 const checkConsent = ref(null);
 const consentStatus = ref(null);
 
+function getCookieConsent() {
+    return localStorage.getItem("cookieConsent") === "accepted";
+}
+
+function clearAllStorageAndCookies() {
+    localStorage.clear();
+    sessionStorage.clear();
+    document.cookie.split(";").forEach(function(c) {
+        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
+    });
+}
+
 function acceptCookies() {
     localStorage.setItem("cookieConsent", "accepted");
     consentStatus.value = "accepted";
+    
     document.getElementById("cookieConsentBanner").style.display = "none";
     checkCookieConsent();
-    // Activer Google Analytics
     activateGoogleAnalytics();
 }
 
-// Fonction pour refuser les cookies
 function declineCookies() {
-    localStorage.setItem("cookieConsent", "declined");
+    clearAllStorageAndCookies();
     consentStatus.value = "declined";
     document.getElementById("cookieConsentBanner").style.display = "none";
     checkCookieConsent();
@@ -23,14 +34,12 @@ function declineCookies() {
 }
 
 function checkCookieConsent() {
-    var consent = localStorage.getItem("cookieConsent");
-
+    let consent = localStorage.getItem("cookieConsent");
     if (consent === "accepted") {
         checkConsent.value = true;
-    } else if (consent === "declined") {
-        checkConsent.value = false;
     } else {
-        checkConsent.value = null;
+        checkConsent.value = false;
+        clearAllStorageAndCookies();
     }
 }
 function deactivateGoogleAnalytics() {
@@ -66,6 +75,9 @@ function activateGoogleAnalytics() {
 
 onMounted(() => {
     checkCookieConsent();
+    if (!getCookieConsent()) {
+        clearAllStorageAndCookies();
+    }
 });
 </script>
 
