@@ -33,11 +33,13 @@
         </div>
         <div class="form-group" style="flex-direction: row">
           <input type="checkbox" id="privacy" v-model="formData.privacyAccepted" required style="width: 20px; height: 20px; margin-right: 10px" />
-          <label for="privacy">  <RouterLink class="six" to="/confidentialite" target="_blank">
+          <label for="privacy">  
+          <RouterLink class="six" to="/confidentialite" target="_blank">
               {{ $t("contact.Form.privacy") }} 
             </RouterLink> {{ $t("concours.form.politics1") }} <RouterLink class="six" to="/concourspolitique" target="_blank">
               {{ $t("concours.form.politics") }}
-            </RouterLink> {{ $t("concours.form.politics2") }} *</label>
+            </RouterLink> {{ $t("concours.form.politics2") }} *
+          </label>
         </div>
 
                 <p>* {{ $t("concours.form.required") }}</p>
