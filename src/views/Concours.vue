@@ -241,7 +241,7 @@ border-radius: 16px;
   padding: 0.8rem;
 
   background: #fff;
-  color: #6a3636;
+  color: #222221;
   border: 2px solid#fff;
   border-radius: 8px;
   font-size: 1.1rem;
