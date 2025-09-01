@@ -129,7 +129,8 @@
             },
             "step3": {
                 "title": "Étape 3 : Remplissez le formulaire",
-                "description": "Un tirage au sort sera effectué parmi les bonnes réponses."
+                "description": "Un tirage au sort sera effectué parmi les bonnes réponses. ",
+                "Newsletter": "Une fois le formulaire envoyé, vous recevrez un mail qui indique qu'il faudra confirmer votre mail, n'oubliez pas cette étape afin de valider votre inscription au concours."
             }
         }
     },

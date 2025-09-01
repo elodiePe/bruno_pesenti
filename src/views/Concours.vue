@@ -65,6 +65,7 @@
     <div class="step">
         <h2>{{ $t("concours.steps.step3.title") }}</h2>
         <p>{{ $t("concours.steps.step3.description") }}</p>
+        <p>{{ $t("concours.steps.step3.Newsletter") }}</p>
     </div>
 
 

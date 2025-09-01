@@ -129,7 +129,8 @@
             },
             "step3": {
                 "title": "Fase 3: Compila il modulo",
-                "description": "Un'estrazione a sorte sarà effettuata tra le risposte corrette."
+                "description": "Un'estrazione a sorte sarà effettuata tra le risposte corrette.",
+                "Newsletter": "Una volta inviato il modulo, riceverai un'email che indica che dovrai confermare la tua email. Non dimenticare questo passaggio per convalidare la tua partecipazione al concorso."
             }
         }
     },

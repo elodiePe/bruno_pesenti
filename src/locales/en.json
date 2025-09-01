@@ -129,7 +129,9 @@
             },
             "step3": {
                 "title": "Step 3: Fill out the form",
-                "description": "A draw will be made among the correct answers."
+                "description": "A draw will be made among the correct answers.",
+                                "Newsletter": "Once the form is submitted, you will receive an email indicating that you need to confirm your email. Don't forget this step to validate your entry in the contest."
+
             }
         }
     },
