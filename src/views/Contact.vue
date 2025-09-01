@@ -135,7 +135,7 @@ const errorMessage = ref("");
 const successNewsletter = ref("");
 function sendEmail() {
   const url =
-    "https://script.google.com/macros/s/AKfycbx5WQsbUU1y0VLMkc4xvTouayxvDJTHje_tvtxAu9vIzRxptY1qgshOXQ8eHme4VNdkbQ/exec"; // Remplace par ton UR
+    "https://script.google.com/macros/s/AKfycbyGWKNPnqnWfytNKMg4QP5MAb4Voz9lIXAKh8I7aVer7rjpFCI5seFnFB5wlLcQPb_aww/exec"; // Remplace par ton UR
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -145,7 +145,9 @@ function sendEmail() {
       formData.value.email
     )}&Message=${encodeURIComponent(
       formData.value.message
-    )}&Phone=${encodeURIComponent(formData.value.phone)}`,
+    )}&Phone=${encodeURIComponent(
+      formData.value.phone ? formData.value.phone : "Aucun numéro de téléphone"
+    )}`,
   })
     .then((res) => {
       if (!res.ok) {

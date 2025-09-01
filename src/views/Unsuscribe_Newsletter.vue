@@ -45,7 +45,7 @@ function handleSubmit() {
   errorMessage.value = "";
   successMessage.value = "";
   const url =
-    "https://script.google.com/macros/s/AKfycbx5WQsbUU1y0VLMkc4xvTouayxvDJTHje_tvtxAu9vIzRxptY1qgshOXQ8eHme4VNdkbQ/exec"; // Remplace par ton URL
+    "https://script.google.com/macros/s/AKfycbytYo4kQ_R3YmyVTd-_IW2Mpv7MVschOF0Uxh6dGrZqNl461LSK552v1st9QXCbSm3xZg/exec"; // Remplace par ton URL
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },

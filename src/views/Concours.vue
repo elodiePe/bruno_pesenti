@@ -2,7 +2,8 @@
   <div class="boxes">
       <div class="box">
       <h1>{{ $t("concours.title") }}</h1>
-      <p>{{ $t("concours.description") }}</p>
+          <!-- <p >{{ $t("concours.dates") }}</p> -->
+      <p v-html="$t('concours.description') + ' - ' + $t('concours.dates')"></p>
       <p>{{ $t("concours.rules") }}</p>
               <button
                 type="button"
@@ -93,7 +94,7 @@ const formData = ref({
 
 function sendEmail() {
   const url =
-    "https://script.google.com/macros/s/AKfycbxn1PunObmDtZcwfyNYUNL1IaRuRhRRp9i7gVGToZTohXwL6fYxuqfh9RV7CbzmNf49OA/exec"; // Remplace par ton URL
+    "https://script.google.com/macros/s/AKfycbyGWKNPnqnWfytNKMg4QP5MAb4Voz9lIXAKh8I7aVer7rjpFCI5seFnFB5wlLcQPb_aww/exec"; // Remplace par ton URL
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },

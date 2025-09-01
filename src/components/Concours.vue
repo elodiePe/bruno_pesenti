@@ -3,13 +3,15 @@
     <div class="banner-content">
         <div>
     <h1>{{ $t("concours.title") }}</h1>
-    <p>{{ $t("concours.banner_description") }}</p>
+
+    <p >{{ $t("concours.banner_description") }}</p>
+
         </div>
 
 
-    <button class="submit-btn">
-      <RouterLink to="/concours">{{ $t("concours.cta") }}</RouterLink>
-    </button>
+ 
+      <RouterLink  class="submit-btn" to="/concours">{{ $t("concours.cta") }}</RouterLink>
+    
     </div>
         <img src="../assets/img/concours.png" alt=""></img>
 
@@ -17,6 +19,7 @@
   </div>
 </template>
 <style>
+
 .banner-content {
 display: flex;
 flex-direction: column;
@@ -53,28 +56,26 @@ gap: 1rem;
   width: 40%;
   padding: 0.8rem;
   background: #ffffff;
-  color: #deb887;
-  border: #deb887;
+  color: #222221;
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   margin-top: 0.5rem;
-  border: 2px solid #fff;
-}
-.submit-btn a {
-  color: #000000 !important;
+  border: 2px solid #ea9839;
+  text-align: center;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .submit-btn:hover {
-background: #ea9839;
-border: 2px solid #fff;
+  background: #ea9839;
+  border: 2px solid #fff;
   color: #ffffff;
 }
-.submit-btn:hover a {
-  color: #ffffff !important;
-}
+
 
 @media (max-width: 1050px) {
     .banner-content {
@@ -105,8 +106,8 @@ text-align: center;
 }
 
 .submit-btn {
-  width: 100%;
-  border: 2px solid #fff;
+  width: 93%;
+  border: 2px solid #ea9839;
 
 }
 
