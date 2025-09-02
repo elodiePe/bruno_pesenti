@@ -65,7 +65,7 @@
             required
           />
           <label for="privacy">
-            <RouterLink class="six" to="/confidentialite" target="_blank">
+            <RouterLink class="six" to="/confidentialite">
               {{ $t("contact.Form.privacy") }} *
             </RouterLink>
           </label>
