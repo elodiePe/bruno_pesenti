@@ -54,6 +54,10 @@
         "atelier": {
             "title": "My workshop",
             "description": "Looking for a piece, a watch or something else related to antiques? Or your watch no longer works? Come see the workshop! <br> <gr>My workshop is closed until mid-January!</gr> <br /> I am located in Geneva, at <gr>Rue des Corps-Saints 10, 1201 Geneva.</gr>"
+        },
+        "information": {
+            "title": "Important Information",
+            "description": "The workshop is closed until mid-January 2026. For any requests, please contact me by email or phone. Thank you for your understanding."
         }
     },
     "exposition": {

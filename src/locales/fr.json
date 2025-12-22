@@ -54,6 +54,10 @@
         "atelier": {
             "title": "Mon atelier",
             "description": "Vous cherchez une pièce, une montre ou autre chose liée aux antiquités ? Ou votre montre ne fonctionne plus ? Venez voir l'atelier ! <br> <gr>Mon atelier est fermé jusqu'à mi-janvier !</gr> <br /> Je suis situé à Genève, au <gr>Rue des Corps-Saints 10, 1201 Genève.</gr>"
+        },
+        "information":{
+            "title": "Information importante ",
+            "description": "L'atelier est fermé jusqu'à mi-janvier 2026. Pour toute demande, veuillez me contacter par e-mail ou par téléphone. Merci de votre compréhension."
         }
     },
     "exposition": {

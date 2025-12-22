@@ -89,9 +89,9 @@ onUnmounted(() => {
         <!-- <li class="navText">
         <RouterLink class="six" to="/blog">{{ $t('navigation.blog') }}</RouterLink>
       </li> -->
-         <li class="navText">
+         <!-- <li class="navText">
         <RouterLink class="six" to="/concours">{{ $t('navigation.concours') }}</RouterLink>
-      </li>
+      </li> -->
       <li class="navText">
         <select @change="changeLanguage($event.target.value)" :value="locale" >
           <option value="en">{{ $t('navigation.language.english') }}</option>

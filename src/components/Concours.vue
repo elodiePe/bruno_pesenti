@@ -2,18 +2,18 @@
   <div class="banner">
     <div class="banner-content">
         <div>
-    <h1>{{ $t("concours.title") }}</h1>
+    <h1>{{ $t("home.information.title") }}</h1>
 
-    <p >{{ $t("concours.banner_description") }}</p>
+    <p >{{ $t("home.information.description") }}</p>
 
         </div>
 
 
  
-      <RouterLink  class="submit-btn" to="/concours">{{ $t("concours.cta") }}</RouterLink>
+   
     
     </div>
-        <img src="../assets/img/concours.png" alt=""></img>
+     
 
 
   </div>
@@ -33,20 +33,13 @@ gap: 1rem;
     color: #ffffff;
     margin-bottom: 0rem;
 }
-.banner img {
-    width: 20%;
-    height: auto;
-    display: block;
-    object-fit: contain;
 
-    /* margin-top: 1rem; */
-}
 .banner {
     gap: 2rem;
     width: 100%;
     padding: 16px;
     /* Utilise un dégradé linéaire pour séparer la couleur par une diagonale */
-    background: linear-gradient(175deg, #ea9839 65%, #fff 50%);
+    background:  #ea9839 65%;
     display: flex;
     justify-content: center;
     text-align: center;

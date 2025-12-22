@@ -54,7 +54,12 @@
         "atelier": {
             "title": "Il mio laboratorio",
             "description": "Stai cercando un pezzo, un orologio o qualcos'altro legato alle antichità? O il tuo orologio non funziona più? Vieni a visitare il laboratorio! <br> <gr>Il mio laboratorio è chiuso fino a metà gennaio!</gr> <br /> Mi trovo a Ginevra, in <gr>Rue des Corps-Saints 10, 1201 Ginevra.</gr>"
+        },
+         "information":{
+            "title": "Informazioni importanti",
+            "description": "Il laboratorio è chiuso fino a metà gennaio 2026. Per qualsiasi richiesta, contattami via e-mail o telefono. Grazie per la tua comprensione."
         }
+        
     },
     "exposition": {
         "title": "Esposizione",
