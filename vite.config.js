@@ -23,8 +23,8 @@ function generateDuplicateIndexHtmlPlugin() {
         '/:lang(fr|en|it)?/desinscriptionVerification',
         '/:lang(fr|en|it)?/blog',
         '/:lang(fr|en|it)?/confidentialite',
-        '/:lang(fr|en|it)?/concourspolitique',
-        '/:lang(fr|en|it)?/concours',
+        // '/:lang(fr|en|it)?/concourspolitique',
+        // '/:lang(fr|en|it)?/concours',
         '/:lang(fr|en|it)?/:pathMatch(.*)*',
         
       ];

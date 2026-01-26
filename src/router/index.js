@@ -84,17 +84,17 @@ const routes = [
     path: "/:lang(fr|en|it)?/cookies",
     name: "Cookies",
     component: Cookies,
-  },
-    {
-    path: "/:lang(fr|en|it)?/concours",
-    name: "Concours",
-    component: Concours,
-  },
-      {
-    path: "/:lang(fr|en|it)?/concourspolitique",
-    name: "ConfidentConcours",
-    component: ConfidentConcours,
   }
+  //   {
+  //   path: "/:lang(fr|en|it)?/concours",
+  //   name: "Concours",
+  //   component: Concours,
+  // },
+  //     {
+  //   path: "/:lang(fr|en|it)?/concourspolitique",
+  //   name: "ConfidentConcours",
+  //   component: ConfidentConcours,
+  // }
 ];
 
 const router = createRouter({
