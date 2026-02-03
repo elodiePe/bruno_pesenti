@@ -11,30 +11,52 @@ function generateDuplicateIndexHtmlPlugin() {
     apply: 'build',
     writeBundle() {
       const indexPath = path.resolve(__dirname, 'dist/index.html');
-      const routes = [
-        '/:lang(fr|en|it)?/', 
-        '/:lang(fr|en|it)?/cookies', 
-        '/:lang(fr|en|it)?/catalogue', 
-        '/:lang(fr|en|it)?/contact', 
-        '/:lang(fr|en|it)?/cabinotiers', 
-        '/:lang(fr|en|it)?/exposition',
-        '/:lang(fr|en|it)?/verification',
-        '/:lang(fr|en|it)?/desinscription',
-        '/:lang(fr|en|it)?/desinscriptionVerification',
-        '/:lang(fr|en|it)?/blog',
-        '/:lang(fr|en|it)?/confidentialite',
-        // '/:lang(fr|en|it)?/concourspolitique',
-        // '/:lang(fr|en|it)?/concours',
-        '/:lang(fr|en|it)?/:pathMatch(.*)*',
-        
+      
+      // Routes statiques
+      const staticRoutes = [
+        '',  // Root
+        '/cookies', 
+        '/catalogue', 
+        '/contact', 
+        '/cabinotiers', 
+        '/exposition',
+        '/verification',
+        '/desinscription',
+        '/desinscriptionVerification',
+        '/blog',
+        '/confidentialite',
+        '/produits',
+        '/cart',
+        '/payment-options',
       ];
-      routes.forEach(route => {
-        const lang = route.match(/:lang\((.*?)\)/)[1].split('|');
-        lang.forEach(l => {
+      
+      const languages = ['fr', 'en', 'it'];
+      
+      // Générer les pages statiques pour chaque langue
+      staticRoutes.forEach(route => {
+        languages.forEach(lang => {
           const indexHtml = fs.readFileSync(indexPath, 'utf-8');
-          const outputPath = path.resolve(__dirname, `dist/${l}${route.replace('/:lang(fr|en|it)?', '')}/index.html`);
+          const outputPath = path.resolve(__dirname, `dist/${lang}${route}/index.html`);
           fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-          fs.writeFileSync(outputPath, indexHtml.replace('<html lang="fr">', `<html lang="${l}">`));
+          fs.writeFileSync(outputPath, indexHtml.replace('<html lang="fr">', `<html lang="${lang}">`));
+        });
+      });
+      
+      // Routes dynamiques : créer un fichier générique pour les pattern dynamiques
+      const dynamicPatterns = [
+        '/produits/:id',
+        '/blog/:id',
+      ];
+      
+      // Pour les routes dynamiques, on crée un fallback dans les dossiers parent
+      dynamicPatterns.forEach(pattern => {
+        languages.forEach(lang => {
+          const baseRoute = pattern.split('/:')[0];
+          const indexHtml = fs.readFileSync(indexPath, 'utf-8');
+          // Crée un fichier generic _id.html ou index.html pour les routes dynamiques
+          const outputPath = path.resolve(__dirname, `dist/${lang}${baseRoute}/_id/index.html`);
+          fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+          fs.writeFileSync(outputPath, indexHtml.replace('<html lang="fr">', `<html lang="${lang}">`));
         });
       });
     },

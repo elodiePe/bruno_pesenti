@@ -82,7 +82,10 @@ onUnmounted(() => {
       <li class="navText">
         <RouterLink class="four" to="/catalogue">{{ $t('navigation.catalogue') }}</RouterLink>
       </li>
-    
+
+          <li class="navText">
+        <RouterLink class="six" to="/produits">{{ $t('navigation.produits') }}</RouterLink>
+      </li>
       <li class="navText">
         <RouterLink class="five" to="/contact">{{ $t('navigation.contact') }}</RouterLink>
       </li>

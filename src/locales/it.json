@@ -29,6 +29,7 @@
         "cabinotiers": "Cabinotiers",
         "catalogue": "Catalogo",
         "contact": "Contatto",
+        "produits": "Prodotti",
         "concours": "Concorso",
         "language": {
             "french": "Français",
@@ -165,6 +166,120 @@
             "error": "Si è verificato un errore durante l'invio del tuo messaggio. Riprova più tardi."
         }
     },
+    "products": {
+        "title": "I Nostri Prodotti",
+        "searchPlaceholder": "Cerca prodotti...",
+        "loading": "Caricamento prodotti...",
+        "addToCart": "Aggiungi al carrello",
+        "inCart": "Nel carrello",
+        "seeCart": "Vedi carrello",
+        "notAvailable": "Non disponibile",
+        "previous": "Precedente",
+        "next": "Successivo",
+        "page": "Pagina",
+        "of": "di",
+        "noProducts": "Nessun prodotto trovato",
+        "backToProducts": "Torna ai prodotti",
+        "price": "Prezzo",
+        "ref": "Rif",
+        "contact": "Contatto",
+        "loadingDetails": "Caricamento dettagli prodotto...",
+        "notFound": "Prodotto non trovato"
+    },
+    "cart": {
+        "title": "Carrello",
+        "backToProducts": "Torna ai prodotti",
+        "remove": "Rimuovi",
+        "orderSummary": "Riepilogo dell'ordine",
+        "total": "Totale",
+        "continue": "Continua",
+        "empty": "Il tuo carrello è vuoto",
+        "continueShopping": "Continua a fare acquisti",
+        "termsLabel": "Comprendo e accetto le condizioni",
+        "termsDescription": "I prodotti possono essere ritirati solo in laboratorio su appuntamento. Il pagamento è accettato solo in contanti."
+    },
+    "payment": {
+        "reservationTitle": "Prenota i tuoi prodotti",
+        "reservationFormTitle": "Modulo di prenotazione",
+        "backToCart": "Torna al carrello",
+        "emailLabel": "Indirizzo e-mail",
+        "emailPlaceholder": "tuo.email@esempio.com",
+        "reservationNameLabel": "Nome",
+        "reservationNamePlaceholder": "Inserisci il tuo nome",
+        "orderSummary": "Riepilogo dell'ordine",
+        "total": "Totale",
+        "subtotal": "Subtotale",
+        "shipping": "Spedizione",
+        "shippingCost": "Costo di spedizione",
+           "termsAccept": "Accetto le condizioni di prenotazione",
+
+        "termsDescription": "Prenotando questi prodotti, capisco che:",
+        "terms1": "I prodotti sono prenotati per 2 settimane dalla data di prenotazione",
+        "terms2": "Riceverai un'email di promemoria 30 minuti prima della scadenza della prenotazione",
+        "terms3": "I prodotti prenotati non saranno disponibili per gli altri clienti",
+        "terms4": "Puoi richiedere un'estensione della prenotazione contattandoci",
+        "reserveNow": "Prenota ora",
+        "reserving": "Elaborazione della prenotazione...",
+        "reservationSuccess": "Prenotazione riuscita! Sarai reindirizzato a breve.",
+        "reservationError": "Si è verificato un errore durante l'elaborazione della tua prenotazione. Per favore riprova.",
+        "deliveryModeTitle": "Metodo di consegna",
+        "deliveryModeDescription": "Scegli come desideri ricevere il tuo ordine",
+        "deliveryTypeLabel": "Tipo di prenotazione",
+        "pickupMode": "🏪 Ritiro in laboratorio",
+        "pickupDescription": "Ritira il tuo ordine in laboratorio con pagamento in contanti",
+        "pickup": {
+            "title": "Ritiro in laboratorio",
+            "description": "Pagamento in contanti in loco"
+        },
+        "deliveryMode": "📦 Consegna in Svizzera",
+        "deliveryDescription": "Fatti consegnare il tuo ordine a casa tua",
+        "delivery": {
+            "title": "Consegna in Svizzera",
+            "description": "Pagamento tramite bonifico o Twint + costo di spedizione"
+        },
+        "shippingAddressTitle": "Indirizzo di consegna",
+        "shippingAddressDescription": "Inserisci l'indirizzo dove desideri ricevere il tuo ordine",
+        "firstNameLabel": "Nome",
+        "lastNameLabel": "Cognome",
+        "streetLabel": "Via",
+        "streetNumberLabel": "Numero",
+        "postalCodeLabel": "Codice postale",
+        "cityLabel": "Città",
+        "cantonLabel": "Cantone",
+        "phoneLabel": "Telefono",
+        "postalCodeError": "Codice postale non valido. Deve essere tra 1000 e 9999",
+        "fieldRequired": "Questo campo è obbligatorio",
+        "calculatingShipping": "Calcolo in corso...",
+        "paymentMethodLabel": "Metodo di pagamento",
+        "instructionsTitle": "Istruzioni di pagamento",
+         "instructionPayment1": "Dopo la convalida della tua prenotazione, riceverai un'email con le istruzioni per il pagamento.",
+        "instructionPayment2": "Il tuo ordine sarà spedito una volta ricevuto il pagamento.",
+        "reference": "Riferimento",
+        "paymentMethodsTitle": "Metodi di pagamento",
+        "paymentMethodsDescription": "Scegli il tuo metodo di pagamento preferito per completare la prenotazione dopo l'approvazione.",
+        "bankTransfer": {
+            "title": "Carta di credito o debito",
+
+            "description": "Trasferisci l'importo direttamente sul nostro conto bancario.",
+            "accountName": "Nome del conto"
+        },
+        "cash": {
+            "title": "Pagamento in contanti",
+            "description": "Paga in contanti quando ritiri il tuo ordine in laboratorio."
+        },
+        "twint": {
+            "title": "TWINT",
+            "description": "Paga rapidamente e in sicurezza con TWINT.",
+            "instructions": "Dopo la convalida, riceverai un'email con le istruzioni Twint e il numero di telefono per il pagamento."
+        },
+        "pickupInfoTitle": "🏪 Ritiro in laboratorio",
+        "pickupInfo": "Prenota i tuoi articoli e ritirali in laboratorio. Pagamento in contanti in loco.",
+        "deliveryInfoTitle": "📦 Consegna",
+        "deliveryInfo": "Consegna solo in Svizzera. I costi di spedizione sono calcolati in base al peso.",
+        "paymentInfoTitle": "💳 Pagamenti accettati",
+        "terms3pickup": "Pagamento in contanti quando ritiri in laboratorio",
+        "terms3delivery": "Il pagamento deve essere effettuato entro 48 ore per convalidare l'ordine"
+    },
     "Newsletter": {
         "unsubscribing": {
             "title": "Annulla l'iscrizione alla newsletter",
@@ -197,5 +312,19 @@
             "errorMessage": "Impossibile verificare il tuo account. Controlla il codice e la tua e-mail!",
             "errorTechnique": "Si è verificato un errore tecnico. Riprova più tardi."
         }
+    },
+    "shipping": {
+        "addressTitle": "Indirizzo di consegna",
+        "firstName": "Nome",
+        "lastName": "Cognome",
+        "street": "Via",
+        "number": "Numero",
+        "postalCode": "Codice postale",
+        "city": "Città",
+        "canton": "Cantone",
+        "selectCanton": "Seleziona...",
+        "phone": "Telefono",
+        "swissOnly": "Consegna solo in Svizzera",
+        "postalCodeError": "Codice postale non valido. Deve essere tra 1000 e 9999"
     }
 }

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annonce du Gagnant - Bruno Pesenti</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+        :root {
+            --brand-color: #ea9839;
+            --dark-text: #1a1a1a;
+            --light-bg: #fdfdfd;
+            --white: #ffffff;
+            --soft-gray: #f8f8f8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--dark-text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: #f4f4f4;
+            padding-bottom: 40px;
+        }
+
+        .main-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .banner {
+            background-color: var(--brand-color);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            color: var(--white);
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .banner .subtitle {
+            color: var(--white);
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: 1px;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px 35px;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--brand-color);
+            font-size: 24px;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        .solution-box {
+            background-color: var(--soft-gray);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px dashed var(--brand-color);
+        }
+
+        .solution-number {
+            display: block;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--brand-color);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .announcement-card {
+            background-color: #fffaf5;
+            border-left: 5px solid var(--brand-color);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        /* Styles du Bon de Réduction */
+        .coupon-container {
+            margin: 40px 0;
+            border: 2px dashed var(--brand-color);
+            border-radius: 12px;
+            padding: 30px;
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        .coupon-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--brand-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .coupon-value {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--dark-text);
+            margin: 15px 0;
+        }
+
+        .coupon-instruction {
+            font-size: 14px;
+            color: #555;
+            font-style: italic;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: var(--brand-color);
+            font-size: 18px;
+        }
+
+        .technical-section {
+            background-color: #1a1a1a;
+            color: #eee;
+            padding: 35px;
+            margin: 40px -35px -40px -35px;
+            text-align: left;
+        }
+
+        .technical-section h3 {
+            color: var(--brand-color);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin-top: 0;
+            text-transform: uppercase;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+
+        .technical-content {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .holiday-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--brand-color);
+            margin: 40px 0;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--brand-color);
+            color: var(--white) !important;
+            padding: 16px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .footer {
+            padding: 40px 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        @media screen and (max-width: 600px) {
+            .content { padding: 30px 20px; }
+            .banner h1 { font-size: 26px; }
+            .technical-section { margin: 40px -20px -30px -20px; padding: 25px; }
+        }
+
+        /* Style spécifique pour l'impression */
+        @media print {
+            .button, .banner { display: none; }
+            .wrapper { padding: 0; background: white; }
+            .main-container { box-shadow: none; border: none; }
+            .coupon-container { border: 2px solid black !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="main-container">
+            <div class="banner">
+                <h1>Bruno Pesenti</h1>
+                <div class="subtitle">Le Cabinotier</div>
+            </div>
+
+            <div class="content">
+                <h2>Merci de votre participation !</h2>
+                
+                <p>Le concours de la vitrine est désormais terminé. Vous avez été nombreux à tenter de deviner le nombre exact de garde-temps exposés.</p>
+
+                <!-- Section Solution -->
+                <div class="solution-box">
+                    <span class="solution-number">26</span>
+                    <p style="margin:0; font-weight:700; text-transform:uppercase; font-size:14px; letter-spacing:1px;">Montres mécaniques avec réveil</p>
+                    <p style="margin-top:10px; font-size:15px; font-style:italic;">C'était le nombre précis de pièces qu'il fallait trouver dans notre vitrine !</p>
+                </div>
+
+                <div class="announcement-card">
+                    <p>Le tirage au sort parmi les bonnes réponses a été effectué.</p>
+                    <p class="highlight">L'heureux(se) gagnant(e) sera contacté(e) personnellement par e-mail très prochainement pour recevoir son réveil Jaeger-LeCoultre.</p>
+                </div>
+
+                <!-- Section Bon de Réduction -->
+                <div class="coupon-container">
+                    <div class="coupon-title">Offre Exceptionnelle</div>
+                    <p style="margin:0;">Pour vous remercier de votre participation au concours :</p>
+                    <div class="coupon-value">-10%</div>
+                    <p style="margin:0; font-weight:700; text-transform:uppercase; letter-spacing:1px;">Sur votre prochain achat à l'Atelier</p>
+                    <div class="coupon-instruction">
+                        <strong>Pour l'utilisation :</strong> Veuillez imprimer cet e-mail et me le transmettre lors de votre paiement à l'Atelier.
+                    </div>
+                                       <div class="coupon-instruction">
+                        <strong>Valide jusqu'au 25 décembre 2026</strong>
+                    </div>
+                </div>
+
+                <a href="https://www.brunopesenti.ch" class="button">Découvrir l'Atelier</a>
+
+                <div class="holiday-message">
+                    <p class="holiday-text">✨ Belles fêtes de fin d'année ✨</p>
+                </div>
+
+                <!-- Section Technique Pédagogique -->
+                <div class="technical-section">
+                    <h3>La montre mécanique à réveil</h3>
+                    <div class="technical-content">
+                        <p>Véritable prouesse de micro-mécanique, la montre à réveil intègre une complication rare qui permet de programmer une sonnerie sonore à une heure précise.</p>
+                        <p><strong>Comment ça marche ?</strong> Contrairement à une montre classique, elle possède généralement deux barillets (ressorts) : l'un pour donner l'heure, l'autre dédié exclusivement à l'énergie de l'alarme.</p>
+                        <p>C'est une complication utilitaire historique, prisée des voyageurs bien avant l'ère du numérique.</p>
+                    </div>
+                </div>
+            </div>
+
+          
+        </div>
+    </div>
+</body>
+</html>

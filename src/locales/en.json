@@ -29,6 +29,7 @@
         "cabinotiers": "Cabinotiers",
         "catalogue": "Catalogue",
         "contact": "Contact",
+        "produits": "Products",
         "concours": "Contest",
         "language": {
             "french": "Français",
@@ -164,6 +165,95 @@
             "error": "An error occurred while sending your message. Please try again later."
         }
     },
+    "products": {
+        "title": "Our Products",
+        "searchPlaceholder": "Search products...",
+        "loading": "Loading products...",
+        "addToCart": "Add to Cart",
+        "inCart": "Inside cart",
+                "seeCart": "See Cart",
+
+        "notAvailable": "Not Available",
+        "previous": "Previous",
+        "next": "Next",
+        "page": "Page",
+        "of": "of",
+        "noProducts": "No products found",
+        "backToProducts": "Back to Products",
+        "price": "Price",
+        "ref": "Ref",
+        "contact": "Contact",
+        "loadingDetails": "Loading product details...",
+        "notFound": "Product not found"
+    },
+    "cart": {
+        "title": "Shopping Cart",
+        "backToProducts": "Back to Products",
+        "remove": "Remove",
+        "orderSummary": "Order Summary",
+        "total": "Total",
+        "continue": "Continue",
+        "empty": "Your cart is empty",
+        "continueShopping": "Continue Shopping",
+        "termsLabel": "I understand and accept the conditions",
+        "termsDescription": "Products can only be picked up at the workshop by appointment. Payment is accepted in cash only."
+    },
+    "payment": {
+        "reservationTitle": "Reserve Your Products",
+        "reservationFormTitle": "Reservation Form",
+        "backToCart": "Back to Cart",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "your.email@example.com",
+        "reservationNameLabel": "Name",
+        "reservationNamePlaceholder": "Enter your name",
+        "orderSummary": "Order Summary",
+        "total": "Total",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "shippingCost": "Shipping Cost",
+        "deliveryTypeLabel": "Reservation Type",
+        "paymentMethodLabel": "Payment Method",
+        "instructionsTitle": "Payment Instructions",
+         "instructionPayment1": "After validating your reservation, you will receive an email with payment instructions.",
+        "instructionPayment2": "Your order will be shipped once payment is received.",
+        "termsAccept": "I accept the reservation terms",
+        "termsDescription": "By reserving these products, I understand that:",
+        "terms1": "Products are reserved for 2 weeks from the reservation date",
+        "terms2": "You will receive a reminder email 30 minutes before the reservation expires",
+        "terms3": "Reserved products will not be available for other customers",
+        "terms3pickup": "Cash payment when picking up at the workshop",
+        "terms3delivery": "Payment must be made within 48 hours to validate the order",
+        "terms4": "You will receive a confirmation email with all the information",
+        "reserveNow": "Reserve Now",
+        "reserving": "Processing Reservation...",
+        "reservationSuccess": "Reservation successful! You will be redirected shortly.",
+        "reservationError": "An error occurred while processing your reservation. Please try again.",
+        "pickup": {
+            "title": "Store Pickup",
+            "description": "Cash payment on-site"
+        },
+        "delivery": {
+            "title": "Delivery in Switzerland",
+            "description": "Payment by bank transfer or Twint + shipping cost"
+        },
+        "paymentMethodsTitle": "Payment Methods",
+        "paymentMethodsDescription": "Choose your preferred payment method to complete your reservation after it is approved.",
+        "bankTransfer": {
+               "title": "Credit or Debit Card",
+
+            "description": "Transfer the amount directly to our bank account.",
+            "accountName": "Account Name"
+        },
+        "cash": {
+            "title": "Cash Payment",
+            "description": "Pay in cash when you pick up your order at the workshop."
+        },
+        "twint": {
+            "title": "TWINT",
+            "description": "Pay quickly and securely with TWINT.",
+            "instructions": "After validation, you will receive an email with Twint instructions and the phone number for payment."
+        }
+    },
     "Newsletter": {
         "unsubscribing": {
             "title": "Unsubscribe from the newsletter",
@@ -196,5 +286,19 @@
             "errorMessage": "Your account could not be verified. Check the code and your email!",
             "errorTechnique": "A technical error occurred. Please try again later."
         }
+    },
+    "shipping": {
+        "addressTitle": "Shipping Address",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "street": "Street",
+        "number": "Number",
+        "postalCode": "Postal Code",
+        "city": "City",
+        "canton": "Canton",
+        "selectCanton": "Select...",
+        "phone": "Phone",
+        "swissOnly": "Delivery in Switzerland only",
+        "postalCodeError": "Invalid postal code. Must be between 1000 and 9999"
     }
 }

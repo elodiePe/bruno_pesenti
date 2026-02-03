@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "emailjs-com": "^3.2.0",
+    "mongodb": "^7.0.0",
     "vue": "^3.5.13",
     "vue-i18n": "^11.1.1",
     "vue-router": "^4.5.0"

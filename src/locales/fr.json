@@ -28,6 +28,7 @@
         "exposition": "Exposition",
         "cabinotiers": "Cabinotiers",
         "catalogue": "Catalogue",
+        "produits": "Produits",
         "contact": "Contact",
         "concours": "Concours",
         "language": {
@@ -163,6 +164,92 @@
             "error": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard."
         }
     },
+    "products": {
+        "title": "Nos Produits",
+        "searchPlaceholder": "Rechercher des produits...",
+        "loading": "Chargement des produits...",
+        "addToCart": "Ajouter au panier",
+        "inCart": "Dans le panier",
+        "seeCart": "Voir le panier",
+        "notAvailable": "Non disponible",
+        "previous": "Précédent",
+        "next": "Suivant",
+        "page": "Page",
+        "of": "sur",
+        "noProducts": "Aucun produit trouvé",
+        "backToProducts": "Retour aux produits",
+        "price": "Prix",
+        "ref": "Réf",
+        "contact": "Contact",
+        "loadingDetails": "Chargement des détails du produit...",
+        "notFound": "Produit non trouvé"
+    },
+    "cart": {
+        "title": "Panier",
+        "backToProducts": "Retour aux produits",
+        "remove": "Retirer",
+        "orderSummary": "Récapitulatif de la commande",
+        "total": "Total",
+        "continue": "Continuer",
+        "empty": "Votre panier est vide",
+        "continueShopping": "Continuer vos achats",
+        "termsLabel": "Je comprends et j'accepte les conditions",
+        "termsDescription": "Les produits ne peuvent être retirés qu'à l'atelier sur rendez-vous. Le paiement s'effectue uniquement en espèces."
+    },
+    "payment": {
+        "reservationTitle": "Réservez vos produits",
+        "reservationFormTitle": "Formulaire de réservation",
+        "backToCart": "Retour au panier",
+        "emailLabel": "Adresse e-mail",
+        "emailPlaceholder": "votre.email@exemple.com",
+        "reservationNameLabel": "Nom",
+        "reservationNamePlaceholder": "Entrez votre nom",
+        "orderSummary": "Résumé de la commande",
+        "total": "Total",
+        "subtotal": "Sous-total",
+        "shipping": "Livraison",
+        "shippingCost": "Frais de livraison",
+        "deliveryTypeLabel": "Type de réservation",
+        "paymentMethodLabel": "Méthode de paiement",
+        "instructionsTitle": "Instructions de paiement",
+        "instructionPayment1": "Après validation de votre réservation, vous recevrez un e-mail avec les instructions de paiement.",
+        "instructionPayment2": "Votre commande sera envoyée une fois le paiement reçu.",
+        "termsAccept": "J'accepte les conditions de réservation",
+        "termsDescription": "En réservant ce(s) produit(s), je comprends que:",
+        "terms1": "Les produits sont réservés pendant 2 semaines à partir de la date de réservation",
+        "terms3": "Les produits réservés ne seront pas disponibles pour les autres clients",
+        "terms3pickup": "Paiement cash lors du retrait en magasin",
+        "terms3delivery": "Paiement à effectuer dans les 48h pour valider la commande",
+        "terms4": "Vous recevrez un email de confirmation avec toutes les informations",
+        "reserveNow": "Réserver maintenant",
+        "reserving": "Traitement de la réservation...",
+        "reservationSuccess": "Réservation réussie! Vous serez redirigé bientôt.",
+        "reservationError": "Une erreur s'est produite lors du traitement de votre réservation. Veuillez réessayer.",
+        "pickup": {
+            "title": "Retrait en magasin",
+            "description": "Paiement cash sur place"
+        },
+        "delivery": {
+            "title": "Livraison en Suisse",
+            "description": "Paiement par virement ou Twint + frais de livraison"
+        },
+        "paymentMethodsTitle": "Méthodes de paiement",
+        "paymentMethodsDescription": "Choisissez votre méthode de paiement préférée pour finaliser votre réservation après approbation.",
+        "bankTransfer": {
+            "title": "Carte de crédit ou débit",
+            "description": "Transférez le montant directement sur notre compte bancaire.",
+            "accountName": "Titulaire du compte"
+        },
+        "cash": {
+            "title": "Paiement en espèces",
+            "description": "Payez en espèces lors de la récupération de votre commande à l'atelier."
+        },
+        "twint": {
+            "title": "TWINT",
+            "description": "Payez rapidement et en toute sécurité avec TWINT.",
+            "instructions": "Après validation, vous recevrez un email avec les instructions Twint et le numéro de téléphone pour le paiement."
+        }
+    },
     "Newsletter": {
         "unsubscribing": {
             "title": "Se désabonner de la newsletter",
@@ -196,5 +283,19 @@
             "errorMessage": "Votre compte n'a pas pu être vérifié. Vérifiez le code et votre mail !",
             "errorTechnique": "Une erreur technique est survenue. Veuillez réessayer plus tard."
         }
+    },
+    "shipping": {
+        "addressTitle": "Adresse de livraison",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "street": "Rue",
+        "number": "Numéro",
+        "postalCode": "NPA (Code postal)",
+        "city": "Localité",
+        "canton": "Canton",
+        "selectCanton": "Sélectionner...",
+        "phone": "Téléphone",
+        "swissOnly": "Livraison uniquement en Suisse",
+        "postalCodeError": "Code postal invalide. Doit être entre 1000 et 9999"
     }
 }

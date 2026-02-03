@@ -3,6 +3,10 @@ import AccueilView from "../views/Accueil.vue";
 import Contact from "../views/Contact.vue";
 import Exposition from "../views/Exposition.vue";
 import CabinotierView from "../views/CabinotierView.vue";
+import Products from "../views/Products.vue";
+import ProductDetail from "../views/ProductDetail.vue";
+import Cart from "../views/Cart.vue";
+import PaymentOptions from "../views/PaymentOptions.vue";
 import Catalogue from "../views/Catalogue.vue";
 import NotFound from "../views/NotFound.vue";
 import Cookies from "../views/Cookies.vue";
@@ -13,6 +17,7 @@ import Unsuscribe_Newsletter from "../views/Unsuscribe_Newsletter.vue";
 import VerificationDesinscription from "../views/VerificationDesinscription.vue";
 import Concours from "../views/Concours.vue";
 import ConfidentConcours from "../views/ConfidentConcours.vue";
+import Admin from "../views/Admin.vue";
 const lang = localStorage.getItem("language") || "fr";
 
 const routes = [
@@ -77,6 +82,31 @@ const routes = [
     component: VerificationDesinscription,
   },
   {
+    path: `/:lang(fr|en|it)?/produits`,
+    name: "Products",
+    component: Products,
+  },
+  {
+    path: `/:lang(fr|en|it)?/produits/:id`,
+    name: "ProductDetail",
+    component: ProductDetail,
+  },
+  {
+    path: `/:lang(fr|en|it)?/cart`,
+    name: "Cart",
+    component: Cart,
+  },
+  {
+    path: `/:lang(fr|en|it)?/payment-options`,
+    name: "PaymentOptions",
+    component: PaymentOptions,
+  },
+  {
+    path: `/admin`,
+    name: "Admin",
+    component: Admin,
+  },
+  {
     name: "Cookies",
     component: Cookies,
   },
@@ -103,6 +133,12 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  // Skip the language check for admin route
+  if (to.path === '/admin') {
+    next();
+    return;
+  }
+  
   const { lang } = to.params;
   if (!lang) {
     next(`/${localStorage.getItem("language") || "fr"}${to.path}`);
