@@ -68,6 +68,16 @@ function generateDuplicateIndexHtmlPlugin() {
       } catch (error) {
         console.warn('Failed to generate dynamic product pages:', error);
       }
+
+      // Créer un fallback générique pour les IDs de produits non pré-générés
+      // Cela permet le rechargement des pages de produits créés après la build
+      languages.forEach(lang => {
+        const indexHtml = fs.readFileSync(indexPath, 'utf-8');
+        // Créer dist/{lang}/produits/_id/index.html comme fallback
+        const fallbackPath = path.resolve(__dirname, `dist/${lang}/produits/_id/index.html`);
+        fs.mkdirSync(path.dirname(fallbackPath), { recursive: true });
+        fs.writeFileSync(fallbackPath, indexHtml.replace('<html lang="fr">', `<html lang="${lang}">`));
+      });
     },
     generateBundle() {
       const distPath = path.resolve(__dirname, 'dist');

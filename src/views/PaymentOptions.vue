@@ -972,8 +972,6 @@ export default {
 }
 
 /* FORM ELEMENTS */
-
-/* FORM ELEMENTS */
 .form-group {
   display: flex;
   flex-direction: column;
