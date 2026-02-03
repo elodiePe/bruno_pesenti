@@ -1,4 +1,10 @@
-const API_BASE = 'http://localhost:5000/api';
+const DEFAULT_DEV_API = 'http://localhost:5000/api';
+const DEFAULT_PROD_API = 'https://api.brunopesenti.ch/api';
+
+const API_BASE = (
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.DEV ? DEFAULT_DEV_API : DEFAULT_PROD_API)
+).replace(/\/$/, '');
 
 export const api = {
   // Get all products
