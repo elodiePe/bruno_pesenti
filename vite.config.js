@@ -17,6 +17,7 @@ function generateDuplicateIndexHtmlPlugin() {
         '',  // Root
         '/cookies', 
         '/catalogue', 
+        '/admin',
         '/contact', 
         '/cabinotiers', 
         '/exposition',
@@ -43,12 +44,7 @@ function generateDuplicateIndexHtmlPlugin() {
       });
 
       // Route admin (sans préfixe de langue)
-      {
-        const indexHtml = fs.readFileSync(indexPath, 'utf-8');
-        const outputPath = path.resolve(__dirname, 'dist/admin/index.html');
-        fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-        fs.writeFileSync(outputPath, indexHtml);
-      }
+
       
       // Routes dynamiques : générer les pages produits avec les IDs réels
       try {

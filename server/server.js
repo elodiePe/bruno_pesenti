@@ -16,7 +16,7 @@ const app = express();
 
 // Middleware
 const allowedOrigins = process.env.NODE_ENV === 'production' 
-  ? (process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : ['https://www.brunopesenti.ch', 'https://brunopesenti.ch'])
+  ? (process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : ['https://www.brunopesenti.ch', 'https://brunopesenti.ch', 'https://api.brunopesenti.ch'])
   : ['http://localhost:5173', 'http://localhost:3000', 'http://localhost:4173'];
 
 app.use(cors({

@@ -102,7 +102,7 @@ const routes = [
     component: PaymentOptions,
   },
   {
-    path: `/admin`,
+    path: `/:lang(fr|en|it)?/admin`,
     name: "Admin",
     component: Admin,
   },
