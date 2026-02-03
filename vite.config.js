@@ -9,7 +9,7 @@ function generateDuplicateIndexHtmlPlugin() {
   return {
     name: 'duplicate-index-html',
     apply: 'build',
-    writeBundle() {
+    async writeBundle() {
       const indexPath = path.resolve(__dirname, 'dist/index.html');
       
       // Routes statiques
@@ -41,24 +41,37 @@ function generateDuplicateIndexHtmlPlugin() {
           fs.writeFileSync(outputPath, indexHtml.replace('<html lang="fr">', `<html lang="${lang}">`));
         });
       });
+
+      // Route admin (sans préfixe de langue)
+      {
+        const indexHtml = fs.readFileSync(indexPath, 'utf-8');
+        const outputPath = path.resolve(__dirname, 'dist/admin/index.html');
+        fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+        fs.writeFileSync(outputPath, indexHtml);
+      }
       
-      // Routes dynamiques : créer un fichier générique pour les pattern dynamiques
-      const dynamicPatterns = [
-        '/produits/:id',
-        '/blog/:id',
-      ];
-      
-      // Pour les routes dynamiques, on crée un fallback dans les dossiers parent
-      dynamicPatterns.forEach(pattern => {
-        languages.forEach(lang => {
-          const baseRoute = pattern.split('/:')[0];
-          const indexHtml = fs.readFileSync(indexPath, 'utf-8');
-          // Crée un fichier generic _id.html ou index.html pour les routes dynamiques
-          const outputPath = path.resolve(__dirname, `dist/${lang}${baseRoute}/_id/index.html`);
-          fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-          fs.writeFileSync(outputPath, indexHtml.replace('<html lang="fr">', `<html lang="${lang}">`));
+      // Routes dynamiques : générer les pages produits avec les IDs réels
+      try {
+        const productsUrl = process.env.PRODUCTS_SEED_URL || 'https://api.brunopesenti.ch/api/products';
+        const response = await fetch(productsUrl);
+        const json = await response.json();
+        const products = Array.isArray(json) ? json : (json?.data || []);
+
+        products.forEach(product => {
+          if (!product || !product._id) return;
+          languages.forEach(lang => {
+            const indexHtml = fs.readFileSync(indexPath, 'utf-8');
+            const outputPath = path.resolve(
+              __dirname,
+              `dist/${lang}/produits/${product._id}/index.html`
+            );
+            fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+            fs.writeFileSync(outputPath, indexHtml.replace('<html lang="fr">', `<html lang="${lang}">`));
+          });
         });
-      });
+      } catch (error) {
+        console.warn('Failed to generate dynamic product pages:', error);
+      }
     },
     generateBundle() {
       const distPath = path.resolve(__dirname, 'dist');

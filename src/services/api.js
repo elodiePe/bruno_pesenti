@@ -6,19 +6,42 @@ const API_BASE = (
   (import.meta.env.DEV ? DEFAULT_DEV_API : DEFAULT_PROD_API)
 ).replace(/\/$/, '');
 
+const normalizeProduct = (product) => {
+  if (!product || typeof product !== 'object') return product;
+  if (!product._id && product.id) {
+    return { ...product, _id: product.id };
+  }
+  return product;
+};
+
+const normalizeProductResponse = (json) => {
+  if (Array.isArray(json)) {
+    return { success: true, data: json.map(normalizeProduct) };
+  }
+  if (json && Array.isArray(json.data)) {
+    return { ...json, data: json.data.map(normalizeProduct) };
+  }
+  if (json && json.data) {
+    return { ...json, data: normalizeProduct(json.data) };
+  }
+  return json;
+};
+
 export const api = {
   // Get all products
   getProducts: async () => {
     const response = await fetch(`${API_BASE}/products`);
     if (!response.ok) throw new Error('Failed to fetch products');
-    return response.json();
+    const json = await response.json();
+    return normalizeProductResponse(json);
   },
 
   // Get single product
   getProduct: async (id) => {
     const response = await fetch(`${API_BASE}/products/${id}`);
     if (!response.ok) throw new Error('Failed to fetch product');
-    return response.json();
+    const json = await response.json();
+    return normalizeProductResponse(json);
   },
 
   // Create product (admin)
