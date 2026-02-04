@@ -7,23 +7,33 @@ import "./assets/main.css";
 // === CRITICAL: Clean up corrupted localStorage on app start ===
 function cleanupCorruptedStorage() {
   try {
-    const cartItem = localStorage.getItem('cart');
+    // List of keys that should be valid JSON
+    const jsonKeys = ['cart', 'bookmarks'];
     
-    // If cart exists and is not valid JSON, delete it
-    if (cartItem) {
-      const trimmed = cartItem.trim();
-      // Check if it looks like valid JSON array or object
-      if (!trimmed.startsWith('[') && !trimmed.startsWith('{')) {
-        console.warn('[Startup] Removing corrupted cart data:', cartItem);
-        localStorage.removeItem('cart');
-      } else {
-        // Try to parse it
-        try {
-          JSON.parse(cartItem);
-        } catch (e) {
-          console.warn('[Startup] Cart data is invalid JSON, removing:', e);
-          localStorage.removeItem('cart');
+    for (const key of jsonKeys) {
+      const item = localStorage.getItem(key);
+      
+      if (!item) continue; // Skip if empty
+      
+      try {
+        // Try to parse
+        const trimmed = item.trim();
+        
+        // Check if it looks like valid JSON
+        if ((!trimmed.startsWith('[') && !trimmed.startsWith('{')) || 
+            trimmed === '[]' && key === 'cart') {
+          // This is invalid or empty, remove it
+          console.warn(`[Startup] Removing ${key === 'cart' ? 'empty/corrupted' : 'invalid'} ${key}:`, item.substring(0, 50));
+          localStorage.removeItem(key);
+          continue;
         }
+        
+        // Try to actually parse it to verify validity
+        JSON.parse(trimmed);
+      } catch (parseError) {
+        // Parse failed - definitely corrupted
+        console.warn(`[Startup] Removing corrupted ${key} (parse failed):`, item.substring(0, 50));
+        localStorage.removeItem(key);
       }
     }
   } catch (error) {
@@ -31,7 +41,7 @@ function cleanupCorruptedStorage() {
   }
 }
 
-// Run cleanup before creating app
+// Run cleanup BEFORE creating app
 cleanupCorruptedStorage();
 
 const app = createApp(App);

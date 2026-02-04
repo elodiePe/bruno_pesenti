@@ -133,6 +133,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  // Handle redirect from 404.html FIRST
+  const redirect = to.query.redirect;
+  if (redirect && from.path === '/') {
+    // This is a redirect from 404.html
+    console.log('[Router] Handling 404 redirect:', redirect);
+    // Extract the actual path and navigate to it
+    const redirectPath = redirect.startsWith('/') ? redirect : '/' + redirect;
+    next(redirectPath);
+    return;
+  }
+  
   // Skip the language check for admin route
   if (to.path === '/admin') {
     next();
