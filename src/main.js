@@ -3,14 +3,36 @@ import App from "./App.vue";
 import router from "./router";
 import i18n from "./i18n";
 import "./assets/main.css";
-import { loadCart } from "./utils/localStorage.js";
 
-// Clean up corrupted cart on app start
-try {
-  loadCart(); // This will clean up if corrupted
-} catch (error) {
-  console.error("Error during localStorage cleanup:", error);
+// === CRITICAL: Clean up corrupted localStorage on app start ===
+function cleanupCorruptedStorage() {
+  try {
+    const cartItem = localStorage.getItem('cart');
+    
+    // If cart exists and is not valid JSON, delete it
+    if (cartItem) {
+      const trimmed = cartItem.trim();
+      // Check if it looks like valid JSON array or object
+      if (!trimmed.startsWith('[') && !trimmed.startsWith('{')) {
+        console.warn('[Startup] Removing corrupted cart data:', cartItem);
+        localStorage.removeItem('cart');
+      } else {
+        // Try to parse it
+        try {
+          JSON.parse(cartItem);
+        } catch (e) {
+          console.warn('[Startup] Cart data is invalid JSON, removing:', e);
+          localStorage.removeItem('cart');
+        }
+      }
+    }
+  } catch (error) {
+    console.error('[Startup] Error during storage cleanup:', error);
+  }
 }
+
+// Run cleanup before creating app
+cleanupCorruptedStorage();
 
 const app = createApp(App);
 

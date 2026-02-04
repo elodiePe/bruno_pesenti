@@ -96,7 +96,26 @@ export default {
       }
     },
     loadCart() {
-      this.cart = loadCart()
+      try {
+        // First, forcefully check and clean localStorage
+        const cartItem = localStorage.getItem('cart')
+        if (cartItem) {
+          const trimmed = cartItem.trim()
+          // If it doesn't look like valid JSON, remove it
+          if (!trimmed.startsWith('[') && !trimmed.startsWith('{')) {
+            console.warn('[Cart] Removing corrupted cart:', cartItem)
+            localStorage.removeItem('cart')
+            this.cart = []
+            return
+          }
+        }
+        // Use safe loader
+        this.cart = loadCart()
+      } catch (error) {
+        console.error('[Cart] Error loading cart:', error)
+        localStorage.removeItem('cart')
+        this.cart = []
+      }
     }
   },
   mounted() {

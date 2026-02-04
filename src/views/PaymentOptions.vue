@@ -445,7 +445,26 @@ export default {
   },
   methods: {
     loadCart() {
-      this.cart = loadCart()
+      try {
+        // First, forcefully check and clean localStorage
+        const cartItem = localStorage.getItem('cart')
+        if (cartItem) {
+          const trimmed = cartItem.trim()
+          // If it doesn't look like valid JSON, remove it
+          if (!trimmed.startsWith('[') && !trimmed.startsWith('{')) {
+            console.warn('[PaymentOptions] Removing corrupted cart:', cartItem)
+            localStorage.removeItem('cart')
+            this.cart = []
+            return
+          }
+        }
+        // Use safe loader
+        this.cart = loadCart()
+      } catch (error) {
+        console.error('[PaymentOptions] Error loading cart:', error)
+        localStorage.removeItem('cart')
+        this.cart = []
+      }
     },
     getProductImage(product) {
       return product.images && product.images.length > 0 ? product.images[0] : 'https://via.placeholder.com/80'
