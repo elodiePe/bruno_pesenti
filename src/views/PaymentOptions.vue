@@ -446,22 +446,19 @@ export default {
   methods: {
     loadCart() {
       try {
-        // First, forcefully check and clean localStorage
-        const cartItem = localStorage.getItem('cart')
-        if (cartItem) {
-          const trimmed = cartItem.trim()
-          // If it doesn't look like valid JSON, remove it
-          if (!trimmed.startsWith('[') && !trimmed.startsWith('{')) {
-            console.warn('[PaymentOptions] Removing corrupted cart:', cartItem)
-            localStorage.removeItem('cart')
-            this.cart = []
-            return
-          }
+        const rawCart = localStorage.getItem('cart')
+        
+        // If nothing in storage, start fresh
+        if (!rawCart) {
+          this.cart = []
+          return
         }
-        // Use safe loader
+        
+        // Parse it
         this.cart = loadCart()
       } catch (error) {
-        console.error('[PaymentOptions] Error loading cart:', error)
+        console.error('[PaymentOptions] Fatal error loading cart:', error)
+        // Clear and reset
         localStorage.removeItem('cart')
         this.cart = []
       }

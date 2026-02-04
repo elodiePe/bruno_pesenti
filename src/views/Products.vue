@@ -247,19 +247,6 @@ export default {
     },
     loadCart() {
       try {
-        // First, forcefully check and clean localStorage
-        const cartItem = localStorage.getItem('cart')
-        if (cartItem) {
-          const trimmed = cartItem.trim()
-          // If it doesn't look like valid JSON, remove it
-          if (!trimmed.startsWith('[') && !trimmed.startsWith('{')) {
-            console.warn('[Products] Removing corrupted cart:', cartItem)
-            localStorage.removeItem('cart')
-            this.cart = []
-            return
-          }
-        }
-        // Use safe loader
         this.cart = loadCart()
       } catch (error) {
         console.error('[Products] Error loading cart:', error)

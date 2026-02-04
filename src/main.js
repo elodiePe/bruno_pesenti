@@ -4,45 +4,58 @@ import router from "./router";
 import i18n from "./i18n";
 import "./assets/main.css";
 
-// === CRITICAL: Clean up corrupted localStorage on app start ===
-function cleanupCorruptedStorage() {
+// === ULTRA-AGGRESSIVE CLEANUP ===
+// This runs IMMEDIATELY before anything else
+(function() {
   try {
-    // List of keys that should be valid JSON
-    const jsonKeys = ['cart', 'bookmarks'];
+    console.log('[INIT] Starting aggressive localStorage cleanup');
     
-    for (const key of jsonKeys) {
-      const item = localStorage.getItem(key);
-      
-      if (!item) continue; // Skip if empty
-      
+    // Force clear all problematic keys
+    const keysToCheck = ['cart', 'bookmarks'];
+    
+    for (const key of keysToCheck) {
       try {
-        // Try to parse
-        const trimmed = item.trim();
+        const value = localStorage.getItem(key);
         
-        // Check if it looks like valid JSON
-        if ((!trimmed.startsWith('[') && !trimmed.startsWith('{')) || 
-            trimmed === '[]' && key === 'cart') {
-          // This is invalid or empty, remove it
-          console.warn(`[Startup] Removing ${key === 'cart' ? 'empty/corrupted' : 'invalid'} ${key}:`, item.substring(0, 50));
-          localStorage.removeItem(key);
+        if (!value) {
+          console.log(`[INIT] ${key} is empty, skipping`);
           continue;
         }
         
-        // Try to actually parse it to verify validity
-        JSON.parse(trimmed);
-      } catch (parseError) {
-        // Parse failed - definitely corrupted
-        console.warn(`[Startup] Removing corrupted ${key} (parse failed):`, item.substring(0, 50));
+        const trimmed = value.trim();
+        
+        // Check if it's valid JSON
+        let isValid = false;
+        try {
+          if ((trimmed.startsWith('{') || trimmed.startsWith('['))) {
+            const parsed = JSON.parse(trimmed);
+            // Additional validation
+            if (key === 'cart' && !Array.isArray(parsed)) {
+              throw new Error('Cart must be an array');
+            }
+            isValid = true;
+          }
+        } catch (e) {
+          isValid = false;
+        }
+        
+        if (!isValid) {
+          console.warn(`[INIT] Removing invalid ${key}:`, value.substring(0, 100));
+          localStorage.removeItem(key);
+        } else {
+          console.log(`[INIT] ${key} is valid`);
+        }
+      } catch (error) {
+        console.error(`[INIT] Error checking ${key}:`, error);
         localStorage.removeItem(key);
       }
     }
+    
+    console.log('[INIT] Cleanup complete');
   } catch (error) {
-    console.error('[Startup] Error during storage cleanup:', error);
+    console.error('[INIT] FATAL ERROR during cleanup:', error);
   }
-}
-
-// Run cleanup BEFORE creating app
-cleanupCorruptedStorage();
+})();
 
 const app = createApp(App);
 
