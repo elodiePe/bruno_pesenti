@@ -5,8 +5,36 @@
     <link rel="icon" href="/assets/favicon-DfCnVnGt.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bruno Pesenti</title>
-    <script type="module" crossorigin src="/assets/index-CT2jjeB0.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-whtFrBxX.css">
+    <!-- NUCLEAR CLEANUP - This runs FIRST before anything else -->
+    <script>
+      (function() {
+        try {
+          console.log('[HTML INIT] Cleaning corrupted localStorage');
+          
+          // Force remove cart if it's corrupted
+          const cart = localStorage.getItem('cart');
+          if (cart) {
+            const trimmed = cart.trim();
+            // If it's not valid JSON array/object, DELETE IT
+            if (trimmed === '10' || trimmed === '"10"' || !trimmed.startsWith('[') && !trimmed.startsWith('{')) {
+              console.warn('[HTML INIT] Removing corrupted cart:', trimmed);
+              localStorage.removeItem('cart');
+            } else {
+              try {
+                JSON.parse(trimmed);
+              } catch (e) {
+                console.warn('[HTML INIT] Cart JSON is invalid, removing:', e);
+                localStorage.removeItem('cart');
+              }
+            }
+          }
+        } catch (error) {
+          console.error('[HTML INIT] Error:', error);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-Hs7gPx_d.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-jKfTN_Fg.css">
   </head>
   <body>
     <div id="app"></div>
