@@ -103,6 +103,7 @@
 <script>
 import { RouterLink } from 'vue-router'
 import { api } from '../services/api.js'
+import { loadCart, saveCart } from '../utils/localStorage.js'
 
 export default {
   name: 'ProductDetail',
@@ -157,13 +158,12 @@ export default {
     addToCart(product) {
       if (!this.cart.some(item => item._id === product._id)) {
         this.cart.push({ ...product })
-        localStorage.setItem('cart', JSON.stringify(this.cart))
+        saveCart(this.cart)
         this.$emit('add-to-cart', product)
       }
     },
     loadCart() {
-      const savedCart = localStorage.getItem('cart')
-      this.cart = savedCart ? JSON.parse(savedCart) : []
+      this.cart = loadCart()
     }
   },
   mounted() {

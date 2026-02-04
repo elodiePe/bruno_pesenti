@@ -61,6 +61,7 @@
 
 <script>
 import { RouterLink } from 'vue-router'
+import { loadCart, saveCart } from '../utils/localStorage.js'
 
 export default {
   name: 'Cart',
@@ -91,12 +92,11 @@ export default {
       const index = this.cart.findIndex(item => item._id === productId)
       if (index > -1) {
         this.cart.splice(index, 1)
-        localStorage.setItem('cart', JSON.stringify(this.cart))
+        saveCart(this.cart)
       }
     },
     loadCart() {
-      const savedCart = localStorage.getItem('cart')
-      this.cart = savedCart ? JSON.parse(savedCart) : []
+      this.cart = loadCart()
     }
   },
   mounted() {

@@ -340,6 +340,8 @@
 import { RouterLink } from 'vue-router'
 import { api } from '../services/api.js'
 import ShippingAddressForm from '../components/ShippingAddressForm.vue'
+import emailjs from 'emailjs-com'
+import { loadCart, saveCart, clearCart } from '../utils/localStorage.js'
 
 export default {
   name: 'PaymentOptions',
@@ -443,8 +445,7 @@ export default {
   },
   methods: {
     loadCart() {
-      const savedCart = localStorage.getItem('cart')
-      this.cart = savedCart ? JSON.parse(savedCart) : []
+      this.cart = loadCart()
     },
     getProductImage(product) {
       return product.images && product.images.length > 0 ? product.images[0] : 'https://via.placeholder.com/80'
@@ -568,7 +569,7 @@ export default {
             (orderNumber !== 'N/A' ? ` (${orderNumber})` : '')
           
           // Clear cart after successful reservation
-          localStorage.setItem('cart', JSON.stringify([]))
+          clearCart()
           this.cart = []
           
           // Reset form

@@ -129,6 +129,7 @@
 <script>
 import { RouterLink } from 'vue-router'
 import { api } from '../services/api.js'
+import { loadCart, saveCart } from '../utils/localStorage.js'
 
 export default {
   name: 'Products',
@@ -245,11 +246,10 @@ export default {
       this.currentPage = 1 // Réinitialiser à la page 1
     },
     loadCart() {
-      const savedCart = localStorage.getItem('cart')
-      this.cart = savedCart ? JSON.parse(savedCart) : []
+      this.cart = loadCart()
     },
     updateLocalStorage() {
-      localStorage.setItem('cart', JSON.stringify(this.cart))
+      saveCart(this.cart)
     },
     onImageLoad(productId) {
       this.loadingImages[productId] = false
