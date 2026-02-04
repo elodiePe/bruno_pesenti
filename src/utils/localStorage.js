@@ -12,10 +12,18 @@ export function safeGetLocalStorage(key, defaultValue = null) {
     // Validate the string before parsing
     if (typeof item !== 'string') return defaultValue
     
+    // Check if it looks like JSON (starts with { or [)
+    const trimmed = item.trim()
+    if (!trimmed.startsWith('{') && !trimmed.startsWith('[')) {
+      console.warn(`[LocalStorage] Item "${key}" doesn't look like JSON, clearing it`)
+      localStorage.removeItem(key)
+      return defaultValue
+    }
+    
     const parsed = JSON.parse(item)
     return parsed
   } catch (error) {
-    console.error(`[LocalStorage Error] Failed to parse key "${key}":`, error)
+    console.error(`[LocalStorage Error] Failed to parse key "${key}":`, error, 'Value was:', localStorage.getItem(key))
     // Clear the corrupted data
     try {
       localStorage.removeItem(key)
@@ -49,6 +57,21 @@ export function safeSetLocalStorage(key, value) {
  */
 export function loadCart() {
   try {
+    // First check if cart exists and is valid
+    const cartItem = localStorage.getItem('cart')
+    
+    if (!cartItem) {
+      return []
+    }
+    
+    // Check if it looks like valid JSON
+    const trimmed = cartItem.trim()
+    if (!trimmed.startsWith('[') && !trimmed.startsWith('{')) {
+      console.warn('[Cart] Invalid cart data format, clearing')
+      localStorage.removeItem('cart')
+      return []
+    }
+    
     const cart = safeGetLocalStorage('cart', [])
     
     // Validate cart is an array
@@ -74,6 +97,12 @@ export function loadCart() {
     return validCart
   } catch (error) {
     console.error('[Cart] Error loading cart:', error)
+    // Clear corrupted cart
+    try {
+      localStorage.removeItem('cart')
+    } catch (e) {
+      console.error('[Cart] Failed to clear corrupted cart:', e)
+    }
     return []
   }
 }

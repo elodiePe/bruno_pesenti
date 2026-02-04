@@ -3,6 +3,14 @@ import App from "./App.vue";
 import router from "./router";
 import i18n from "./i18n";
 import "./assets/main.css";
+import { loadCart } from "./utils/localStorage.js";
+
+// Clean up corrupted cart on app start
+try {
+  loadCart(); // This will clean up if corrupted
+} catch (error) {
+  console.error("Error during localStorage cleanup:", error);
+}
 
 const app = createApp(App);
 
