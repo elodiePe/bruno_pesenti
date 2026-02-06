@@ -21,8 +21,8 @@
                 <h3 class="step-title">{{ $t('payment.emailLabel') || 'Informations de contact' }}</h3>
                 <span v-if="currentStep > 1" class="step-check">✓</span>
               </div>
-              <!-- <div class="step-content" v-show="currentStep === 1">
-                <div class="form-group">
+              <div class="step-content" v-show="currentStep === 1">
+                <!-- <div class="form-group">
                   <label for="email">{{ $t('payment.emailLabel') || 'Email' }} *</label>
                   <input 
                     id="email"
@@ -33,7 +33,7 @@
                     required
                     @input="validateStep1"
                   >
-                </div>
+                </div> -->
                 
                 <div class="form-group">
                   <label for="reservationName">{{ $t('payment.reservationNameLabel') || 'Nom complet' }} *</label>
@@ -56,7 +56,7 @@
                 >
                   Continuer
                 </button>
-              </div> -->
+              </div>
               <div class="step-summary" v-if="currentStep > 1">
                 <p>{{ reservationData.email }}</p>
                 <p>{{ reservationData.reservationName }}</p>
@@ -64,17 +64,17 @@
             </div>
 
             <div class="step-section" :class="{ 
-              active: currentStep === 1, 
-              completed: currentStep > 1,
-              collapsed: currentStep > 1,
-              disabled: currentStep < 1
+              active: currentStep === 2, 
+              completed: currentStep > 2,
+              collapsed: currentStep > 2,
+              disabled: currentStep < 2
             }">
               <div class="step-header" @click="currentStep > 2 && editStep(2)">
-                <div class="step-number">1</div>
+                <div class="step-number">2</div>
                 <h3 class="step-title">{{ $t('payment.deliveryTypeLabel') || 'Type de livraison' }}</h3>
-                <span v-if="currentStep > 1" class="step-check">✓</span>
+                <span v-if="currentStep > 2" class="step-check">✓</span>
               </div>
-              <div class="step-content" v-show="currentStep === 1">
+              <div class="step-content" v-show="currentStep === 2">
                 <div class="delivery-options">
                   <label class="delivery-option" :class="{ active: reservationData.deliveryType === 'pickup' }">
                     <input 
@@ -118,23 +118,23 @@
                   Continuer
                 </button>
               </div>
-              <div class="step-summary" v-if="currentStep > 1">
+              <div class="step-summary" v-if="currentStep > 2">
                 <p>{{ reservationData.deliveryType === 'pickup' ? '🏪 Retrait en magasin' : '📦 Livraison en Suisse' }}</p>
               </div>
             </div>
 
             <div v-if="reservationData.deliveryType === 'delivery'" class="step-section" :class="{ 
-              active: currentStep === 2, 
-              completed: currentStep > 2,
-              collapsed: currentStep > 2,
-              disabled: currentStep < 2
+              active: currentStep === 3, 
+              completed: currentStep > 3,
+              collapsed: currentStep > 3,
+              disabled: currentStep < 3
             }">
-              <div class="step-header" @click="currentStep > 2 && editStep(3)">
+              <div class="step-header" @click="currentStep > 3 && editStep(3)">
                 <div class="step-number">3</div>
                 <h3 class="step-title">{{ $t('shipping.addressTitle') || 'Adresse de livraison' }}</h3>
                 <span v-if="currentStep > 3" class="step-check">✓</span>
               </div>
-              <div class="step-content" v-show="currentStep === 2">
+              <div class="step-content" v-show="currentStep === 3">
                 <ShippingAddressForm 
                   v-model="reservationData.shippingAddress"
                   @update:modelValue="validateStep3"
@@ -174,7 +174,7 @@
                 <h3 class="step-title">{{ $t('payment.paymentMethodLabel') || 'Méthode de paiement' }}</h3>
                 <span v-if="currentStep > 4" class="step-check">✓</span>
               </div>
-              <div class="step-content" v-show="currentStep === 3">
+              <div class="step-content" v-show="currentStep === 4">
                 <div class="payment-method-options">
                   <label class="payment-option" :class="{ active: reservationData.paymentMethod === 'bank-transfer' }">
                     <input 
