@@ -6,7 +6,7 @@
         <h1>{{ $t('payment.reservationTitle') || 'Finaliser votre réservation' }}</h1>
       </div>
       
-      <div class="introduction payment-container">
+     <div class="introduction payment-container">
         <div class="payment-wrapper">
           
           <!-- LEFT SIDE - PROGRESSIVE FORM STEPS -->
