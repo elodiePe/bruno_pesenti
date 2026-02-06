@@ -148,7 +148,7 @@
                 <div v-if="step3Valid" class="shipping-price-display">
                   <div class="shipping-price-section">
                     <span>{{ $t('payment.shipping') || 'Frais de livraison' }}:</span>
-                    <span class="shipping-price-amount">{{ shippingCost.toFixed(2) }} CHF</span>
+                    <span class="shipping-price-amount">{{ formatCurrency(shippingCost) }} CHF</span>
                   </div>
                 </div>
                 
@@ -299,7 +299,7 @@
                   <img :src="getProductImage(item)" :alt="item.name" class="item-thumbnail">
                   <div class="item-info">
                     <span class="item-name">{{ item.title || item.name }}</span>
-                    <span class="item-price">{{ (item.price || 0).toFixed(2) }} CHF</span>
+                    <span class="item-price">{{ formatCurrency(item.price) }} CHF</span>
                   </div>
                 </div>
               </div>
@@ -308,13 +308,13 @@
 
               <div class="form-subtotal">
                 <span>{{ $t('payment.subtotal') || 'Sous-total' }}:</span>
-                <span class="subtotal-value">{{ cartTotal.toFixed(2) }} CHF</span>
+                <span class="subtotal-value">{{ formatCurrency(cartTotal) }} CHF</span>
               </div>
 
               <div v-if="reservationData.deliveryType === 'delivery'" class="form-shipping">
                 <div class="shipping-row">
                   <span>{{ $t('payment.shipping') || 'Frais de livraison' }}:</span>
-                  <span class="shipping-value">{{ shippingCost.toFixed(2) }} CHF</span>
+                  <span class="shipping-value">{{ formatCurrency(shippingCost) }} CHF</span>
                 </div>
                 <div v-if="shippingInfo.error" class="shipping-error">
                   {{ shippingInfo.error }}
@@ -325,7 +325,7 @@
 
               <div class="form-total">
                 <strong>{{ $t('payment.total') || 'Total' }}:</strong>
-                <strong class="total-value">{{ finalTotal.toFixed(2) }} CHF</strong>
+                <strong class="total-value">{{ formatCurrency(finalTotal) }} CHF</strong>
               </div>
             </div>
           </aside>
@@ -388,11 +388,11 @@ export default {
   },
   computed: {
     cartTotal() {
-      return this.cart.reduce((sum, item) => sum + (item.price || 0), 0)
+      return this.cart.reduce((sum, item) => sum + Number(item?.price || 0), 0)
     },
     totalWeight() {
       // Calculate total weight in grams
-      return this.cart.reduce((sum, item) => sum + (item.weight || 500), 0)
+      return this.cart.reduce((sum, item) => sum + Number(item?.weight || 500), 0)
     },
     finalTotal() {
       return this.cartTotal + this.shippingCost
@@ -444,6 +444,10 @@ export default {
     }
   },
   methods: {
+    formatCurrency(value) {
+      const numberValue = Number(value)
+      return Number.isFinite(numberValue) ? numberValue.toFixed(2) : '0.00'
+    },
     loadCart() {
       try {
         const rawCart = localStorage.getItem('cart')
