@@ -18,22 +18,22 @@
             }">
               <div class="step-header" @click="currentStep > 1 && editStep(1)">
                 <div class="step-number">1</div>
-                <h3 class="step-title">{{ $t('payment.emailLabel') || 'Informations de contact' }}</h3>
+                <h3 class="step-title">{{ $t('payment.contactInformation') || 'Informations de contact' }}</h3>
                 <span v-if="currentStep > 1" class="step-check">✓</span>
               </div>
               <div class="step-content" v-show="currentStep === 1">
-                <!-- <div class="form-group">
+                <div class="form-group">
                   <label for="email">{{ $t('payment.emailLabel') || 'Email' }} *</label>
                   <input 
                     id="email"
                     v-model="reservationData.email"
                     type="email"
-                    :placeholder="$t('payment.emailPlaceholder') || 'votre@email.com'"
+                    placeholder="votre@email.com"
                     class="form-input"
                     required
                     @input="validateStep1"
                   >
-                </div> -->
+                </div>
                 
                 <div class="form-group">
                   <label for="reservationName">{{ $t('payment.reservationNameLabel') || 'Nom complet' }} *</label>
@@ -41,7 +41,7 @@
                     id="reservationName"
                     v-model="reservationData.reservationName"
                     type="text"
-                    :placeholder="$t('payment.reservationNamePlaceholder') || 'Jean Dupont'"
+                    placeholder="Jean Dupont"
                     class="form-input"
                     required
                     @input="validateStep1"

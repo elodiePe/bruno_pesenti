@@ -201,6 +201,8 @@
         "reservationFormTitle": "Formulaire de réservation",
         "backToCart": "Retour au panier",
         "emailLabel": "Adresse e-mail",
+                "contactInformation": "Informations de contact",
+
         "emailPlaceholder": "votre.email@exemple.com",
         "reservationNameLabel": "Nom",
         "reservationNamePlaceholder": "Entrez votre nom",

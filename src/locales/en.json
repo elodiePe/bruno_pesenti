@@ -204,6 +204,7 @@
         "backToCart": "Back to Cart",
         "emailLabel": "Email Address",
         "emailPlaceholder": "your.email@example.com",
+        "contactInformation": "Contact Information",
         "reservationNameLabel": "Name",
         "reservationNamePlaceholder": "Enter your name",
         "orderSummary": "Order Summary",

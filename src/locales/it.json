@@ -203,6 +203,8 @@
         "reservationFormTitle": "Modulo di prenotazione",
         "backToCart": "Torna al carrello",
         "emailLabel": "Indirizzo e-mail",
+                "contactInformation": "Informazioni di contatto",
+
         "emailPlaceholder": "tuo.email@esempio.com",
         "reservationNameLabel": "Nome",
         "reservationNamePlaceholder": "Inserisci il tuo nome",
