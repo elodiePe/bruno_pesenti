@@ -7,10 +7,10 @@
         <h1>{{ $t('payment.reservationTitle') || 'Finaliser votre réservation' }}</h1>
       </div>
       
-     <div class="introduction payment-container">
+     <!-- <div class="introduction payment-container">
         <div class="payment-wrapper">
           
-          <div class="steps-container">
+        <div class="steps-container">
             
             <div class="step-section" :class="{ 
               active: currentStep === 1, 
@@ -64,7 +64,6 @@
               </div>
             </div>
 
-            <!-- STEP 2: Delivery Type -->
             <div class="step-section" :class="{ 
               active: currentStep === 2, 
               completed: currentStep > 2,
@@ -281,7 +280,7 @@
           </div>
           
 
-          <!-- <aside class="order-summary-sidebar">
+          <aside class="order-summary-sidebar">
             <div class="order-summary-card">
               <h3>{{ $t('payment.orderSummary') || 'Résumé de la commande' }}</h3>
               
@@ -319,9 +318,9 @@
                 <strong class="total-value">{{ formatCurrency(finalTotal) }} CHF</strong>
               </div>
             </div>
-          </aside> -->
+          </aside>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   
