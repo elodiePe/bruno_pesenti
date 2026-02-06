@@ -1,7 +1,6 @@
 <template>
   <div class="boxes">
     <div class="box">
-<h1>Options de paiement</h1>
       <div class="payment-header">
         <RouterLink to="/cart" class="back-link">← {{ $t('payment.backToCart') || 'Retour au panier' }}</RouterLink>
         <h1>{{ $t('payment.reservationTitle') || 'Finaliser votre réservation' }}</h1>
@@ -22,7 +21,7 @@
                 <h3 class="step-title">{{ $t('payment.emailLabel') || 'Informations de contact' }}</h3>
                 <span v-if="currentStep > 1" class="step-check">✓</span>
               </div>
-              <!-- <div class="step-content" v-show="currentStep === 1">
+              <div class="step-content" v-show="currentStep === 1">
                 <div class="form-group">
                   <label for="email">{{ $t('payment.emailLabel') || 'Email' }} *</label>
                   <input 
@@ -57,7 +56,7 @@
                 >
                   Continuer
                 </button>
-              </div> -->
+              </div>
               <div class="step-summary" v-if="currentStep > 1">
                 <p>{{ reservationData.email }}</p>
                 <p>{{ reservationData.reservationName }}</p>
