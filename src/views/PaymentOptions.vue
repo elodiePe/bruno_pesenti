@@ -21,7 +21,7 @@
                 <h3 class="step-title">{{ $t('payment.emailLabel') || 'Informations de contact' }}</h3>
                 <span v-if="currentStep > 1" class="step-check">✓</span>
               </div>
-              <div class="step-content" v-show="currentStep === 1">
+              <!-- <div class="step-content" v-show="currentStep === 1">
                 <div class="form-group">
                   <label for="email">{{ $t('payment.emailLabel') || 'Email' }} *</label>
                   <input 
@@ -56,7 +56,7 @@
                 >
                   Continuer
                 </button>
-              </div>
+              </div> -->
               <div class="step-summary" v-if="currentStep > 1">
                 <p>{{ reservationData.email }}</p>
                 <p>{{ reservationData.reservationName }}</p>
@@ -74,7 +74,7 @@
                 <h3 class="step-title">{{ $t('payment.deliveryTypeLabel') || 'Type de livraison' }}</h3>
                 <span v-if="currentStep > 2" class="step-check">✓</span>
               </div>
-              <!-- <div class="step-content" v-show="currentStep === 2">
+              <div class="step-content" v-show="currentStep === 2">
                 <div class="delivery-options">
                   <label class="delivery-option" :class="{ active: reservationData.deliveryType === 'pickup' }">
                     <input 
@@ -117,7 +117,7 @@
                 >
                   Continuer
                 </button>
-              </div> -->
+              </div>
               <div class="step-summary" v-if="currentStep > 2">
                 <p>{{ reservationData.deliveryType === 'pickup' ? '🏪 Retrait en magasin' : '📦 Livraison en Suisse' }}</p>
               </div>
