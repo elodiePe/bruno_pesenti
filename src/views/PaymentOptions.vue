@@ -21,7 +21,7 @@
                 <h3 class="step-title">{{ $t('payment.emailLabel') || 'Informations de contact' }}</h3>
                 <span v-if="currentStep > 1" class="step-check">✓</span>
               </div>
-              <!-- <div class="step-content" v-show="currentStep === 1">
+              <div class="step-content" v-show="currentStep === 1">
                 <div class="form-group">
                   <label for="email">{{ $t('payment.emailLabel') || 'Email' }} *</label>
                   <input 
@@ -31,7 +31,6 @@
                     :placeholder="$t('payment.emailPlaceholder') || 'votre@email.com'"
                     class="form-input"
                     required
-                    @input="validateStep1"
                   >
                 </div>
                 
@@ -44,7 +43,6 @@
                     :placeholder="$t('payment.reservationNamePlaceholder') || 'Jean Dupont'"
                     class="form-input"
                     required
-                    @input="validateStep1"
                   >
                 </div>
                 
@@ -56,7 +54,7 @@
                 >
                   Continuer
                 </button>
-              </div> -->
+              </div>
               <div class="step-summary" v-if="currentStep > 1">
                 <p>{{ reservationData.email }}</p>
                 <p>{{ reservationData.reservationName }}</p>
@@ -81,7 +79,6 @@
                       type="radio" 
                       v-model="reservationData.deliveryType" 
                       value="pickup"
-                      @change="validateStep2"
                     >
                     <div class="option-content">
                       <div class="option-icon">🏪</div>
@@ -97,7 +94,6 @@
                       type="radio" 
                       v-model="reservationData.deliveryType" 
                       value="delivery"
-                      @change="validateStep2"
                     >
                     <div class="option-content">
                       <div class="option-icon">📦</div>
@@ -368,14 +364,42 @@ export default {
         label: '',
         isCalculating: false,
         error: null
-      },
-      step1Valid: false,
-      step2Valid: false,
-      step3Valid: false,
-      step4Valid: false
+      }
     }
   },
   computed: {
+    step1Valid() {
+      return !!(
+        this.reservationData.email &&
+        this.reservationData.reservationName &&
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.reservationData.email)
+      )
+    },
+    step2Valid() {
+      return !!this.reservationData.deliveryType
+    },
+    step3Valid() {
+      if (this.reservationData.deliveryType !== 'delivery') return true
+      const addr = this.reservationData.shippingAddress
+      return !!(
+        addr.firstName &&
+        addr.lastName &&
+        addr.street &&
+        addr.streetNumber &&
+        addr.postalCode &&
+        /^[1-9][0-9]{3}$/.test(addr.postalCode) &&
+        addr.city &&
+        addr.canton &&
+        addr.phone
+      )
+    },
+    step4Valid() {
+      if (this.reservationData.deliveryType !== 'delivery') return true
+      return !!(
+        this.reservationData.paymentMethod &&
+        ['bank-transfer', 'twint'].includes(this.reservationData.paymentMethod)
+      )
+    },
     cartTotal() {
       return this.cart.reduce((sum, item) => sum + Number(item?.price || 0), 0)
     },
@@ -458,35 +482,6 @@ export default {
     },
     getProductImage(product) {
       return product.images && product.images.length > 0 ? product.images[0] : 'https://via.placeholder.com/80'
-    },
-    validateStep1() {
-      this.step1Valid = !!(this.reservationData.email && 
-                           this.reservationData.reservationName &&
-                           /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.reservationData.email))
-    },
-    validateStep2() {
-      this.step2Valid = !!this.reservationData.deliveryType
-      if (this.reservationData.deliveryType === 'pickup') {
-        this.reservationData.paymentMethod = 'cash'
-      }
-    },
-    validateStep3() {
-      const addr = this.reservationData.shippingAddress
-      this.step3Valid = !!(
-        addr.firstName &&
-        addr.lastName &&
-        addr.street &&
-        addr.streetNumber &&
-        addr.postalCode &&
-        /^[1-9][0-9]{3}$/.test(addr.postalCode) &&
-        addr.city &&
-        addr.canton &&
-        addr.phone
-      )
-    },
-    validateStep4() {
-      this.step4Valid = !!(this.reservationData.paymentMethod && 
-                           ['bank-transfer', 'twint'].includes(this.reservationData.paymentMethod))
     },
     nextStep() {
       if (this.reservationData.deliveryType === 'pickup') {
