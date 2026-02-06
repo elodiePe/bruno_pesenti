@@ -1,18 +1,17 @@
 <template>
   <div class="boxes">
     <div class="box">
-<h1>Options de paiement</h1>
       <div class="payment-header">
         <RouterLink to="/cart" class="back-link">← {{ $t('payment.backToCart') || 'Retour au panier' }}</RouterLink>
         <h1>{{ $t('payment.reservationTitle') || 'Finaliser votre réservation' }}</h1>
       </div>
       
-     <!-- <div class="introduction payment-container">
+     <div class="introduction payment-container">
         <div class="payment-wrapper">
           
         <div class="steps-container">
             
-            <div class="step-section" :class="{ 
+            <!-- <div class="step-section" :class="{ 
               active: currentStep === 1, 
               completed: currentStep > 1,
               collapsed: currentStep > 1 
@@ -277,7 +276,7 @@
               </div>
             </div>
 
-          </div>
+          </div> -->
           
 
           <aside class="order-summary-sidebar">
@@ -320,9 +319,11 @@
             </div>
           </aside>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
+  </div>
+
   
 </template>
 
