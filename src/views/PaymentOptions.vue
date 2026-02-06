@@ -1,6 +1,7 @@
 <template>
   <div class="boxes">
     <div class="box">
+<h1>Options de paiement</h1>
       <div class="payment-header">
         <RouterLink to="/cart" class="back-link">← {{ $t('payment.backToCart') || 'Retour au panier' }}</RouterLink>
         <h1>{{ $t('payment.reservationTitle') || 'Finaliser votre réservation' }}</h1>
@@ -11,7 +12,7 @@
           
         <div class="steps-container">
             
-            <!-- <div class="step-section" :class="{ 
+            <div class="step-section" :class="{ 
               active: currentStep === 1, 
               completed: currentStep > 1,
               collapsed: currentStep > 1 
@@ -21,7 +22,7 @@
                 <h3 class="step-title">{{ $t('payment.emailLabel') || 'Informations de contact' }}</h3>
                 <span v-if="currentStep > 1" class="step-check">✓</span>
               </div>
-              <div class="step-content" v-show="currentStep === 1">
+              <!-- <div class="step-content" v-show="currentStep === 1">
                 <div class="form-group">
                   <label for="email">{{ $t('payment.emailLabel') || 'Email' }} *</label>
                   <input 
@@ -56,7 +57,7 @@
                 >
                   Continuer
                 </button>
-              </div>
+              </div> -->
               <div class="step-summary" v-if="currentStep > 1">
                 <p>{{ reservationData.email }}</p>
                 <p>{{ reservationData.reservationName }}</p>
@@ -74,7 +75,7 @@
                 <h3 class="step-title">{{ $t('payment.deliveryTypeLabel') || 'Type de livraison' }}</h3>
                 <span v-if="currentStep > 2" class="step-check">✓</span>
               </div>
-              <div class="step-content" v-show="currentStep === 2">
+              <!-- <div class="step-content" v-show="currentStep === 2">
                 <div class="delivery-options">
                   <label class="delivery-option" :class="{ active: reservationData.deliveryType === 'pickup' }">
                     <input 
@@ -117,7 +118,7 @@
                 >
                   Continuer
                 </button>
-              </div>
+              </div> -->
               <div class="step-summary" v-if="currentStep > 2">
                 <p>{{ reservationData.deliveryType === 'pickup' ? '🏪 Retrait en magasin' : '📦 Livraison en Suisse' }}</p>
               </div>
@@ -134,7 +135,7 @@
                 <h3 class="step-title">{{ $t('shipping.addressTitle') || 'Adresse de livraison' }}</h3>
                 <span v-if="currentStep > 3" class="step-check">✓</span>
               </div>
-              <div class="step-content" v-show="currentStep === 3">
+              <!-- <div class="step-content" v-show="currentStep === 3">
                 <ShippingAddressForm 
                   v-model="reservationData.shippingAddress"
                   @update:modelValue="validateStep3"
@@ -155,7 +156,7 @@
                 >
                   Continuer
                 </button>
-              </div>
+              </div> -->
               <div class="step-summary" v-if="currentStep > 3">
                 <p>{{ reservationData.shippingAddress.firstName }} {{ reservationData.shippingAddress.lastName }}</p>
                 <p>{{ reservationData.shippingAddress.street }} {{ reservationData.shippingAddress.streetNumber }}</p>
@@ -174,7 +175,7 @@
                 <h3 class="step-title">{{ $t('payment.paymentMethodLabel') || 'Méthode de paiement' }}</h3>
                 <span v-if="currentStep > 4" class="step-check">✓</span>
               </div>
-              <div class="step-content" v-show="currentStep === 4">
+              <!-- <div class="step-content" v-show="currentStep === 4">
                 <div class="payment-method-options">
                   <label class="payment-option" :class="{ active: reservationData.paymentMethod === 'bank-transfer' }">
                     <input 
@@ -220,7 +221,7 @@
                 >
                   Continuer
                 </button>
-              </div>
+              </div> -->
               <div class="step-summary" v-if="currentStep > 4">
                 <p>{{ reservationData.paymentMethod === 'bank-transfer' ? '💳 Virement bancaire' : '📱 Twint' }}</p>
               </div>
@@ -276,7 +277,7 @@
               </div>
             </div>
 
-          </div> -->
+          </div>
           
 
           <aside class="order-summary-sidebar">
@@ -322,8 +323,6 @@
       </div>
     </div>
   </div>
-  </div>
-
   
 </template>
 
