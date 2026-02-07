@@ -1,7 +1,22 @@
 import express from 'express';
 import Product from '../models/Product.js';
+import multer from 'multer';
+import { v2 as cloudinary } from 'cloudinary';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const router = express.Router();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
+// Image uploads are now handled directly from the frontend to Cloudinary using unsigned upload preset.
 
 // GET all products
 router.get('/', async (req, res) => {

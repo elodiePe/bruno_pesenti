@@ -748,22 +748,34 @@ export default {
     isCollapsed(id) {
       return this.collapsedReservations[id] === true
     },
-
     async handleFileUpload(event, form) {
       const files = Array.from(event.target.files);
       if (!files.length) return;
 
       this.compressing = true;
 
-      for (let file of files) {
-        // Stop if we reach 6 images
-        if (form.images.length >= 6) break;
+      const CLOUDINARY_UPLOAD_PRESET = 'brunopese';
+      const CLOUDINARY_CLOUD_NAME = 'duzb4ed4h';
 
+      for (let file of files) {
+        if (form.images.length >= 6) break;
         try {
-          const compressed = await this.compressImage(file);
-          form.images.push(compressed);
+          const formData = new FormData();
+          formData.append('file', file);
+          formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+          // Direct upload to Cloudinary unsigned endpoint
+          const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
+            method: 'POST',
+            body: formData
+          });
+          const result = await response.json();
+          if (result.secure_url) {
+            form.images.push(result.secure_url);
+          } else {
+            console.error('Cloudinary upload failed', result.error?.message || result);
+          }
         } catch (e) {
-          console.error("Compression échouée", e);
+          console.error('Upload échouée', e);
         }
       }
       this.compressing = false;

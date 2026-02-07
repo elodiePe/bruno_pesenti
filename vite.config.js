@@ -98,6 +98,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  // Ajoute cette section pour définir le chemin de base pour GitHub Pages
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
   base: '/',  // Remplace 'nom-du-repo' par le nom de ton dépôt GitHub
 });
