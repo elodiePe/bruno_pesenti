@@ -140,16 +140,22 @@ router.beforeEach((to, from, next) => {
     console.log('[Router] Handling 404 redirect:', redirect);
     // Extract the actual path and navigate to it
     const redirectPath = redirect.startsWith('/') ? redirect : '/' + redirect;
-    next(redirectPath);
+    // Check if the redirectPath matches any route
+    const matchedRoute = router.resolve(redirectPath);
+    if (matchedRoute.name === 'NotFound') {
+      next({ name: 'NotFound' });
+    } else {
+      next(redirectPath);
+    }
     return;
   }
-  
+
   // Skip the language check for admin route
   if (to.path === '/admin') {
     next();
     return;
   }
-  
+
   const { lang } = to.params;
   if (!lang) {
     next(`/${localStorage.getItem("language") || "fr"}${to.path}`);
