@@ -27,6 +27,7 @@ function generateDuplicateIndexHtmlPlugin() {
         '/blog',
         '/confidentialite',
         '/produits',
+        '/order-complete',
         '/cart',
         '/payment-options',
       ];

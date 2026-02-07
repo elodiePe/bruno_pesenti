@@ -15,6 +15,7 @@ import Confident from "../views/Confident.vue";
 import Verification from "../views/Verification.vue";
 import Unsuscribe_Newsletter from "../views/Unsuscribe_Newsletter.vue";
 import VerificationDesinscription from "../views/VerificationDesinscription.vue";
+import OrderComplete from "../views/OrderComplete.vue";
 import Concours from "../views/Concours.vue";
 import ConfidentConcours from "../views/ConfidentConcours.vue";
 import Admin from "../views/Admin.vue";
@@ -25,6 +26,11 @@ const routes = [
     path: `/:lang(fr|en|it)?/`,
     name: "Accueil",
     component: AccueilView,
+  },
+  {
+    path: `/:lang(fr|en|it)?/order-complete`,
+    name: "OrderComplete",
+    component: OrderComplete,
   },
   {
     path: `/:lang(fr|en|it)?/exposition`,

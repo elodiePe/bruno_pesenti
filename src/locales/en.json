@@ -1,4 +1,11 @@
+
 {
+        "orderComplete": {
+        "title": "Order complete!",
+        "thankYou": "Thank you for your purchase.",
+        "checkEmail": "Please check your email for the order confirmation.",
+        "backHome": "Back to home"
+    },
     "welcome": "Welcome",
     "cookiePolicy": {
         "title": "Cookie Policy",

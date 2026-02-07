@@ -262,13 +262,18 @@
                   :disabled="!reservationData.termsAccepted || isSubmitting"
                   @click="submitReservation"
                 >
-                  <span v-if="isSubmitting">{{ $t('payment.reserving') || 'Réservation en cours...' }}</span>
+                  <span v-if="isSubmitting">
+                    <svg class="spinner" width="20" height="20" viewBox="0 0 50 50" style="vertical-align: middle; margin-right: 8px;"><circle class="path" cx="25" cy="25" r="20" fill="none" stroke="#4c6a65" stroke-width="5"></circle></svg>
+                    {{ $t('payment.reserving') || 'Réservation en cours...' }}
+                  </span>
                   <span v-else>{{ $t('payment.reserveNow') || 'Confirmer la réservation' }}</span>
                 </button>
 
-                <div v-if="successMessage" class="success-message">
+
+
+                <!-- <div v-if="successMessage" class="success-message">
                   {{ successMessage }}
-                </div>
+                </div> -->
 
                 <div v-if="errorMessage" class="error-message">
                   {{ errorMessage }}
@@ -625,7 +630,7 @@ export default {
 
           // Redirect after 3 seconds
           setTimeout(() => {
-            this.$router.push('/produits')
+            this.$router.push('/order-complete')
           }, 3000)
         } else {
           this.errorMessage = response.message || this.$t('payment.reservationError')
@@ -762,7 +767,10 @@ export default {
   opacity: 0.5;
   pointer-events: none;
 }
-
+.spinner {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
 .step-section.collapsed .step-header {
   cursor: pointer;
 }

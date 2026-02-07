@@ -1,4 +1,11 @@
+
 {
+        "orderComplete": {
+        "title": "Ordine completato!",
+        "thankYou": "Grazie per il tuo acquisto.",
+        "checkEmail": "Controlla la tua email per la conferma dell'ordine.",
+        "backHome": "Torna alla home"
+    },
     "welcome": "Benvenuto",
     "cookiePolicy": {
         "title": "Politica sui Cookie",
