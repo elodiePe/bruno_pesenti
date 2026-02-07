@@ -70,7 +70,22 @@
                 >
               </div>
               <h3>{{ product.title }}</h3>
-              <p class="description">{{ truncateDescription(product.description) }}</p>
+              <p class="description">
+                <span v-if="!getYoutubeUrl(product.description)">{{ truncateDescription(product.description) }}</span>
+                <span v-else>
+                  {{ truncateDescription(product.description.replace(getYoutubeUrl(product.description), '')) }}
+                  <div class="youtube-video">
+                    <iframe
+                      :src="getYoutubeEmbedUrl(getYoutubeUrl(product.description))"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      width="100%"
+                      height="220"
+                    ></iframe>
+                  </div>
+                </span>
+              </p>
             </RouterLink>
 
             <p class="price" v-if="product.price">CHF {{ product.price }}</p>
@@ -235,6 +250,23 @@ export default {
     truncateDescription(text, maxLength = 80) {
       if (!text) return ''
       return text.length <= maxLength ? text : text.substring(0, maxLength) + '...'
+    },
+    getYoutubeUrl(text) {
+      if (!text) return null;
+      const urlRegex = /(https?:\/\/(www\.)?youtube\.com\/watch\?v=[^\s]+|https?:\/\/(www\.)?youtu\.be\/[^\s]+)/;
+      const match = text.match(urlRegex);
+      return match ? match[0] : null;
+    },
+    getYoutubeEmbedUrl(url) {
+      if (!url) return '';
+      // Convert youtube.com/watch?v=... or youtu.be/... to embed URL
+      let videoId = '';
+      if (url.includes('youtube.com/watch?v=')) {
+        videoId = url.split('watch?v=')[1].split('&')[0];
+      } else if (url.includes('youtu.be/')) {
+        videoId = url.split('youtu.be/')[1].split('?')[0];
+      }
+      return `https://www.youtube.com/embed/${videoId}`;
     },
     toggleTag(tag) {
       const index = this.selectedTags.indexOf(tag)

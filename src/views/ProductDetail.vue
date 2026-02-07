@@ -7,23 +7,41 @@
         <!-- LEFT COLUMN: IMAGES -->
         <div class="product-gallery">
           <div class="main-image-container">
-            <img 
-              :src="activeImage" 
-              :alt="product.title" 
-              class="main-image"
-            >
+            <template v-if="activeMedia.type === 'image'">
+              <img 
+                :src="activeMedia.src" 
+                :alt="product.title" 
+                class="main-image"
+              >
+            </template>
+            <template v-else-if="activeMedia.type === 'youtube'">
+              <iframe
+                :src="getYoutubeEmbedUrl(activeMedia.src)"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                width="100%"
+                height="100%"
+                class="main-image"
+              ></iframe>
+            </template>
           </div>
-          
-          <!-- THUMBNAILS (Only shown if more than 1 image) -->
-          <div class="thumbnails-grid" v-if="product.images && product.images.length > 1">
+
+          <!-- THUMBNAILS (images + youtube) -->
+          <div class="thumbnails-grid" v-if="galleryMedia.length > 1">
             <div 
-              v-for="(img, index) in product.images" 
+              v-for="(media, index) in galleryMedia" 
               :key="index"
               class="thumbnail-wrapper"
               :class="{ active: activeImageIndex === index }"
               @click="activeImageIndex = index"
             >
-              <img :src="img" :alt="product.title + ' view ' + index">
+              <template v-if="media.type === 'image'">
+                <img :src="media.src" :alt="product.title + ' view ' + index">
+              </template>
+              <template v-else-if="media.type === 'youtube'">
+                <img src="https://img.youtube.com/vi/{{ getYoutubeId(media.src) }}/0.jpg" :alt="product.title + ' video thumbnail ' + index">
+              </template>
             </div>
           </div>
         </div>
@@ -120,15 +138,42 @@ export default {
     isInCart() {
       return this.cart.some(item => item._id === this.product?._id)
     },
-    activeImage() {
-      if (this.product?.images && this.product.images.length > 0) {
-        return this.product.images[this.activeImageIndex]
+    galleryMedia() {
+      if (!this.product) return [];
+      const media = [];
+      if (this.product.images && this.product.images.length > 0) {
+        this.product.images.forEach(img => media.push({ type: 'image', src: img }));
       }
-      return 'https://placehold.co/600x400?text=No+Image'
+      if (this.product.youtubeUrl) {
+        media.push({ type: 'youtube', src: this.product.youtubeUrl });
+      }
+      return media.length ? media : [{ type: 'image', src: 'https://placehold.co/600x400?text=No+Image' }];
+    },
+    activeMedia() {
+      return this.galleryMedia[this.activeImageIndex] || { type: 'image', src: 'https://placehold.co/600x400?text=No+Image' };
     }
   },
   methods: {
-    async loadProduct() {
+    getYoutubeEmbedUrl(url) {
+      if (!url) return '';
+      let videoId = '';
+      if (url.includes('youtube.com/watch?v=')) {
+        videoId = url.split('watch?v=')[1].split('&')[0];
+      } else if (url.includes('youtu.be/')) {
+        videoId = url.split('youtu.be/')[1].split('?')[0];
+      }
+      return `https://www.youtube.com/embed/${videoId}`;
+    },
+    getYoutubeId(url) {
+      if (!url) return '';
+      if (url.includes('youtube.com/watch?v=')) {
+        return url.split('watch?v=')[1].split('&')[0];
+      } else if (url.includes('youtu.be/')) {
+        return url.split('youtu.be/')[1].split('?')[0];
+      }
+      return '';
+    },
+  async loadProduct() {
       try {
         this.loading = true
         const productId = this.$route.params.id

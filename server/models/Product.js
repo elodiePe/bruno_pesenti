@@ -38,11 +38,16 @@ const productSchema = new mongoose.Schema(
     },
     weight: {
       type: Number,
-      default: 500,
-      min: 0,
-      comment: 'Weight in grams for shipping calculation',
+      default: 0,
+    },
+
+    youtubeUrl: {
+      type: String,
+      default: '',
     },
   },
+
+
   {
     timestamps: true,
   }

@@ -169,12 +169,22 @@
                   placeholder="ex: Vintage, Collection, Rare"
                 />
               </div>
+
               <label>Description</label>
               <textarea
                 v-model="createForm.description"
                 class="input-edit"
                 rows="3"
               ></textarea>
+
+              <div class="input-field">
+                <label>URL vidéo YouTube (optionnel)</label>
+                <input
+                  v-model="createForm.youtubeUrl"
+                  class="input-edit"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                />
+              </div>
 
               <div class="form-actions">
                 <button
@@ -265,6 +275,14 @@
                   class="input-edit"
                   rows="3"
                 ></textarea>
+                <div class="input-field">
+                  <label>URL vidéo YouTube (optionnel)</label>
+                  <input
+                    v-model="editForm.youtubeUrl"
+                    class="input-edit"
+                    placeholder="https://www.youtube.com/watch?v=..."
+                  />
+                </div>
               </div>
 
               <div class="product-controls vertical-btns">
@@ -546,6 +564,7 @@ export default {
         description: "",
         images: [],
         disponible: true,
+        youtubeUrl: "",
       },
       editForm: {
         title: "",
@@ -555,6 +574,7 @@ export default {
         description: "",
         images: [],
         disponible: true,
+        youtubeUrl: "",
       },
     };
   },
