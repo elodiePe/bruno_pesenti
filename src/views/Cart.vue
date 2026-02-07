@@ -9,15 +9,19 @@
       <div class="introduction cart-container">
         <div v-if="cart.length > 0" class="cart-content">
           <div class="cart-items">
-            <div v-for="item in cart" :key="item._id" class="cart-item">
+
+            <RouterLink v-for="item in cart" :key="item._id"    :to="{ name: 'ProductDetail', params: { id: item._id } }" class="cart-item-link">
+              <div class="cart-item">
               <img :src="getProductImage(item)" :alt="item.title" class="item-image">
               <div class="item-details">
                 <h3>{{ item.title }}</h3>
                 <p class="item-description">{{ truncateDescription(item.description) }}</p>
                 <p v-if="item.price" class="item-price">CHF {{ item.price }}</p>
               </div>
-              <button @click="removeFromCart(item._id)" class="remove-btn">{{ $t('cart.remove') }}</button>
-            </div>
+              <button @click.prevent.stop="removeFromCart(item._id)" class="remove-btn">{{ $t('cart.remove') }}</button>
+              </div>
+            </RouterLink>
+      
           </div>
 
           <div class="cart-summary">
@@ -42,8 +46,6 @@
             <RouterLink 
               to="/payment-options" 
               class="checkout-btn"
-          
-              @click="$event.preventDefault()"
             >
               {{ $t('cart.continue') }}
             </RouterLink>
@@ -61,6 +63,7 @@
 
 <script>
 import { RouterLink } from 'vue-router'
+import { api } from '../services/api.js'
 import { loadCart, saveCart } from '../utils/localStorage.js'
 
 export default {
@@ -95,9 +98,32 @@ export default {
         saveCart(this.cart)
       }
     },
-    loadCart() {
+    async loadCart() {
       try {
-        this.cart = loadCart()
+        const cart = loadCart()
+        if (!cart.length) {
+          this.cart = []
+          return
+        }
+
+        try {
+          const res = await api.getProducts()
+          if (res?.success && Array.isArray(res.data)) {
+            const availableIds = new Set(
+              res.data.filter(p => p?.disponible).map(p => p._id)
+            )
+            const filtered = cart.filter(item => availableIds.has(item._id || item.id))
+            if (filtered.length !== cart.length) {
+              saveCart(filtered)
+            }
+            this.cart = filtered
+            return
+          }
+        } catch (apiError) {
+          console.warn('[Cart] Failed to validate availability:', apiError)
+        }
+
+        this.cart = cart
       } catch (error) {
         console.error('[Cart] Error loading cart:', error)
         localStorage.removeItem('cart')
@@ -124,7 +150,10 @@ export default {
 .back-link:hover {
   color: #deb887;
 }
+.cart-item-link:hover{
+  text-decoration: none;
 
+}
 .cart-header {
   order: -1;
   width: 100%;
@@ -214,6 +243,7 @@ export default {
   font-weight: bold;
   font-size: 1.2rem;
   margin-top: 10px;
+  /* text-align: right; */
 }
 
 .remove-btn {
@@ -452,6 +482,10 @@ export default {
 
   .remove-btn {
     width: 100%;
+  }
+  .item-price {
+    text-align: right;
+    margin: 0;
   }
 }
 </style>

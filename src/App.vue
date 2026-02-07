@@ -20,7 +20,11 @@ function getCookieConsent() {
 }
 
 function clearAllStorageAndCookies() {
-  localStorage.clear();
+  Object.keys(localStorage).forEach(key => {
+    if (key !== 'cart') {
+      localStorage.removeItem(key);
+    }
+  });
   sessionStorage.clear();
   document.cookie.split(";").forEach(function(c) {
     document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");

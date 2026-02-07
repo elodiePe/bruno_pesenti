@@ -53,6 +53,25 @@ app.use((err, req, res, next) => {
   });
 });
 
+
+// Serve static files from the frontend (dist) directory
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const frontendDistPath = path.resolve(__dirname, '../dist');
+app.use(express.static(frontendDistPath));
+
+// Catch-all: serve index.html for client-side routes (except API and static files)
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api') || req.path.startsWith('/static')) {
+    return next();
+  }
+  res.sendFile(path.join(frontendDistPath, 'index.html'));
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

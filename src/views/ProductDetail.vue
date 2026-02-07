@@ -51,9 +51,7 @@
             <p class="price" v-if="product.price">
               <strong>{{ $t('products.price') }}:</strong> CHF {{ product.price }}
             </p>
-            <p class="date" v-if="product.date">
-              <strong>{{ $t('products.ref') }}:</strong> {{ formatDate(product.date) }}
-            </p>
+
           </div>
 
           <div class="product-actions">

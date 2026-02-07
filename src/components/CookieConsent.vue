@@ -74,7 +74,11 @@ function setConsent(status) {
 // Fonction pour tout supprimer
 function clearAllStorageAndCookies() {
   // Supprime localStorage
-  localStorage.clear();
+  Object.keys(localStorage).forEach(key => {
+    if (key !== 'cart') {
+      localStorage.removeItem(key);
+    }
+  });
   // Supprime sessionStorage
   sessionStorage.clear();
   // Supprime tous les cookies

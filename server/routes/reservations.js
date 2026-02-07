@@ -142,6 +142,8 @@ router.patch('/:id/status', protect, async (req, res, next) => {
         { _id: { $in: productIds } },
         { $set: { disponible: true } }
       );
+      await Reservation.deleteOne({ _id: reservation._id });
+      return res.json({ success: true, deleted: true, data: { _id: reservation._id } });
     }
     if (status === 'completed') {
       reservation.completedAt = new Date();

@@ -41,7 +41,7 @@
                     id="reservationName"
                     v-model="reservationData.reservationName"
                     type="text"
-                    placeholder="Jean Dupont"
+                    placeholder="Firstname Lastname"
                     class="form-input"
                     required
                     @input="validateStep1"
@@ -437,7 +437,7 @@ export default {
       const numberValue = Number(value)
       return Number.isFinite(numberValue) ? numberValue.toFixed(2) : '0.00'
     },
-    loadCart() {
+    async loadCart() {
       try {
         const rawCart = localStorage.getItem('cart')
         
@@ -448,7 +448,30 @@ export default {
         }
         
         // Parse it
-        this.cart = loadCart()
+        const cart = loadCart()
+        if (!cart.length) {
+          this.cart = []
+          return
+        }
+
+        try {
+          const res = await api.getProducts()
+          if (res?.success && Array.isArray(res.data)) {
+            const availableIds = new Set(
+              res.data.filter(p => p?.disponible).map(p => p._id)
+            )
+            const filtered = cart.filter(item => availableIds.has(item._id || item.id))
+            if (filtered.length !== cart.length) {
+              saveCart(filtered)
+            }
+            this.cart = filtered
+            return
+          }
+        } catch (apiError) {
+          console.warn('[PaymentOptions] Failed to validate availability:', apiError)
+        }
+
+        this.cart = cart
       } catch (error) {
         console.error('[PaymentOptions] Fatal error loading cart:', error)
         // Clear and reset
@@ -1021,6 +1044,7 @@ export default {
   padding: 15px;
   cursor: pointer;
   transition: all 0.3s;
+  
   display: block;
 }
 

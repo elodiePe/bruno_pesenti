@@ -102,7 +102,7 @@
             :disabled="currentPage === 1"
             class="pagination-btn"
           >
-            ← {{ $t('products.previous') }}
+            <span class="arrow">←</span><span class="pagination-text">{{ $t('products.previous') }}</span>
           </button>
           
           <div class="pagination-info">
@@ -114,7 +114,7 @@
             :disabled="currentPage === totalPages"
             class="pagination-btn"
           >
-            {{ $t('products.next') }} →
+            <span class="pagination-text">{{ $t('products.next') }}</span><span class="arrow">→</span>
           </button>
         </div>
 
@@ -461,6 +461,10 @@ export default {
     padding-right: 3%;
     padding-top: 5%;
     padding-bottom: 5%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .box h1 {
@@ -501,7 +505,49 @@ export default {
 
   .products-grid {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 20px;
+  }
+
+  .product-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .image-container {
+    height: 200px;
+  }
+
+  .product-link {
+    margin-bottom: 10px;
+  }
+
+  .product-card h3 {
+    font-size: 1.1rem;
+    margin: 8px 0;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    margin: 6px 0;
+  }
+
+  .price {
+    font-size: 1.2rem;
+    margin: 10px 0;
+ 
+  }
+
+  .add-btn,
+  .add-btn.in-cart,
+  .add-btn.disabled {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .add-btn,
+  .add-btn.in-cart,
+  .add-btn.disabled {
+    width: 100%;
   }
 }
 
@@ -518,6 +564,10 @@ gap: 50px 30px;
   }
 
   .search-box {
+    width: 100%;
+  }
+
+  .product-card {
     width: 100%;
   }
 }
@@ -670,8 +720,8 @@ gap: 50px 30px;
   font-size: 1.4rem;
   font-weight: bold;
   color: #4c6a65;
-  margin: 12px 0;
-  text-align: left;
+  margin: 0px 0;
+  text-align: right;
 }
 
 /* Button styling matching the design system */
@@ -759,23 +809,44 @@ gap: 50px 30px;
   text-align: center;
 }
 
-/* Responsive button */
+/* Responsive button and pagination fix for mobile */
 @media (max-width: 640px) {
   .add-btn {
     padding: 10px 16px;
     font-size: 0.95rem;
   }
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-gap: 30px 10px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px 20px;
   }
   .product-card {
     padding: 12px;
     width: 90%;
   }
-
   .image-container {
     height: 180px;
+  }
+  .pagination-container {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px;
+  }
+  .pagination-btn {
+    min-width: 48px;
+    font-size: 1.2rem;
+    padding: 10px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagination-btn .pagination-text {
+    display: none;
+  }
+  .pagination-info {
+    min-width: 100px;
+    font-size: 0.95rem;
+    margin: 0 4px;
   }
 }
 </style>

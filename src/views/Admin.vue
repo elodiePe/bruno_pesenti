@@ -637,7 +637,13 @@ export default {
         );
         if (res.success) {
           const idx = this.reservations.findIndex((r) => r._id === reservation._id);
-          if (idx !== -1) this.reservations.splice(idx, 1, res.data);
+          if (idx !== -1) {
+            if (res.deleted) {
+              this.reservations.splice(idx, 1);
+            } else {
+              this.reservations.splice(idx, 1, res.data);
+            }
+          }
           
           // Remettre les produits en disponible
           if (reservation.products && reservation.products.length > 0) {
