@@ -20,6 +20,15 @@ import Concours from "../views/Concours.vue";
 import ConfidentConcours from "../views/ConfidentConcours.vue";
 import Admin from "../views/Admin.vue";
 const lang = localStorage.getItem("language") || "fr";
+const supportedLangs = ["fr", "en", "it"];
+
+function resolveLangFromPath(pathValue) {
+  const firstSegment = pathValue.split("/").filter(Boolean)[0];
+  if (supportedLangs.includes(firstSegment)) {
+    return firstSegment;
+  }
+  return localStorage.getItem("language") || "fr";
+}
 
 const routes = [
   {
@@ -63,9 +72,16 @@ const routes = [
     component: Blog,
   },
   {
-    path: "/:pathMatch(.*)*",
+    path: "/:lang(fr|en|it)?/notfound",
     name: "NotFound",
     component: NotFound,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: (to) => ({
+      name: "NotFound",
+      params: { lang: resolveLangFromPath(to.path) },
+    }),
   },
   {
     path: "/:lang(fr|en|it)?/confidentialite",
@@ -146,10 +162,15 @@ router.beforeEach((to, from, next) => {
     console.log('[Router] Handling 404 redirect:', redirect);
     // Extract the actual path and navigate to it
     const redirectPath = redirect.startsWith('/') ? redirect : '/' + redirect;
-    // Check if the redirectPath matches any route
+    const redirectLang = resolveLangFromPath(redirectPath);
+    // Check if the redirectPath matches a known route (not catch-all)
     const matchedRoute = router.resolve(redirectPath);
-    if (matchedRoute.name === 'NotFound') {
-      next({ name: 'NotFound' });
+    const isCatchAllMatch = matchedRoute.matched.some(
+      (record) => record.path === '/:pathMatch(.*)*'
+    );
+
+    if (isCatchAllMatch) {
+      next({ name: 'NotFound', params: { lang: redirectLang } });
     } else {
       next(redirectPath);
     }
