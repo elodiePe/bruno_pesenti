@@ -41,16 +41,7 @@
       <!-- 2. PANNEAU PRINCIPAL -->
       <div v-else class="admin-main">
         <header class="admin-header">
-          <div class="header-left">
-            <h1 v-if="activeTab === 'products'">Gestion d'Inventaire</h1>
-            <h1 v-else>Gestion des Réservations</h1>
-            <p v-if="activeTab === 'products'" class="stats">
-              {{ products.length }} produits enregistrés
-            </p>
-            <p v-else class="stats">{{ reservations.length }} réservations</p>
-          </div>
-
-          <div class="header-right">
+          <div class="header-top">
             <div class="tab-switch">
               <button
                 class="tab-btn"
@@ -67,6 +58,24 @@
                 Réservations
               </button>
             </div>
+
+            <div class="user-profile desktop-only">
+              <span class="avatar">
+                B.P</span>
+              <button @click="logout" class="logout-btn">Déconnexion</button>
+            </div>
+          </div>
+
+          <div class="header-bottom">
+            <div class="header-left">
+              <h1 v-if="activeTab === 'products'">Gestion des Produits</h1>
+              <h1 v-else>Gestion des Réservations</h1>
+              <p v-if="activeTab === 'products'" class="stats">
+                {{ products.length }} produits enregistrés
+              </p>
+              <p v-else class="stats">{{ reservations.length }} réservations</p>
+            </div>
+
             <button
               v-if="activeTab === 'products'"
               @click="toggleCreateForm"
@@ -74,12 +83,6 @@
             >
               {{ showCreateForm ? "Annuler" : "+ Nouveau Produit" }}
             </button>
-            <div class="user-profile desktop-only">
-              <span class="avatar">{{
-                adminUsername.charAt(0).toUpperCase()
-              }}</span>
-              <button @click="logout" class="logout-btn">Déconnexion</button>
-            </div>
           </div>
         </header>
 
@@ -980,10 +983,33 @@ export default {
 }
 .admin-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   margin-bottom: 25px;
-  gap: 15px;
+  gap: 12px;
+}
+
+.header-top,
+.header-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.header-top {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+.header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-bottom .btn-create {
+  margin-left: auto;
 }
 .tab-switch {
   display: inline-flex;
@@ -1021,7 +1047,7 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: white;
   padding: 12px 24px;
   border-radius: 12px;
@@ -1030,15 +1056,57 @@ export default {
   font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
   position: relative;
   overflow: hidden;
 }
 
 .btn-create:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
   filter: brightness(1.1);
+}
+
+.user-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1e3a8a;
+  background: #dbeafe;
+}
+
+.logout-btn {
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+}
+
+.logout-btn:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.35);
+  outline-offset: 2px;
 }
 .product-card {
   background: white;
@@ -1386,7 +1454,7 @@ export default {
 .reservations-sections {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 36px;
 }
 
 .reservation-section {

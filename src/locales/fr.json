@@ -61,7 +61,7 @@
         },
         "atelier": {
             "title": "Mon atelier",
-            "description": "Vous cherchez une pièce, une montre ou autre chose liée aux antiquités ? Ou votre montre ne fonctionne plus ? Venez voir l'atelier ! <br> <gr>Mon atelier est fermé jusqu'à mi-janvier !</gr> <br /> Je suis situé à Genève, au <gr>Rue des Corps-Saints 10, 1201 Genève.</gr>"
+            "description": "Vous cherchez une pièce, une montre ou autre chose liée aux antiquités ? Ou votre montre ne fonctionne plus ? Venez voir l'atelier ! <br /> Je suis situé à Genève, au <gr>Rue des Corps-Saints 10, 1201 Genève.</gr> <br/> <gr>Horaires d'ouverture:</gr> du lundi au mercredi de 14h30 à 17h.<br/> Si ces horaires ne vous conviennent pas, n'hésitez pas à me contacter pour prendre rendez-vous."
         },
         "information":{
             "title": "Information importante ",

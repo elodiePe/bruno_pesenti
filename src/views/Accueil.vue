@@ -1,6 +1,6 @@
 <template>
   <div class="boxes">
-  <Concours />
+  <!-- <Concours /> -->
     <div class="box">
       <h1>Bruno Pesenti</h1>
       <div class="introduction">
