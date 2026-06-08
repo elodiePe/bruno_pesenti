@@ -16,6 +16,7 @@ import Verification from "../views/Verification.vue";
 import Unsuscribe_Newsletter from "../views/Unsuscribe_Newsletter.vue";
 import VerificationDesinscription from "../views/VerificationDesinscription.vue";
 import OrderComplete from "../views/OrderComplete.vue";
+import Minimusee from "../views/Minimusee.vue";
 import Concours from "../views/Concours.vue";
 import ConfidentConcours from "../views/ConfidentConcours.vue";
 import Admin from "../views/Admin.vue";
@@ -136,7 +137,12 @@ const routes = [
     path: "/:lang(fr|en|it)?/cookies",
     name: "Cookies",
     component: Cookies,
-  }
+  },
+  {
+    path: "/:lang(fr|en|it)?/minimusee",
+    name: "minimusee",
+    component: Minimusee,
+  },
   //   {
   //   path: "/:lang(fr|en|it)?/concours",
   //   name: "Concours",
@@ -157,20 +163,20 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   // Handle redirect from 404.html FIRST
   const redirect = to.query.redirect;
-  if (redirect && from.path === '/') {
+  if (redirect && from.path === "/") {
     // This is a redirect from 404.html
-    console.log('[Router] Handling 404 redirect:', redirect);
+    console.log("[Router] Handling 404 redirect:", redirect);
     // Extract the actual path and navigate to it
-    const redirectPath = redirect.startsWith('/') ? redirect : '/' + redirect;
+    const redirectPath = redirect.startsWith("/") ? redirect : "/" + redirect;
     const redirectLang = resolveLangFromPath(redirectPath);
     // Check if the redirectPath matches a known route (not catch-all)
     const matchedRoute = router.resolve(redirectPath);
     const isCatchAllMatch = matchedRoute.matched.some(
-      (record) => record.path === '/:pathMatch(.*)*'
+      (record) => record.path === "/:pathMatch(.*)*",
     );
 
     if (isCatchAllMatch) {
-      next({ name: 'NotFound', params: { lang: redirectLang } });
+      next({ name: "NotFound", params: { lang: redirectLang } });
     } else {
       next(redirectPath);
     }
@@ -178,7 +184,7 @@ router.beforeEach((to, from, next) => {
   }
 
   // Skip the language check for admin route
-  if (to.path === '/admin') {
+  if (to.path === "/admin") {
     next();
     return;
   }

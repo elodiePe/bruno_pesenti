@@ -28,6 +28,7 @@
 </template>
 <script setup>
 import { ref, onMounted, watch} from 'vue';
+import { disableGoogleAnalytics, enableGoogleAnalytics, loadGoogleAnalytics } from "../utils/googleAnalytics";
 
 const checkConsent = ref(null);
 const consentStatus = ref("");
@@ -56,6 +57,7 @@ function acceptCookies() {
 
 // Fonction pour refuser les cookies
 function declineCookies() {
+  disableGoogleAnalytics();
   clearAllStorageAndCookies();
   setConsent("declined");
   consentStatus.value = "declined";
@@ -97,7 +99,7 @@ onMounted(() => {
   checkCookieConsent();
   let consent = localStorage.getItem("cookieConsent");
   if (consent === "accepted") {
-    activateGoogleAnalytics();
+    loadGoogleAnalytics();
     document.getElementById("cookieConsentBanner").style.display = "none";
   } else {
     document.getElementById("cookieConsentBanner").style.display = "block";
@@ -115,21 +117,7 @@ function checkCookieConsent() {
 
 // Fonction pour activer Google Analytics
 function activateGoogleAnalytics() {
-  // Créer un élément script pour charger Google Analytics
-  var script = document.createElement("script");
-  script.src = "https://www.googletagmanager.com/gtag/js?id=G-WWGQ6ML999"; // Remplacez 'UA-XXXXXX-X' par votre identifiant de suivi Google Analytics
-  script.async = true;
-  document.head.appendChild(script);
-
-  // Initialiser Google Analytics après le chargement du script
-  script.onload = function () {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "G-WWGQ6ML999"); // Remplacez 'UA-XXXXXX-X' par votre identifiant de suivi Google Analytics
-  };
+  enableGoogleAnalytics(window.location.pathname + window.location.search);
 }
 
 </script>

@@ -3,6 +3,11 @@ import App from "./App.vue";
 import router from "./router";
 import i18n from "./i18n";
 import "./assets/main.css";
+import {
+  loadGoogleAnalytics,
+  hasGoogleAnalyticsConsent,
+  trackGoogleAnalyticsPageView,
+} from "./utils/googleAnalytics";
 
 // === ULTRA-AGGRESSIVE CLEANUP ===
 // This runs IMMEDIATELY before anything else
@@ -74,5 +79,17 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
+
+router.afterEach((to) => {
+  if (!hasGoogleAnalyticsConsent()) {
+    return;
+  }
+
+  trackGoogleAnalyticsPageView(to.fullPath);
+});
+
+if (hasGoogleAnalyticsConsent()) {
+  loadGoogleAnalytics();
+}
 
 app.use(router).use(i18n).mount("#app");

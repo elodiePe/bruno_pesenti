@@ -16,6 +16,14 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
+## Environment Variables
+
+Create a `.env` file at the project root and define the Google Analytics measurement ID:
+
+```sh
+VITE_GA_ID=G-8YZXJXFRPE
+```
+
 ### Compile and Hot-Reload for Development
 
 ```sh
