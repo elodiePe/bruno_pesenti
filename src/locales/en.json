@@ -36,7 +36,7 @@
         "cabinotiers": "Cabinotiers",
         "catalogue": "Catalogue",
         "contact": "Contact",
-        "produits": "Products",
+        "produits": "Shop",
         "concours": "Contest",
         "language": {
             "french": "Français",
@@ -58,6 +58,12 @@
                 "text": "exhibition"
             },
             "highlight2": ". Today, I specialize in the repair and restoration of antique watches and clocks."
+        },
+        "shopBanner": {
+            "eyebrow": "Online shop",
+            "title": "A space with products for sale online",
+            "description": "Browse the available pieces and buy directly online from the website.",
+            "cta": "View products"
         },
         "atelier": {
                     "title": "My workshop",

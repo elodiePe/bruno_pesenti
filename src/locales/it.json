@@ -36,7 +36,7 @@
         "cabinotiers": "Cabinotiers",
         "catalogue": "Catalogo",
         "contact": "Contatto",
-        "produits": "Prodotti",
+        "produits": "Negozio",
         "concours": "Concorso",
         "language": {
             "french": "Français",
@@ -58,6 +58,12 @@
                 "text": "esposizione"
             },
             "highlight2": ". Oggi mi specializzo nella riparazione e nel restauro di orologi e pendole antiche."
+        },
+        "shopBanner": {
+            "eyebrow": "Negozio online",
+            "title": "Uno spazio con prodotti in vendita online",
+            "description": "Scopri i pezzi disponibili e acquista direttamente online dal sito.",
+            "cta": "Vedi i prodotti"
         },
         "atelier": {
             "title": "Il mio laboratorio",

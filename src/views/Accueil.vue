@@ -2,6 +2,14 @@
   <div class="boxes">
   <!-- <Concours /> -->
     <div class="box">
+      <section class="shop-banner">
+        <p class="shop-banner__eyebrow">{{ $t("home.shopBanner.eyebrow") }}</p>
+        <h2>{{ $t("home.shopBanner.title") }}</h2>
+        <p>{{ $t("home.shopBanner.description") }}</p>
+        <RouterLink class="shop-banner__cta" to="/produits">
+          {{ $t("home.shopBanner.cta") }}
+        </RouterLink>
+      </section>
       <h1>Bruno Pesenti</h1>
       <div class="introduction">
         <p>
@@ -44,3 +52,58 @@ import { RouterLink, useRoute, useRouter } from "vue-router";
 import Concours from "../components/Concours.vue";
 const lang = localStorage.getItem("language") || "fr";
 </script>
+
+<style scoped>
+.shop-banner {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #d9c2a0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(222, 184, 135, 0.18), rgba(76, 106, 101, 0.08));
+  text-align: left;
+}
+
+.shop-banner__eyebrow {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #4c6a65;
+}
+
+.shop-banner h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.6rem;
+  color: #2f2f2f;
+}
+
+.shop-banner p {
+  margin: 0 0 1rem;
+  color: #444;
+}
+
+.shop-banner__cta {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: #4c6a65;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.shop-banner__cta:hover {
+  background: #3f5a56;
+}
+
+@media (max-width: 640px) {
+  .shop-banner {
+    padding: 1.1rem;
+  }
+
+  .shop-banner h2 {
+    font-size: 1.3rem;
+  }
+}
+</style>

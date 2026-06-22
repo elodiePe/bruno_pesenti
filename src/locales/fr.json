@@ -35,7 +35,7 @@
         "exposition": "Exposition",
         "cabinotiers": "Cabinotiers",
         "catalogue": "Catalogue",
-        "produits": "Produits",
+        "produits": "Boutique",
         "contact": "Contact",
         "concours": "Concours",
         "language": {
@@ -58,6 +58,12 @@
                 "text": "exposition"
             },
             "highlight2": ". Aujourd'hui, je me spécialise dans la réparation et la restauration de montres et pendules anciennes."
+        },
+        "shopBanner": {
+            "eyebrow": "Boutique en ligne",
+            "title": "Un espace avec des produits à vendre en ligne",
+            "description": "Découvrez les pièces disponibles et achetez directement en ligne depuis le site.",
+            "cta": "Voir les produits"
         },
         "atelier": {
             "title": "Mon atelier",
