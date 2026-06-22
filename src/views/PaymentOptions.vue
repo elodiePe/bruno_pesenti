@@ -644,7 +644,7 @@ export default {
     },
     async sendReservationEmail(reservationPayload) {
       try {
-        const url = 'https://script.google.com/macros/s/AKfycbzoBbBSTbb3ZvqdyjJV9hOuSnD8nMg2LZCDH9Wy1qtzJ392m-hKb7kmyLtb8io_AKxtbg/exec'
+        const url = 'https://script.google.com/macros/s/AKfycby_y4j5LYouyT3TrugiKCmGPi3nYqyqK20BOqfHu19NZ0SQss29NkDWBCg2uKDeRsKWXQ/exec'
 
         const productsJson = JSON.stringify(
           reservationPayload.products.map((p) => ({
