@@ -246,7 +246,7 @@
         },
         "delivery": {
             "title": "Livraison en Suisse",
-            "description": "Paiement par virement ou Twint + frais de livraison"
+            "description": "Paiement par carte de crédit ou débit ou Twint + frais de livraison"
         },
         "paymentMethodsTitle": "Méthodes de paiement",
         "paymentMethodsDescription": "Choisissez votre méthode de paiement préférée pour finaliser votre réservation après approbation.",

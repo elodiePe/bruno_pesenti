@@ -644,7 +644,7 @@ export default {
     },
     async sendReservationEmail(reservationPayload) {
       try {
-        const url = 'https://script.google.com/macros/s/AKfycby_y4j5LYouyT3TrugiKCmGPi3nYqyqK20BOqfHu19NZ0SQss29NkDWBCg2uKDeRsKWXQ/exec'
+        const url = 'https://script.google.com/macros/s/AKfycbzs30qZuCIgIqCn09Bq51Nbh70aqnpYhY1OmZ6uCOEJ__5CnsmizaDMpH7KS3SaRBCedA/exec'
 
         const productsJson = JSON.stringify(
           reservationPayload.products.map((p) => ({
@@ -1228,6 +1228,7 @@ export default {
 
 /* Payment Instructions */
 .payment-instructions {
+  margin-top: 20px;
   background: #fff9f0;
   border: 2px solid #ffc107;
   border-radius: 8px;
@@ -1555,6 +1556,7 @@ export default {
 
   .payment-instructions {
     padding: 12px;
+    margin-top: 12px;
   }
 
   .payment-instructions h4 {

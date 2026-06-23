@@ -248,8 +248,9 @@
         },
         "delivery": {
             "title": "Delivery in Switzerland",
-            "description": "Payment by bank transfer or Twint + shipping cost"
+            "description": "Payment by credit or debit card or TWINT + shipping fees"
         },
+
         "paymentMethodsTitle": "Payment Methods",
         "paymentMethodsDescription": "Choose your preferred payment method to complete your reservation after it is approved.",
         "bankTransfer": {
