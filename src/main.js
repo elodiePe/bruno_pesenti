@@ -8,6 +8,7 @@ import {
   hasGoogleAnalyticsConsent,
   trackGoogleAnalyticsPageView,
 } from "./utils/googleAnalytics";
+import { updateSeoForRoute } from "./utils/seo";
 
 // === ULTRA-AGGRESSIVE CLEANUP ===
 // This runs IMMEDIATELY before anything else
@@ -81,6 +82,8 @@ router.beforeEach((to, from, next) => {
 });
 
 router.afterEach((to) => {
+  updateSeoForRoute(to);
+
   if (!hasGoogleAnalyticsConsent()) {
     return;
   }
@@ -91,5 +94,7 @@ router.afterEach((to) => {
 if (hasGoogleAnalyticsConsent()) {
   loadGoogleAnalytics();
 }
+
+updateSeoForRoute(router.currentRoute.value);
 
 app.use(router).use(i18n).mount("#app");
