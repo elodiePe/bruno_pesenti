@@ -157,6 +157,9 @@ export function updateSeoForRoute(to) {
   const seoConfig = SEO_CONTENT[lang] || SEO_CONTENT.fr;
   const routeName = String(to.name || "");
 
+  // Set the html lang attribute dynamically
+  document.documentElement.setAttribute("lang", lang);
+
   const title = seoConfig.titles[routeName] || seoConfig.defaultTitle;
   const description =
     seoConfig.descriptions[routeName] || seoConfig.defaultDescription;
