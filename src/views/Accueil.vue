@@ -10,6 +10,7 @@
           {{ $t("home.shopBanner.cta") }}
         </RouterLink>
       </section>
+
       <h1>Bruno Pesenti</h1>
       <div class="introduction">
         <p>

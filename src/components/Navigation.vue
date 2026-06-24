@@ -67,126 +67,189 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <!-- BURGER BUTTON (mobile only) -->
   <div :class="['burger', { 'burger-open': isMenuOpen }]" @click="toggleMenu">
     <span></span>
     <span></span>
     <span></span>
   </div>
-  <div :class="['navigation', { 'navigation-open': isMenuOpen }]">
-    <ul class="nav no-search">
-      <li class="navText">
-        <RouterLink class="one" to="/">{{ $t('navigation.home') }}</RouterLink>
-      </li>
-      <li class="navText">
-        <RouterLink class="two" to="/exposition">{{ $t('navigation.exposition') }}</RouterLink>
-      </li>
-      <li class="navText">
-        <RouterLink class="three" to="/cabinotiers">{{ $t('navigation.cabinotiers') }}</RouterLink>
-      </li>
-      <li class="navText">
-        <RouterLink class="four" to="/catalogue">{{ $t('navigation.catalogue') }}</RouterLink>
-      </li>
 
-        <li class="navText">
-        <RouterLink class="six" to="/produits">{{ $t('navigation.produits') }}</RouterLink>
-      </li> 
-
-
-      
-       <li class="navText">
-        <RouterLink class="five" to="/contact">{{ $t('navigation.contact') }}</RouterLink>
+  <!-- DESKTOP NAV -->
+  <div class="nav-desktop">
+    <ul>
+      <li><RouterLink :to="{ name: 'Accueil' }">{{ $t('navigation.home') }}</RouterLink></li>
+      <li><RouterLink :to="{ name: 'Products' }">{{ $t('navigation.produits') }}</RouterLink></li>
+      <li><RouterLink :to="{ name: 'blog' }">{{ $t('navigation.blog') }}</RouterLink></li>
+      <li><RouterLink :to="{ name: 'exposition' }">{{ $t('navigation.exposition') }}</RouterLink></li>
+      <li class="drop">
+        <span>Autre ▾</span>
+        <ul class="drop-menu">
+          <li><RouterLink :to="{ name: 'cabinoteriers' }">{{ $t('navigation.cabinotiers') }}</RouterLink></li>
+          <li><RouterLink :to="{ name: 'catalogue' }">{{ $t('navigation.catalogue') }}</RouterLink></li>
+        </ul>
       </li>
-        <!-- <li class="navText">
-        <RouterLink class="six" to="/blog">{{ $t('navigation.blog') }}</RouterLink>
-      </li> -->
-         <!-- <li class="navText">
-        <RouterLink class="six" to="/concours">{{ $t('navigation.concours') }}</RouterLink>
-      </li> -->
-      <li class="navText">
-        <select @change="changeLanguage($event.target.value)" :value="locale" >
-          <option value="en">{{ $t('navigation.language.english') }}</option>
-          <option value="fr">{{ $t('navigation.language.french') }}</option>
-          <option value="it">{{ $t('navigation.language.italian') }}</option>
+      <li class="spacer"></li>
+      <li><RouterLink :to="{ name: 'contact' }">{{ $t('navigation.contact') }}</RouterLink></li>
+      <li class="lang-wrap">
+        <select @change="changeLanguage($event.target.value)" :value="locale">
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+          <option value="it">IT</option>
         </select>
       </li>
     </ul>
   </div>
-   
-  <!-- <button @click="changeLanguage('en')">{{ $t('navigation.language.english') }}</button>
-  <button @click="changeLanguage('fr')">{{ $t('navigation.language.french') }}</button> -->
+
+  <!-- MOBILE BURGER NAV -->
+  <div :class="['nav-mobile', { 'nav-mobile-open': isMenuOpen }]">
+    <ul>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'Accueil' }">{{ $t('navigation.home') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'Products' }">{{ $t('navigation.produits') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'blog' }">{{ $t('navigation.blog') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'exposition' }">{{ $t('navigation.exposition') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'cabinoteriers' }">{{ $t('navigation.cabinotiers') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'catalogue' }">{{ $t('navigation.catalogue') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'contact' }">{{ $t('navigation.contact') }}</RouterLink></li>
+      <li class="lang-wrap">
+        <select @change="changeLanguage($event.target.value)" :value="locale">
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+          <option value="it">IT</option>
+        </select>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
-.navText .router-link-exact-active {
-  background-color: #f0f0f0; /* Change this to your desired active color */
-  color: #c86412; /* Change this to your desired active text color */
+/* ===== DESKTOP NAV ===== */
+.nav-desktop {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background-color: #4c6a65;
+  border-radius: 10px 10px 0 0;
+  padding: 0.5rem 1rem;
+  padding-top: 1rem;
+  padding-bottom:1rem;
 }
 
-.navText .router-link-active {
-  background-color: #e0e0e0; /* Change this to your desired hover color */
-  color: #c86412; /* Change this to your desired hover text color */
-}
-
-.one:active {
-  background-color: #e0e0e0;
-}
-.one:hover {
-  background-color: #e0e0e0;
-}
-.two:hover {
-  background-color: #e0e0e0;
-}
-.three:hover {
-  background-color: #e0e0e0;
-}
-.four:hover {
-  background-color: #e0e0e0;
-}
-.five:hover {
-  background-color: #e0e0e0;
-}
-.six:hover {
-  background-color: #e0e0e0;
-}
-.navText select {
-  background-color: #c86412;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+.nav-desktop ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
   margin: 0;
-  align-self: center;
-  padding: 0.3rem 0.5rem;
+  padding: 0;
+  gap: 0.7rem;
+}
 
+.nav-desktop a {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #deb887;
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nav-desktop a:hover,
+.nav-desktop a.router-link-active {
+  background-color: #4c6a65 !important;
+  color: #fff !important;
+}
+
+/* Desktop dropdown */
+.nav-desktop .drop {
+  position: relative;
+  list-style: none;
+}
+
+.nav-desktop .drop > span {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #deb887;
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
-  vertical-align: middle;
-}
-.navText:last-child {
-padding: 0%;
-margin: 0%;
+  white-space: nowrap;
 }
 
-.navText select:hover,
-.navText select:focus {
-  background-color: #fff;
-  color: #c86412;
-  outline: none;
+.nav-desktop .drop > span:hover {
+  background-color: #4c6a65;
+  color: #fff;
 }
-ul li {
-  gap: 10px;
+
+.nav-desktop .drop-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4c6a65;
+  border-radius: 10px;
+  padding: 0.4rem;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  list-style: none;
+  white-space: nowrap;
+  gap: 0;
 }
+
+.nav-desktop .drop:hover .drop-menu,
+.nav-desktop .drop-menu:hover {
+  display: block;
+}
+
+.nav-desktop .drop-menu a {
+  margin: 2px 0;
+}
+
+.nav-desktop .drop-menu a.router-link-active {
+  background-color: #4c6a65 !important;
+  color: #fff !important;
+}
+
+/* Spacer */
+.nav-desktop .spacer {
+  flex: 1;
+}
+
+/* Language selector desktop */
+.nav-desktop .lang-wrap select {
+  background-color: #4c6a65;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-desktop .lang-wrap select:hover {
+  background-color: #3a524e;
+}
+
+/* ===== MOBILE NAV ===== */
 .burger {
   display: none;
 }
-@media (max-width: 1500px) {
-  .navigation ul {
-    display: flex;
-gap: 10px;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    width: 100%;
-  }
+
+.nav-mobile {
+  display: none;
 }
+
 @media (max-width: 1050px) {
+  .nav-desktop {
+    display: none;
+  }
+
   .burger {
     display: block;
     position: fixed;
@@ -197,8 +260,9 @@ gap: 10px;
     right: 2rem;
     background-color: transparent;
     cursor: pointer;
-    z-index: 2;
+    z-index: 1001;
   }
+
   .burger span {
     display: block;
     width: 40px;
@@ -208,41 +272,79 @@ gap: 10px;
     margin: 8px auto;
     transition: all 0.3s;
   }
+
   .burger-open span:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
+    transform: rotate(45deg) translate(8px, 8px);
   }
   .burger-open span:nth-child(2) {
     opacity: 0;
   }
   .burger-open span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(8px, -8px);
   }
-  .navigation {
-    z-index: 1;
+
+  .nav-mobile {
     display: none;
     position: fixed;
     top: 60px;
     right: 2rem;
-    padding-right: 3rem;
-    width: 20%;
-    flex-direction: column;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    line-height: 3rem;
+    background: #4c6a65;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
-  .navigation-open {
-    display: flex;
+
+  .nav-mobile-open {
+    display: block;
   }
-  .navigation ul {
+
+  .nav-mobile ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    flex-wrap: wrap-reverse;
-    gap: 0rem;
+    gap: 0.3rem;
   }
 
-  /* Suppression du style qui écrase le gap sur mobile */
+  .nav-mobile a {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #deb887;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
 
+  .nav-mobile a:hover,
+  .nav-mobile a.router-link-active {
+    background-color: #4c6a65 !important;
+    color: #fff !important;
+  }
+
+  .nav-mobile .lang-wrap select {
+    background-color: #4c6a65;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
 }
 
+</style>
+
+<style>
+.nav-desktop a.router-link-active,
+.nav-mobile a.router-link-active {
+  background-color: #4c6a65 !important;
+  color: #fff !important;
+}
 </style>

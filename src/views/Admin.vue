@@ -57,6 +57,13 @@
               >
                 Réservations
               </button>
+              <button
+                class="tab-btn"
+                :class="{ active: activeTab === 'blog' }"
+                @click="setActiveTab('blog')"
+              >
+                Blog
+              </button>
             </div>
 
             <div class="user-profile desktop-only">
@@ -69,11 +76,13 @@
           <div class="header-bottom">
             <div class="header-left">
               <h1 v-if="activeTab === 'products'">Gestion des Produits</h1>
-              <h1 v-else>Gestion des Réservations</h1>
+              <h1 v-else-if="activeTab === 'reservations'">Gestion des Réservations</h1>
+              <h1 v-else>Gestion du Blog</h1>
               <p v-if="activeTab === 'products'" class="stats">
                 {{ products.length }} produits enregistrés
               </p>
-              <p v-else class="stats">{{ reservations.length }} réservations</p>
+              <p v-else-if="activeTab === 'reservations'" class="stats">{{ reservations.length }} réservations</p>
+              <p v-else class="stats">{{ blogArticles.length }} articles</p>
             </div>
 
             <button
@@ -82,6 +91,13 @@
               class="btn-create"
             >
               {{ showCreateForm ? "Annuler" : "+ Nouveau Produit" }}
+            </button>
+            <button
+              v-if="activeTab === 'blog'"
+              @click="toggleBlogForm"
+              class="btn-create"
+            >
+              {{ showBlogForm ? "Annuler" : "+ Nouvel Article" }}
             </button>
           </div>
         </header>
@@ -144,7 +160,7 @@
                 placeholder="Nom du produit"
               />
               <div class="input-field">
-                <label>Prix (€)</label>
+                <label>Prix (CHF)</label>
                 <input
                   v-model.number="createForm.price"
                   type="number"
@@ -255,7 +271,7 @@
                   v-model.number="editForm.price"
                   type="number"
                   class="input-edit"
-                  placeholder="Prix (€)"
+                  placeholder="Prix (CHF)"
                 />
                 
                 <input
@@ -314,7 +330,7 @@
                 <div class="details">
                   <div class="title-row">
                     <h3>{{ product.title }}</h3>
-                    <span class="price-tag">{{ product.price }}€</span>
+                    <span class="price-tag">{{ product.price }} CHF</span>
                   </div>
                   <p class="desc-text">
                     {{ truncateDescription(product.description) }}
@@ -363,7 +379,7 @@
         </div>
         </div>
 
-        <div v-else class="reservations-panel">
+        <div v-else-if="activeTab === 'reservations'" class="reservations-panel">
           <div class="reservation-toolbar">
             <button @click="loadReservations" class="btn btn-refresh" :disabled="reservationsLoading">
               {{ reservationsLoading ? 'Chargement...' : 'Rafraîchir' }}
@@ -530,6 +546,77 @@
             </div>
           </div>
         </div>
+
+        <!-- BLOG TAB -->
+        <div v-else class="blog-panel">
+          <!-- ToolbarA -->
+
+
+          <!-- Blog Form -->
+          <div v-if="showBlogForm" class="blog-form-card">
+            <div class="blog-form-header">
+              <h3>{{ editingBlogId ? "✏️ Modifier l'article" : "✍️ Nouvel article" }}</h3>
+              <button @click="cancelBlogForm" class="btn-close">×</button>
+            </div>
+            <div class="blog-form-body">
+              <div class="blog-form-row">
+                <div class="blog-form-group flex-1">
+                  <label>Titre <span class="required">*</span></label>
+                  <input v-model="blogForm.title" type="text" class="input-edit" placeholder="Titre de l'article" />
+                </div>
+                <div class="blog-form-group date-group">
+                  <label>Date</label>
+                  <input v-model="blogForm.date" type="date" class="input-edit" />
+                </div>
+              </div>
+              <div class="blog-form-group">
+                <label>Résumé <span class="required">*</span></label>
+                <textarea v-model="blogForm.summary" class="input-edit" rows="2" placeholder="Court résumé qui apparaîtra sur la carte du blog"></textarea>
+              </div>
+              <div class="blog-form-group">
+                <label>Contenu (HTML) <span class="required">*</span></label>
+                <div class="content-hint">Vous pouvez utiliser du HTML : &lt;p&gt;, &lt;h3&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;a&gt;...</div>
+                <textarea v-model="blogForm.content" class="input-edit editor-textarea" rows="12" placeholder="<p>Contenu de l'article...</p>"></textarea>
+              </div>
+              <div class="blog-form-actions">
+                <button @click="cancelBlogForm" class="btn btn-cancel">Annuler</button>
+                <button
+                  @click="saveBlogArticle"
+                  class="btn btn-save"
+                  :disabled="actionLoading || !blogForm.title || !blogForm.content"
+                >
+                  {{ actionLoading ? "Enregistrement..." : (editingBlogId ? "Mettre à jour" : "Publier l'article") }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div v-if="blogArticles.length === 0 && !showBlogForm" class="empty-state">
+            <div class="empty-icon">📝</div>
+            <p>Aucun article pour le moment.</p>
+            <p class="empty-hint">Créez votre premier article de blog !</p>
+          </div>
+
+          <!-- Blog List -->
+          <div v-else-if="!showBlogForm" class="blog-list">
+            <div v-for="article in blogArticles" :key="article._id" class="blog-card-admin">
+              <div class="blog-card-top">
+                <span class="blog-card-date">{{ article.date }}</span>
+                <div class="blog-card-actions">
+                  <button @click="editBlogArticle(article)" class="btn-icon btn-icon-edit" title="Modifier">✏️</button>
+                  <button @click="deleteBlogArticle(article._id)" class="btn-icon btn-icon-delete" title="Supprimer">🗑️</button>
+                </div>
+              </div>
+              <h4 class="blog-card-title">{{ article.title }}</h4>
+              <p class="blog-card-summary">{{ article.summary }}</p>
+              <div class="blog-card-footer">
+                <span class="blog-card-length">{{ (article.content || '').length }} caractères</span>
+                <a :href="'/fr/blog/' + article._id" target="_blank" class="blog-card-preview">Aperçu →</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -579,6 +666,16 @@ export default {
         disponible: true,
         youtubeUrl: "",
       },
+      // Blog
+      blogArticles: [],
+      showBlogForm: false,
+      editingBlogId: null,
+      blogForm: {
+        title: "",
+        summary: "",
+        content: "",
+        date: new Date().toISOString().split('T')[0],
+      },
     };
   },
   computed: {
@@ -604,6 +701,7 @@ export default {
           this.isLoggedIn = true;
           sessionStorage.setItem("adminToken", this.token);
           await this.loadProducts();
+          await this.loadBlogArticles();
           if (this.activeTab === "reservations") {
             await this.loadReservations();
           }
@@ -929,6 +1027,72 @@ export default {
       this.isLoggedIn = false;
       sessionStorage.clear();
     },
+
+    // ===== BLOG METHODS =====
+    toggleBlogForm() {
+      this.showBlogForm = !this.showBlogForm;
+      if (!this.showBlogForm) this.cancelBlogForm();
+    },
+    cancelBlogForm() {
+      this.showBlogForm = false;
+      this.editingBlogId = null;
+      this.blogForm = {
+        title: "",
+        summary: "",
+        content: "",
+        date: new Date().toISOString().split('T')[0],
+      };
+    },
+    async loadBlogArticles() {
+      try {
+        const res = await api.getBlogArticles();
+        if (res.success) this.blogArticles = res.data;
+      } catch (e) {
+        console.error('Failed to load blog articles:', e);
+      }
+    },
+    async saveBlogArticle() {
+      if (!this.blogForm.title || !this.blogForm.content) {
+        alert('Le titre et le contenu sont requis.');
+        return;
+      }
+      try {
+        this.actionLoading = true;
+        if (this.editingBlogId) {
+          const res = await api.updateBlogArticle(this.editingBlogId, this.blogForm, this.token);
+          if (res.success) {
+            const idx = this.blogArticles.findIndex(a => a._id === this.editingBlogId);
+            if (idx !== -1) this.blogArticles[idx] = res.data;
+          }
+        } else {
+          const res = await api.createBlogArticle(this.blogForm, this.token);
+          if (res.success) this.blogArticles.unshift(res.data);
+        }
+        this.cancelBlogForm();
+      } catch (e) {
+        alert("Erreur lors de l'enregistrement.");
+        console.error(e);
+      } finally {
+        this.actionLoading = false;
+      }
+    },
+    editBlogArticle(article) {
+      this.editingBlogId = article._id;
+      this.blogForm = {
+        title: article.title,
+        summary: article.summary,
+        content: article.content,
+        date: article.date,
+      };
+      this.showBlogForm = true;
+    },
+    deleteBlogArticle(id) {
+      if (!confirm("Supprimer définitivement cet article ?")) return;
+      api.deleteBlogArticle(id, this.token).then((res) => {
+        if (res.success)
+          this.blogArticles = this.blogArticles.filter((a) => a._id !== id);
+      });
+    },
   },
   mounted() {
     const t = sessionStorage.getItem("adminToken");
@@ -936,6 +1100,7 @@ export default {
       this.token = t;
       this.isLoggedIn = true;
       this.loadProducts();
+      this.loadBlogArticles();
     }
   },
 };
@@ -1425,6 +1590,245 @@ export default {
   border-radius: 16px;
   padding: 20px;
   border: 1px solid #e2e8f0;
+}
+
+/* ===== BLOG PANEL ===== */
+.blog-panel {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.blog-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.blog-toolbar-left {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.blog-panel-title {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+.blog-count {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.blog-form-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  margin-bottom: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.blog-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.blog-form-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.btn-close:hover {
+  color: #ef4444;
+}
+
+.blog-form-body {
+  padding: 20px;
+}
+
+.blog-form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.blog-form-group {
+  margin-bottom: 16px;
+}
+
+.blog-form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.blog-form-group .required {
+  color: #ef4444;
+}
+
+.date-group {
+  max-width: 200px;
+  flex-shrink: 0;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.content-hint {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  background: #f8fafc;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.blog-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.blog-card-admin {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: box-shadow 0.15s;
+}
+
+.blog-card-admin:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.blog-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.blog-card-date {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.blog-card-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background 0.15s;
+}
+
+.btn-icon:hover {
+  background: #f1f5f9;
+}
+
+.blog-card-title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.blog-card-summary {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.blog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.blog-card-length {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.blog-card-preview {
+  font-size: 0.82rem;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.blog-card-preview:hover {
+  text-decoration: underline;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94a3b8;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.empty-hint {
+  font-size: 0.88rem;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .blog-form-row {
+    flex-direction: column;
+  }
+  .date-group {
+    max-width: 100%;
+  }
 }
 
 .reservation-toolbar {

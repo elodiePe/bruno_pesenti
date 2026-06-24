@@ -72,6 +72,11 @@
         "information": {
             "title": "Important Information",
             "description": "The workshop is closed until mid-January 2026. For any requests, please contact me by email or phone. Thank you for your understanding."
+        },
+        "blog": {
+            "eyebrow": "Blog",
+            "title": "Latest News",
+            "allArticles": "View all articles"
         }
     },
     "exposition": {
@@ -89,7 +94,7 @@
     },
     "catalogue": {
         "title": "My catalogue: <g>Le Cabinotier</g>",
-        "description": "<g>Le Cabinotier</g> is a small catalogue that tells the story of the cabinotiers and presents a small part of my watchmaking collection. The catalogue was created by <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> as part of her specialized maturity work.",
+        "description": "<g>Le Cabinotier</g> is a small catalogue that tells the story of the cabinotiers and presents a small part of my watchmaking collection. The catalogue was created by <a href='https://elodie.perring.ch/'>Elodie Perring</a> as part of her specialized maturity work.",
         "description2": "To buy the catalogue, come to the workshop or",
         "textLink": "contact me"
     },

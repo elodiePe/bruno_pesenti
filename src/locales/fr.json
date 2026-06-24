@@ -72,6 +72,11 @@
         "information":{
             "title": "Information importante ",
             "description": "L'atelier est fermé jusqu'à mi-janvier 2026. Pour toute demande, veuillez me contacter par e-mail ou par téléphone. Merci de votre compréhension."
+        },
+        "blog": {
+            "eyebrow": "Blog",
+            "title": "Dernières actualités",
+            "allArticles": "Voir tous les articles"
         }
     },
     "exposition": {
@@ -89,7 +94,7 @@
     },
     "catalogue": {
         "title": "Mon catalogue : <g>Le Cabinotier</g>",
-        "description": " <g>Le Cabinotier</g> est un petit catalogue qui raconte l'histoire des cabinotiers et présente une petite partie de ma collection horlogère. Le catalogue a été réalisé par <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> dans le cadre de son travail de maturité spécialisé.",
+        "description": " <g>Le Cabinotier</g> est un petit catalogue qui raconte l'histoire des cabinotiers et présente une petite partie de ma collection horlogère. Le catalogue a été réalisé par <a href='https://elodie.perring.ch/'>Elodie Perring</a> dans le cadre de son travail de maturité spécialisé.",
         "description2": "Pour acheter le catalogue, passez à l'atelier ou",
         "textLink": "contactez-moi"
     },

@@ -223,7 +223,7 @@ function sendEmail() {
 
 .box {
   padding: 2.5rem 2rem;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   width: 100%;
   max-width: 420px;
 }

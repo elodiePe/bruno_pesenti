@@ -71,6 +71,11 @@
          "information":{
             "title": "Informazioni importanti",
             "description": "Il laboratorio è chiuso fino a metà gennaio 2026. Per qualsiasi richiesta, contattami via e-mail o telefono. Grazie per la tua comprensione."
+        },
+        "blog": {
+            "eyebrow": "Blog",
+            "title": "Ultime notizie",
+            "allArticles": "Vedi tutti gli articoli"
         }
         
     },
@@ -89,7 +94,7 @@
     },
     "catalogue": {
         "title": "Il mio catalogo: <g>Le Cabinotier</g>",
-        "description": " <g>Le Cabinotier</g> è un piccolo catalogo che racconta la storia dei cabinotier e presenta una piccola parte della mia collezione orologiera. Il catalogo è stato realizzato da <a href='https://elodieperringfigweb.site/'>Elodie Perring</a> nell'ambito del suo lavoro di maturità specializzata.",
+        "description": " <g>Le Cabinotier</g> è un piccolo catalogo che racconta la storia dei cabinotier e presenta una piccola parte della mia collezione orologiera. Il catalogo è stato realizzato da <a href='https://elodie.perring.ch/'>Elodie Perring</a> nell'ambito del suo lavoro di maturità specializzata.",
         "description2": "Per acquistare il catalogo, passa al laboratorio oppure",
         "textLink": "contattami"
     },

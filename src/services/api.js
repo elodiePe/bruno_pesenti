@@ -165,4 +165,60 @@ export const api = {
     if (!response.ok) throw new Error('Failed to update reservation status');
     return response.json();
   },
+
+  // ===== BLOG ARTICLES =====
+
+  // Get all blog articles
+  getBlogArticles: async () => {
+    const response = await fetch(`${API_BASE}/blog`);
+    if (!response.ok) throw new Error('Failed to fetch blog articles');
+    return response.json();
+  },
+
+  // Get single blog article
+  getBlogArticle: async (id) => {
+    const response = await fetch(`${API_BASE}/blog/${id}`);
+    if (!response.ok) throw new Error('Failed to fetch blog article');
+    return response.json();
+  },
+
+  // Create blog article (admin)
+  createBlogArticle: async (articleData, token) => {
+    const response = await fetch(`${API_BASE}/blog`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(articleData),
+    });
+    if (!response.ok) throw new Error('Failed to create blog article');
+    return response.json();
+  },
+
+  // Update blog article (admin)
+  updateBlogArticle: async (id, articleData, token) => {
+    const response = await fetch(`${API_BASE}/blog/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(articleData),
+    });
+    if (!response.ok) throw new Error('Failed to update blog article');
+    return response.json();
+  },
+
+  // Delete blog article (admin)
+  deleteBlogArticle: async (id, token) => {
+    const response = await fetch(`${API_BASE}/blog/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    });
+    if (!response.ok) throw new Error('Failed to delete blog article');
+    return response.json();
+  },
 };

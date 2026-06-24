@@ -46,6 +46,10 @@ const SEO_CONTENT = {
         "Consultez les details, photos et prix du produit selectionne chez Bruno Pesenti.",
       contact:
         "Contactez Bruno Pesenti pour une demande, une reservation ou des informations sur l'atelier.",
+      blog:
+        "Blog de Bruno Pesenti: actualites, articles de presse, conseils d'entretien et coulisses de l'atelier d'horlogerie.",
+      blogArticle:
+        "Article de blog sur l'horlogerie ancienne, les antiquites et l'univers de Bruno Pesenti.",
     },
   },
   en: {
@@ -76,6 +80,10 @@ const SEO_CONTENT = {
         "View product details, images, and pricing for your selected item.",
       contact:
         "Get in touch with Bruno Pesenti for reservations, questions, or workshop information.",
+      blog:
+        "Bruno Pesenti's blog: news, press articles, watch care tips and behind the scenes of the workshop.",
+      blogArticle:
+        "Blog article about antique watchmaking, antiques and the world of Bruno Pesenti.",
     },
   },
   it: {
@@ -106,6 +114,10 @@ const SEO_CONTENT = {
         "Consulta dettagli, immagini e prezzo del prodotto selezionato.",
       contact:
         "Contatta Bruno Pesenti per informazioni, prenotazioni o richieste sull'atelier.",
+      blog:
+        "Blog di Bruno Pesenti: notizie, articoli, consigli e retroscena dell'officina di orologeria.",
+      blogArticle:
+        "Articolo del blog sull'orologeria antica e l'universo di Bruno Pesenti.",
     },
   },
 };

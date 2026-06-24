@@ -29,7 +29,7 @@ function openCookies() {
 <template>
   <footer class="footer">
     <ul>
-      <li><a href="https://elodieperring.figweb.site/">@Elodie Perring</a></li>
+      <li><a href="https://elodie.perring.ch/">@Elodie Perring</a></li>
       <li><a href="https://brunopesenti.ch/">Bruno Pesenti</a></li>
       <li>2024</li>
       <li><RouterLink to="/cookies">cookies</RouterLink></li>
