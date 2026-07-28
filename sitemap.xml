@@ -2,180 +2,164 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.brunopesenti.ch/fr/</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/exposition</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/exposition</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/exposition</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/cabinotiers</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/cabinotiers</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/cabinotiers</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/catalogue</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/catalogue</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/catalogue</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/blog</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/blog</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/blog</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/produits</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/produits</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/produits</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/minimusee</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/minimusee</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/minimusee</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/confidentialite</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/confidentialite</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/confidentialite</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/cookies</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/cookies</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/cookies</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
-
   <url>
     <loc>https://www.brunopesenti.ch/fr/order-complete</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/en/order-complete</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
   </url>
   <url>
     <loc>https://www.brunopesenti.ch/it/order-complete</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/fr/blog/6a6889daade5e1be5576cf83</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/en/blog/6a6889daade5e1be5576cf83</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/it/blog/6a6889daade5e1be5576cf83</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/fr/blog/6a688c4eade5e1be5576cf8f</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/en/blog/6a688c4eade5e1be5576cf8f</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/it/blog/6a688c4eade5e1be5576cf8f</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/fr/blog/6a68a3c5c3e2521eeeb6712a</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/en/blog/6a68a3c5c3e2521eeeb6712a</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/it/blog/6a68a3c5c3e2521eeeb6712a</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/fr/blog/6a68a4f0c3e2521eeeb6712f</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/en/blog/6a68a4f0c3e2521eeeb6712f</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/it/blog/6a68a4f0c3e2521eeeb6712f</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/fr/blog/6a68a58ac3e2521eeeb67132</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/en/blog/6a68a58ac3e2521eeeb67132</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/it/blog/6a68a58ac3e2521eeeb67132</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/fr/blog/6a68a6b8c3e2521eeeb67135</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/en/blog/6a68a6b8c3e2521eeeb67135</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/it/blog/6a68a6b8c3e2521eeeb67135</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/fr/blog/6a3d21259334b2cc5ffae983</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/en/blog/6a3d21259334b2cc5ffae983</loc>
+  </url>
+  <url>
+    <loc>https://www.brunopesenti.ch/it/blog/6a3d21259334b2cc5ffae983</loc>
   </url>
 </urlset>
