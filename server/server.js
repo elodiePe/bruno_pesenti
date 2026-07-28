@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { connectDB } from './config/db.js';
 import productRoutes from './routes/products.js';
 import authRoutes from './routes/auth.js';
 import reservationRoutes from './routes/reservations.js';
@@ -9,9 +8,6 @@ import blogRoutes from './routes/blog.js';
 
 // Load environment variables
 dotenv.config();
-
-// Connect to MongoDB
-connectDB();
 
 const app = express();
 
@@ -56,28 +52,21 @@ app.use((err, req, res, next) => {
 });
 
 
-// Serve static files from the frontend (dist) directory
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const frontendDistPath = path.resolve(__dirname, '../dist');
-app.use(express.static(frontendDistPath));
-
-// Catch-all: serve index.html for client-side routes (except API and static files)
-app.get('*', (req, res, next) => {
-  if (req.path.startsWith('/api') || req.path.startsWith('/static')) {
-    return next();
-  }
-  res.sendFile(path.join(frontendDistPath, 'index.html'));
+// On Vercel, only API routes are used - no static frontend files
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api')) return res.status(404).json({ success: false, message: 'API route not found' });
+  res.status(404).json({ success: false, message: 'Not found' });
 });
 
-const PORT = process.env.PORT || 5000;
+// Only listen when not on Vercel (Vercel handles the port automatically)
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`API endpoint: http://localhost:${PORT}/api`);
+  });
+}
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`API endpoint: http://localhost:${PORT}/api`);
-});
+// Export for Vercel serverless
+export default app;

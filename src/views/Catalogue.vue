@@ -6,7 +6,7 @@
         <section>
           <p v-html="$t('catalogue.description')"></p>
           <p>{{ $t("catalogue.description2") }} 
-            <RouterLink to="/contact">{{ $t("catalogue.textLink") }}</RouterLink>
+            <RouterLink :to="`/${lang}/contact`">{{ $t("catalogue.textLink") }}</RouterLink>
           </p>
         </section>
 
@@ -18,3 +18,7 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const lang = localStorage.getItem("language") || "fr";
+</script>

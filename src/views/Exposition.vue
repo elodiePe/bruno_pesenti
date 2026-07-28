@@ -8,7 +8,7 @@
           <p v-html="$t('exposition.description')"></p>
           <div class="buttons">
      
-            <RouterLink class="five" to="/contact">{{
+            <RouterLink class="five" :to="`/${lang}/contact`">{{
               $t("exposition.contact")
             }}</RouterLink>
 
@@ -26,6 +26,10 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const lang = localStorage.getItem("language") || "fr";
+</script>
 <style scoped>
 div.buttons {
   display: flex;

@@ -4,6 +4,7 @@ import { useI18n } from "vue-i18n";
 import { RouterLink } from "vue-router";
 
 const { t, locale } = useI18n();
+const lang = localStorage.getItem("language") || "fr";
 const consentStatus = ref(localStorage.getItem("cookieConsent") || "unknown");
 
 const consentMessage = ref("");
@@ -32,9 +33,9 @@ function openCookies() {
       <li><a href="https://elodie.perring.ch/">@Elodie Perring</a></li>
       <li><a href="https://brunopesenti.ch/">Bruno Pesenti</a></li>
       <li>2024</li>
-      <li><RouterLink to="/cookies">cookies</RouterLink></li>
+      <li><RouterLink :to="`/${lang}/cookies`">cookies</RouterLink></li>
       <li>
-        <RouterLink class="six" to="/confidentialite">{{
+        <RouterLink class="six" :to="`/${lang}/confidentialite`">{{
           $t("confidentiality.title")
         }}</RouterLink>
       </li>

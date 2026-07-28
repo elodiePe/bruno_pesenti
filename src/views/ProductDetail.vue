@@ -1,7 +1,7 @@
 <template>
   <div class="boxes">
     <div class="box">
-      <RouterLink to="/produits" class="back-link">← {{ $t('products.backToProducts') }}</RouterLink>
+      <RouterLink :to="`/${lang}/produits`" class="back-link">← {{ $t('products.backToProducts') }}</RouterLink>
       
       <div class="introduction product-detail" v-if="product">
         <!-- LEFT COLUMN: IMAGES -->
@@ -120,6 +120,8 @@
 import { RouterLink } from 'vue-router'
 import { api } from '../services/api.js'
 import { loadCart, saveCart } from '../utils/localStorage.js'
+
+const lang = localStorage.getItem('language') || 'fr'
 
 export default {
   name: 'ProductDetail',

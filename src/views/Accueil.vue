@@ -6,7 +6,7 @@
         <p class="shop-banner__eyebrow">{{ $t("home.shopBanner.eyebrow") }}</p>
         <h2>{{ $t("home.shopBanner.title") }}</h2>
         <p>{{ $t("home.shopBanner.description") }}</p>
-        <RouterLink class="shop-banner__cta" to="/produits">
+        <RouterLink class="shop-banner__cta" :to="`/${lang}/produits`">
           {{ $t("home.shopBanner.cta") }}
         </RouterLink>
       </section>
@@ -17,10 +17,10 @@
           {{ $t("home.introduction.description") }}
           <gr>{{ $t("home.introduction.highlight1") }}</gr>
           {{ $t("home.introduction.description2") }}
-          <RouterLink to="/cabinotiers">{{ $t("home.introduction.link1.text") }}</RouterLink>
+          <RouterLink :to="`/${lang}/cabinotiers`">{{ $t("home.introduction.link1.text") }}</RouterLink>
           <br>
           {{ $t("home.introduction.description3") }}
-          <RouterLink to="/exposition">{{ $t("home.introduction.link2.text") }}</RouterLink>
+          <RouterLink :to="`/${lang}/exposition`">{{ $t("home.introduction.link2.text") }}</RouterLink>
           <gr>{{ $t("home.introduction.highlight2") }}</gr>
         </p>
 

@@ -7,10 +7,10 @@
           <p v-html="$t('cabinotiers.description')"></p>
 
           <div class="buttons">
-            <RouterLink class="five" to="/catalogue">{{
+            <RouterLink class="five" :to="`/${lang}/catalogue`">{{
               $t("cabinotiers.buttons.catalogue")
             }}</RouterLink>
-            <RouterLink class="four" to="/exposition">{{
+            <RouterLink class="four" :to="`/${lang}/exposition`">{{
               $t("cabinotiers.buttons.exposition")
             }}</RouterLink>
           </div>
@@ -23,6 +23,10 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const lang = localStorage.getItem("language") || "fr";
+</script>
 <style scoped>
 div.buttons {
   display: flex;

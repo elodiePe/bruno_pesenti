@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div v-if="selectedArticle" class="blog-article">
-                <button class="back-btn" @click="router.push({ name: 'blog' })">← Retour au blog</button>
+                <button class="back-btn" @click="router.push({ name: 'blog', params: { lang: getCurrentLanguage() } })">← Retour au blog</button>
                 <h2>{{ selectedArticle.title }}</h2>
                 <p class="blog-date">
                     <em>{{ selectedArticle.date }}</em>
@@ -92,6 +92,10 @@ const articles = ref([]);
 const route = useRoute();
 const router = useRouter();
 
+function getCurrentLanguage() {
+    return route.params.lang || localStorage.getItem("language") || "fr";
+}
+
 const selectedArticle = ref(null);
 const currentPage = ref(1);
 const articlesPerPage = 6;
@@ -103,7 +107,7 @@ const paginatedArticles = computed(() => {
 });
 
 function goToArticle(id) {
-    router.push({ name: "blogArticle", params: { id } });
+    router.push({ name: "blogArticle", params: { lang: getCurrentLanguage(), id } });
 }
 
 function loadArticleFromRoute() {

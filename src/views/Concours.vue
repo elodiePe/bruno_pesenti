@@ -34,9 +34,9 @@
         <div class="form-group" style="flex-direction: row">
           <input type="checkbox" id="privacy" v-model="formData.privacyAccepted" required style="width: 20px; height: 20px; margin-right: 10px" />
           <label for="privacy">  
-          <RouterLink class="six" to="/confidentialite" >
+          <RouterLink class="six" :to="`/${lang}/confidentialite`" >
               {{ $t("contact.Form.privacy") }} 
-            </RouterLink> {{ $t("concours.form.politics1") }} <RouterLink class="six" to="/concourspolitique" >
+            </RouterLink> {{ $t("concours.form.politics1") }} <RouterLink class="six" :to="`/${lang}/concourspolitique`" >
               {{ $t("concours.form.politics") }}
             </RouterLink> {{ $t("concours.form.politics2") }} *
           </label>
@@ -82,6 +82,8 @@
 <script setup>
 
 import { ref } from 'vue';
+
+const lang = localStorage.getItem('language') || 'fr';
 
 const successMessage = ref("");
 const errorMessage = ref("");

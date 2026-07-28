@@ -65,7 +65,7 @@
             required
           />
           <label for="privacy">
-            <RouterLink class="six" to="/confidentialite">
+            <RouterLink class="six" :to="`/${lang}/confidentialite`">
               {{ $t("contact.Form.privacy") }} *
             </RouterLink>
           </label>
@@ -120,6 +120,7 @@
 import { reactive, ref } from "vue";
 import emailjs from "emailjs-com";
 import { RouterLink } from "vue-router";
+const lang = localStorage.getItem("language") || "fr";
 
 const formData = ref({
   name: "",

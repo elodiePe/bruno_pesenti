@@ -2,7 +2,7 @@
   <div class="boxes">
     <div class="box">
       <div class="cart-header">
-        <RouterLink to="/produits" class="back-link">← {{ $t('cart.backToProducts') }}</RouterLink>
+        <RouterLink :to="`/${lang}/produits`" class="back-link">← {{ $t('cart.backToProducts') }}</RouterLink>
         <h1>{{ $t('cart.title') }}</h1>
       </div>
       
@@ -44,7 +44,7 @@
             </div> -->
             
             <RouterLink 
-              to="/payment-options" 
+              :to="`/${lang}/payment-options`" 
               class="checkout-btn"
             >
               {{ $t('cart.continue') }}
@@ -54,7 +54,7 @@
 
         <div v-else class="empty-cart">
           <p>{{ $t('cart.empty') }}</p>
-          <RouterLink to="/produits" class="continue-shopping">{{ $t('cart.continueShopping') }}</RouterLink>
+          <RouterLink :to="`/${lang}/produits`" class="continue-shopping">{{ $t('cart.continueShopping') }}</RouterLink>
         </div>
       </div>
     </div>
@@ -78,6 +78,9 @@ export default {
     }
   },
   computed: {
+    lang() {
+      return localStorage.getItem('language') || 'fr';
+    },
     subtotal() {
       return this.cart.reduce((sum, item) => sum + (item.price || 0), 0)
     }

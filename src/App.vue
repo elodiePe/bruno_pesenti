@@ -7,6 +7,7 @@ import CookieConsent from "./components/CookieConsent.vue";
 import Header from "./components/Header.vue";
 import { useI18n } from "vue-i18n";
 import { errorMessages } from "vue/compiler-sfc";
+const lang = localStorage.getItem("language") || "fr";
 const formData = ref({
   name: "",
   email: "",
@@ -150,7 +151,7 @@ function closeNewsletterPopup() {
             required
           />
            <label for="privacy">
-            <RouterLink class="six" to="/confidentialite">
+            <RouterLink class="six" :to="`/${lang}/confidentialite`">
               {{ $t("contact.Form.privacy") }} *
             </RouterLink>
           </label>
