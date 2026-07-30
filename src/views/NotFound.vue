@@ -5,7 +5,7 @@
       <p>
         Toutes mes excuses, Il semblerait avoir une erreur.
       </p>
-      <div class="router">        <RouterLink to="/">Retour à l'accueil</RouterLink>
+      <div class="router">        <RouterLink :to="`/${lang}/`">Retour à l'accueil</RouterLink>
       </div>
     </div>
   </div>
@@ -13,6 +13,7 @@
   
   <script setup>
   import { RouterLink } from 'vue-router';
+  const lang = localStorage.getItem('language') || 'fr';
   </script>
   
   <style scoped>

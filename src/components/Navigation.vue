@@ -6,6 +6,10 @@ import { useI18n } from 'vue-i18n';
 const router = useRouter();
 const route = useRoute();
 const { locale } = useI18n();
+
+function getCurrentLanguage() {
+  return route.path.split('/')[1] || localStorage.getItem('language') || 'fr';
+}
 function getCookieConsent() {
   return localStorage.getItem('cookieConsent') === 'accepted';
 }
@@ -77,19 +81,19 @@ onUnmounted(() => {
   <!-- DESKTOP NAV -->
   <div class="nav-desktop">
     <ul>
-      <li><RouterLink :to="{ name: 'Accueil' }">{{ $t('navigation.home') }}</RouterLink></li>
-      <li><RouterLink :to="{ name: 'Products' }">{{ $t('navigation.produits') }}</RouterLink></li>
-      <li><RouterLink :to="{ name: 'blog' }">{{ $t('navigation.blog') }}</RouterLink></li>
-      <li><RouterLink :to="{ name: 'exposition' }">{{ $t('navigation.exposition') }}</RouterLink></li>
+      <li><RouterLink :to="{ name: 'Accueil', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.home') }}</RouterLink></li>
+      <li><RouterLink :to="{ name: 'Products', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.produits') }}</RouterLink></li>
+      <li><RouterLink :to="{ name: 'blog', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.blog') }}</RouterLink></li>
+      <li><RouterLink :to="{ name: 'exposition', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.exposition') }}</RouterLink></li>
       <li class="drop">
         <span>Autre ▾</span>
         <ul class="drop-menu">
-          <li><RouterLink :to="{ name: 'cabinoteriers' }">{{ $t('navigation.cabinotiers') }}</RouterLink></li>
-          <li><RouterLink :to="{ name: 'catalogue' }">{{ $t('navigation.catalogue') }}</RouterLink></li>
+          <li><RouterLink :to="{ name: 'cabinoteriers', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.cabinotiers') }}</RouterLink></li>
+          <li><RouterLink :to="{ name: 'catalogue', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.catalogue') }}</RouterLink></li>
         </ul>
       </li>
       <li class="spacer"></li>
-      <li><RouterLink :to="{ name: 'contact' }">{{ $t('navigation.contact') }}</RouterLink></li>
+      <li><RouterLink :to="{ name: 'contact', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.contact') }}</RouterLink></li>
       <li class="lang-wrap">
         <select @change="changeLanguage($event.target.value)" :value="locale">
           <option value="fr">FR</option>
@@ -103,13 +107,13 @@ onUnmounted(() => {
   <!-- MOBILE BURGER NAV -->
   <div :class="['nav-mobile', { 'nav-mobile-open': isMenuOpen }]">
     <ul>
-      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'Accueil' }">{{ $t('navigation.home') }}</RouterLink></li>
-      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'Products' }">{{ $t('navigation.produits') }}</RouterLink></li>
-      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'blog' }">{{ $t('navigation.blog') }}</RouterLink></li>
-      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'exposition' }">{{ $t('navigation.exposition') }}</RouterLink></li>
-      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'cabinoteriers' }">{{ $t('navigation.cabinotiers') }}</RouterLink></li>
-      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'catalogue' }">{{ $t('navigation.catalogue') }}</RouterLink></li>
-      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'contact' }">{{ $t('navigation.contact') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'Accueil', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.home') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'Products', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.produits') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'blog', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.blog') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'exposition', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.exposition') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'cabinoteriers', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.cabinotiers') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'catalogue', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.catalogue') }}</RouterLink></li>
+      <li><RouterLink @click="isMenuOpen = false" :to="{ name: 'contact', params: { lang: getCurrentLanguage() } }">{{ $t('navigation.contact') }}</RouterLink></li>
       <li class="lang-wrap">
         <select @change="changeLanguage($event.target.value)" :value="locale">
           <option value="fr">FR</option>
