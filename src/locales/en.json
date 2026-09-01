@@ -63,7 +63,7 @@
         "concoursBanner": {
             "eyebrow": "Contest",
             "title": "A contest is running!",
-            "description": "Find the base movement with the fouet among the 6 ébauches on display at the workshop and win a late-19th-century Geneva pocket watch.",
+            "description": "Find the base movement with the fouet among the 6 ébauches on display in the mini-museum, in front of the workshop, and win a late-19th-century Geneva pocket watch.",
             "cta": "Enter the contest"
         },
         "atelier": {
@@ -124,8 +124,8 @@
         "cta": "Enter the contest",
         "cta2": "How to participate?",
         "description": "Enter my contest to win a pocket watch made in Geneva in the late 19th century!",
-        "banner_description": "Find the base movement with the fouet among the 6 ébauches on display!",
-        "rules": "To enter, find the base movement with the fouet among the 6 ébauches on display, then enter its number (1 to 6) in the form. Hint: the ébauche you are looking for is the ancestor of the chronoscope. A draw will be made among the correct answers.",
+        "banner_description": "Find the base movement with the fouet among the 6 ébauches on display in the mini-museum, in front of the workshop!",
+        "rules": "To enter, go to the mini-museum in front of the workshop and find the base movement with the fouet among the 6 ébauches on display, then enter its number (1 to 6) in the form. Hint: the ébauche you are looking for is the ancestor of the chronoscope. A draw will be made among the correct answers.",
         "questions": "For any questions or requests, feel free to contact me by phone, via the contact form, or come to the workshop.",
         "Lieu": "Bruno Pesenti's workshop, Rue des Corps-Saints 10, 1201 Geneva",
         "form": {
@@ -144,8 +144,8 @@
         },
         "steps": {
             "step1": {
-                "title": "Step 1: Find the workshop",
-                "description": "Go to Bruno Pesenti's workshop in Geneva, where the 6 ébauches are on display."
+                "title": "Step 1: Find the mini-museum",
+                "description": "Go to the mini-museum, in front of Bruno Pesenti's workshop in Geneva, where the 6 ébauches are on display."
             },
             "step2": {
                 "title": "Step 2: Identify the right ébauche",

@@ -63,7 +63,7 @@
         "concoursBanner": {
             "eyebrow": "Concours",
             "title": "Un concours est en cours !",
-            "description": "Retrouvez le mouvement de base à fouet parmi les 6 ébauches exposées à l'atelier et gagnez une montre de poche genevoise de la fin du XIXe siècle.",
+            "description": "Retrouvez le mouvement de base à fouet parmi les 6 ébauches exposées dans le mini-musée, devant l'atelier, et gagnez une montre de poche genevoise de la fin du XIXe siècle.",
             "cta": "Participer au concours"
         },
         "atelier": {
@@ -124,8 +124,8 @@
         "cta": "Participer au concours",
         "cta2": "Comment participer ?",
         "description": "Participez à mon concours pour gagner une montre de poche fabriquée à Genève à la fin du XIXe siècle !",
-        "banner_description": "Retrouvez le mouvement de base à fouet parmi les 6 ébauches exposées !",
-        "rules": "Pour participer, retrouvez le mouvement de base à fouet parmi les 6 ébauches exposées, puis indiquez son numéro (de 1 à 6) dans le formulaire. Indice : l'ébauche recherchée est l'ancêtre du chronoscope. Un tirage au sort sera effectué parmi les bonnes réponses.",
+        "banner_description": "Retrouvez le mouvement de base à fouet parmi les 6 ébauches exposées dans le mini-musée, devant l'atelier !",
+        "rules": "Pour participer, rendez-vous au mini-musée situé devant l'atelier et retrouvez le mouvement de base à fouet parmi les 6 ébauches exposées, puis indiquez son numéro (de 1 à 6) dans le formulaire. Indice : l'ébauche recherchée est l'ancêtre du chronoscope. Un tirage au sort sera effectué parmi les bonnes réponses.",
         "questions": "Pour toute question ou demande, n'hésitez pas à me contacter par téléphone, via le formulaire de contact ou passez à l'atelier.",
         "Lieu": "Atelier de Bruno Pesenti, Rue des Corps-Saints 10, 1201 Genève",
         "form": {
@@ -144,8 +144,8 @@
         },
         "steps": {
             "step1": {
-                "title": "Étape 1 : Trouver l'atelier",
-                "description": "Rendez-vous à l'atelier de Bruno Pesenti, à Genève, où les 6 ébauches sont exposées."
+                "title": "Étape 1 : Trouver le mini-musée",
+                "description": "Rendez-vous au mini-musée, devant l'atelier de Bruno Pesenti à Genève, où les 6 ébauches sont exposées."
             },
             "step2": {
                 "title": "Étape 2 : Identifier la bonne ébauche",

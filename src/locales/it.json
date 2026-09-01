@@ -63,7 +63,7 @@
         "concoursBanner": {
             "eyebrow": "Concorso",
             "title": "È in corso un concorso!",
-            "description": "Individua il movimento di base a fouet tra i 6 ébauches esposti in laboratorio e vinci un orologio da tasca ginevrino di fine Ottocento.",
+            "description": "Individua il movimento di base a fouet tra i 6 ébauches esposti nel mini-museo, davanti al laboratorio, e vinci un orologio da tasca ginevrino di fine Ottocento.",
             "cta": "Partecipa al concorso"
         },
         "atelier": {
@@ -125,8 +125,8 @@
         "cta2": "Come partecipare?",
         "description": "Partecipa al mio concorso per vincere un orologio da tasca costruito a Ginevra alla fine dell'Ottocento!",
 
-        "banner_description": "Individua il movimento di base a fouet tra i 6 ébauches esposti!",
-        "rules": "Per partecipare, individua il movimento di base a fouet tra i 6 ébauches esposti, poi indica il suo numero (da 1 a 6) nel modulo. Indizio: l'ébauche da trovare è l'antenato del chronoscope. Un'estrazione a sorte sarà effettuata tra le risposte corrette.",
+        "banner_description": "Individua il movimento di base a fouet tra i 6 ébauches esposti nel mini-museo, davanti al laboratorio!",
+        "rules": "Per partecipare, recati al mini-museo davanti al laboratorio e individua il movimento di base a fouet tra i 6 ébauches esposti, poi indica il suo numero (da 1 a 6) nel modulo. Indizio: l'ébauche da trovare è l'antenato del chronoscope. Un'estrazione a sorte sarà effettuata tra le risposte corrette.",
         "questions": "Per qualsiasi domanda o richiesta, non esitare a contattarmi telefonicamente, tramite il modulo di contatto o passa al laboratorio.",
         "Lieu": "Laboratorio di Bruno Pesenti, Rue des Corps-Saints 10, 1201 Ginevra",
         "form": {
@@ -145,8 +145,8 @@
         },
         "steps": {
             "step1": {
-                "title": "Fase 1: Trova il laboratorio",
-                "description": "Recati al laboratorio di Bruno Pesenti, a Ginevra, dove sono esposti i 6 ébauches."
+                "title": "Fase 1: Trova il mini-museo",
+                "description": "Recati al mini-museo, davanti al laboratorio di Bruno Pesenti a Ginevra, dove sono esposti i 6 ébauches."
             },
             "step2": {
                 "title": "Fase 2: Individua l'ébauche giusta",
