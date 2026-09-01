@@ -2,6 +2,10 @@ function doPost(e) {
   try {
     const data = e && e.parameter ? e.parameter : {};
 
+    if (data.action === 'concours') {
+      return handleConcoursEntry(data);
+    }
+
     if (data.action !== 'demandeReservation' || !data.Email || !data.Name || !data.Produits || !data.OrderNumber) {
       return ContentService
         .createTextOutput(JSON.stringify({ successSecondemail: false, message: 'Invalid reservation payload' }))
@@ -33,6 +37,31 @@ function doPost(e) {
       .setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
     Logger.log('Reservation doPost error: ' + error);
+    return ContentService
+      .createTextOutput(JSON.stringify({ successSecondemail: false, message: error.message }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function handleConcoursEntry(data) {
+  try {
+    if (!data.Email || !data.Name) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ successSecondemail: false, message: 'Invalid concours payload' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    const email = normalizeEmail(data.Email);
+    const name = String(data.Name || '').trim();
+    const reveils = String(data.Reveils || '').trim();
+
+    const result = sendEmailConcours(email, name, reveils);
+
+    return ContentService
+      .createTextOutput(JSON.stringify(result))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    Logger.log('Concours doPost error: ' + error);
     return ContentService
       .createTextOutput(JSON.stringify({ successSecondemail: false, message: error.message }))
       .setMimeType(ContentService.MimeType.JSON);

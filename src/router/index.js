@@ -143,16 +143,16 @@ const routes = [
     name: "minimusee",
     component: Minimusee,
   },
-  //   {
-  //   path: "/:lang(fr|en|it)?/concours",
-  //   name: "Concours",
-  //   component: Concours,
-  // },
-  //     {
-  //   path: "/:lang(fr|en|it)?/concourspolitique",
-  //   name: "ConfidentConcours",
-  //   component: ConfidentConcours,
-  // }
+  {
+    path: "/:lang(fr|en|it)?/concours",
+    name: "Concours",
+    component: Concours,
+  },
+  {
+    path: "/:lang(fr|en|it)?/concourspolitique",
+    name: "ConfidentConcours",
+    component: ConfidentConcours,
+  },
 ];
 
 const router = createRouter({

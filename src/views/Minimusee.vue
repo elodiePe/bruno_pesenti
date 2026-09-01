@@ -6,53 +6,53 @@ import miniMuseeImage from "../assets/img/mini-musee2.jpg";
 const objects = [
 	{
 		id: 1,
-		name: "Montre de poche en vitrine",
-		type: "Montre ancienne",
-		date: "Fin XIXe siècle",
-		position: { top: "26%", left: "56%" },
-		highlight: "Boîtier doré et cadran clair",
+		name: "Cliché de 1880",
+		type: "Photographie d'époque",
+		date: "1880",
+		position: { top: "50%", left: "44%" },
+		highlight: "polisseuses",
 		narration:
-			"Cette montre de poche raconte le goût des objets de précision qui peuplent la vitrine. Elle illustre le travail des horlogers genevois et l'attention portée aux détails, du boîtier jusqu'au cadran.",
+			"Ce cliché de 1880 met en lumière le travail des femmes polisseuses. En y regardant de plus près, on aperçoit un tour mécanique non électrifié : une précieuse illustration du travail manuel à une époque où l'électricité n'avait pas encore fait son apparition.",
 	},
 	{
 		id: 2,
-		name: "Réveil mécanique",
-		type: "Réveil",
-		date: "Début XXe siècle",
-		position: { top: "62%", left: "70%" },
-		highlight: "Un réveil posé parmi les petits instruments",
+		name: "Carte Postale",
+		type: "Carte postale",
+		date: "Vers 1900",
+		position: { top: "62%", left: "48%" },
+		highlight: "Maison attribuée à Jean-Jacques Rousseau.",
 		narration:
-			"Ici, vous voyez un réveil mécanique, un objet qui relie l'usage quotidien à la finesse du mécanisme. Dans le mini-musée, il dialogue avec les montres de collection et rappelle la diversité des objets horlogers.",
+			"Maison attribuée à Jean-Jacques Rousseau. Ce cliché offre une scène de rue animée d'époque, montrant des bâtiments aujourd'hui disparus pour la plupart. En arrière-plan, dans les étages supérieurs, on distingue nettement les fenêtres caractéristiques des ateliers de cabinotiers.",
 	},
 	{
 		id: 3,
-		name: "Horloge de table",
-		type: "Pendule",
-		date: "Première moitié du XXe siècle",
-		position: { top: "42%", left: "42%" },
-		highlight: "Pièce centrale de la scénographie",
+		name: "Spirographe",
+		type: "Instrument de haute précision",
+		date: "",
+		position: { top: "85%", left: "32%" },
+		highlight: "",
 		narration:
-			"Cette horloge de table sert presque de repère au milieu de la vitrine. Sa présence montre que le mini-musée ne parle pas seulement de montres, mais aussi de pendules et d'objets décoratifs liés au temps.",
+			"Cet instrument de haute précision était indispensable au réglage des spiraux. Symbole d'un savoir-faire d'une extrême minutie, il était généralement manié par des femmes, spécialisées dans cette tâche horlogère particulièrement délicate..",
 	},
 	{
 		id: 4,
-		name: "Loupes, outils et pièces d'atelier",
-		type: "Objets d'atelier",
-		date: "Usage contemporain",
-		position: { top: "77%", left: "24%" },
-		highlight: "Des outils qui relient la collection à l'atelier",
+		name: "Atelier d'un Cabinotier",
+		type: "Image",
+		date: "fin XIXᵉ siècle",
+		position: { top: "60%", left: "7%" },
+		highlight: "",
 		narration:
-			"La vitrine rassemble aussi des loupes, des outils et de petites pièces de travail. Ces éléments montrent le lien direct entre le mini-musée et l'atelier situé juste devant : ici, la collection et la pratique se répondent.",
+			"Image d'un poste de travail situé au dernier étage d'un bâtiment du Vieux-Genève, avant l'arrivée de l'électricité. L'artisan tirait parti de la lumière naturelle grâce à la grande fenêtre typique, complétée pour le travail nocturne par un quinquet, alors seule source d'éclairage.",
 	},
 	{
 		id: 5,
-		name: "Montres de gousset alignées",
+		name: "Ebauches horlogères",
 		type: "Série de montres",
-		date: "XIXe - XXe siècles",
-		position: { top: "84%", left: "58%" },
-		highlight: "Un ensemble parfait pour comparer les styles",
+		date: "1900 et 1800",
+		position: { top: "70%", left: "18%" },
+		highlight: "",
 		narration:
-			"L'alignement de plusieurs montres permet de comparer les boîtiers, les cadrans et les signatures. C'est l'une des idées du mini-musée : observer, écouter, puis reconnaître les différences entre les objets.",
+			"Ensemble de mouvements en blanc (ou ébauches) de différentes époques. À droite (de la vitrine) sont présentés les modèles des années 1800, et à gauche ceux des années 1900",
 	},
 ];
 
@@ -71,8 +71,8 @@ const speechSupported = computed(() => {
 	return "speechSynthesis" in window;
 });
 
-const introText =
-	"Bienvenue dans le mini-musée. Cliquez sur un objet dans la vitrine pour afficher son explication, puis lancez la narration pour l'écouter comme si vous visitiez l'atelier en vrai.";
+// const introText =
+// 	"Bienvenue dans le mini-musée. Cliquez sur un objet dans la vitrine pour afficher son explication, puis lancez la narration pour l'écouter comme si vous visitiez l'atelier en vrai.";
 
 function getNarrationSegments(object) {
 	return `${object.name}. ${object.type}. ${object.date}. ${object.narration}`
@@ -190,7 +190,7 @@ onBeforeUnmount(() => {
      <div class="boxes">
         <div class="box">
 	<main class="museum-page">
-		<section class="hero-card">
+		<!-- <section class="hero-card">
 			<div class="hero-copy">
 	
 				<h1>Une vitrine à explorer, écouter et comparer</h1>
@@ -201,7 +201,7 @@ onBeforeUnmount(() => {
 			</div>
 
 		
-		</section>
+		</section> -->
 
 		<section class="experience-grid">
 			<article class="museum-scene">
@@ -210,7 +210,7 @@ onBeforeUnmount(() => {
 						<p class="section-label">Carte interactive</p>
 						<h2>Cliquez sur les pièces dans la vitrine</h2>
                         	<p>
-						Chaque point ouvre une fiche avec une narration audio.
+						Chaque point ouvre une fiche descriptive.
 					</p>
 					</div>
 				
@@ -241,7 +241,7 @@ onBeforeUnmount(() => {
 					{{ selectedObject.type }} · {{ selectedObject.date }}
 				</p>
 				<p class="object-narration">{{ selectedObject.narration }}</p>
-
+<!-- 
 				<div class="panel-actions">
 					<button
 						class="icon-button"
@@ -280,9 +280,9 @@ onBeforeUnmount(() => {
 					>
 						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z" /></svg>
 					</button>
-				</div>
+				</div> -->
 
-				<div class="timeline">
+				<!-- <div class="timeline">
 					<div class="timeline-header">
 						<span>Timeline</span>
 						<span>{{ activeSentenceIndex + 1 }} / {{ narrationQueue.length || 1 }}</span>
@@ -295,7 +295,7 @@ onBeforeUnmount(() => {
 						:value="activeSentenceIndex"
 						@input="jumpToSentence($event.target.value)"
 					/>
-				</div>
+				</div> -->
 
 				<!-- <div class="selected-card">
 					<p>Dans cette vitrine, vous pouvez observer les montres, les pendules, les réveils et les petits objets d'atelier qui racontent le quotidien de l'horlogerie.</p>
@@ -307,7 +307,7 @@ onBeforeUnmount(() => {
 			<div class="strip-head">
 				<div>
 					<p class="section-label">Explorer la collection</p>
-					<h2>Choisissez une pièce pour écouter son histoire</h2>
+					<h2>Choisissez une pièce pour lire son histoire</h2>
 				</div>
 	
 			</div>
@@ -748,3 +748,32 @@ h2{
 	}
 }
 </style>
+
+
+<!-- 
+image centrale : 
+- photod'époque 1880, la photo parle des femmes spécialisation polisseuses.
+- petit détails, avec un tour non electrifié (c'est ce que vous voyez)
+- Lors de cette photo il n'y a vait pas encore l'electricité -->
+<!-- - 
+
+Carte postal (en dessous de l'image centrale)
+- 1900
+- titre : genève, maison attribué à Jean-Jaccque Rousseau
+- Avec animation typique, avec la plupart de ces bâtiments ont été détruits
+- aU FOND, en haut, IL Y A JUSTEMENT DES FENÊTRES TYPIQUE DES CABINOTIERS -->
+-
+
+<!-- 
+3 -->
+<!-- - inwtrument de haut précision pour le réglage des spiraux
+- spir0graphes
+- objet typique, de haute précision, utilisé par les femmes en général, pour un travail ultra délicat, pour le réglage des spiraux -->
+
+
+4
+- mouvement ebaUCHES DE DIVERS éPOQUES, dans le vieux genève applé mouvement amblant, 
+- dans la partie droite, année 1800, et la partie gauche années 1900
+
+5
+-cabinotier fin 19eme, avec vue sur l'ouveture de la veille fen^tre, du dernier étage, du bâtiment, non électrifié. Il y a le quinquet (seul possibilité d'illuminé, quand)

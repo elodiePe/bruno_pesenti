@@ -14,7 +14,7 @@
               </button>
 
       <p>{{ $t("concours.questions") }}</p>
-       <img src="../assets/img/concours.png" alt=""></img>
+       <img src="../assets/img/image.png" alt="Montre de poche genevoise de la fin du XIXe siècle à gagner"></img>
     </div>
     <div class="box">
       <h1>{{ $t("concours.form.title") }}</h1>
@@ -29,7 +29,15 @@
         </div>
         <div class="form-group">
           <label for="reveils">{{ $t("concours.form.reveils") }} *</label>
-          <input v-model="formData.reveils" id="reveils" name="reveils" type="number" min="0" required />
+          <select v-model="formData.reveils" id="reveils" name="reveils" required>
+            <option value="" disabled>--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
         </div>
         <div class="form-group" style="flex-direction: row">
           <input type="checkbox" id="privacy" v-model="formData.privacyAccepted" required style="width: 20px; height: 20px; margin-right: 10px" />
@@ -46,7 +54,6 @@
 
         <button type="submit" class="submit-btn">{{ $t("concours.form.send") }}</button>
         <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-        <p v-if="successNewsletter" class="success-message">{{ successNewsletter }}</p>
         <p v-if="successMessage" class="success-message">{{ successMessage }}</p>
       </form>
     </div>
@@ -87,7 +94,6 @@ const lang = localStorage.getItem('language') || 'fr';
 
 const successMessage = ref("");
 const errorMessage = ref("");
-const successNewsletter = ref("");
 
 const formData = ref({
   name: '',
@@ -98,8 +104,10 @@ const formData = ref({
 
 
 function sendEmail() {
-  const url =
-    "https://script.google.com/macros/s/AKfycbyGWKNPnqnWfytNKMg4QP5MAb4Voz9lIXAKh8I7aVer7rjpFCI5seFnFB5wlLcQPb_aww/exec"; // Remplace par ton URL
+  const url ="https://script.google.com/macros/s/AKfycby7hHTflRF8shpm1xSkF9to5NSMSuLTxOYBjFwtrw2chER9V9BthTIf-KdX_2yUMJliRQ/exec"
+  const langue = localStorage.getItem("language") || "fr";
+
+  // Requête 1 : enregistre la participation au concours et envoie l'email de confirmation.
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -118,57 +126,45 @@ function sendEmail() {
       return res.json();
     })
     .then((data) => {
-      if (data.success ) {
+      if (data.success) {
         successMessage.value = "Votre inscription a bien été envoyée.";
-        // formData.value.name = "";
-        // formData.value.email = "";
-        // formData.value.message = "";
-        // formData.value.phone = "";
-        // formData.value.privacyAccepted = false;
       } else {
         successMessage.value = "Votre participation a bien été envoyée, vérifiez que vous avez bien reçu un mail de confirmation.";
       }
     })
+    .catch((error) => {
+      console.log(error);
+      errorMessage.value = "Erreur lors de l'envoi de votre participation. Vérifiez votre connexion ou réessayez.";
+    });
+
+  // Requête 2 : inscription à la newsletter, avec une action distincte pour que le
+  // script ne l'enregistre jamais comme une (deuxième) participation au concours.
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `action=newsletter&Name=${encodeURIComponent(
+      formData.value.name
+    )}&Email=${encodeURIComponent(
+      formData.value.email
+    )}&Langue=${encodeURIComponent(langue)}`,
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      if (!data.success) {
+        console.log("Erreur lors de l'inscription à la newsletter");
+      }
+    })
     .catch((error) => console.log(error));
 
-  // Si la personne a coché oui pour la newsletter
-  if (formData.value.privacyAccepted === true) {
-    const langue = localStorage.getItem("language") || "fr";
-
-    fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `Name=${encodeURIComponent(
-        formData.value.name
-      )}&Email=${encodeURIComponent(
-        formData.value.email
-      )}&Langue=${encodeURIComponent(langue)}`,
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (data.success) {
-          successNewsletter.value = "Votre inscription à la newsletter a bien été envoyée, vérifiez que vous avez bien reçu un mail pour confirmer votre inscription.";
-          formData.value.name = "";
-          formData.value.email = "";
-        } else {
-          errorMessage.value =
-            "Erreur lors de l'inscription à la newsletter.Vérifiez votre mail ou réessayez.";
-        }
-      })
-      .catch((error) => console.log(error));
-       formData.value.name = "";
-        formData.value.email = "";
-        formData.value.message = "";
-        formData.value.reveils = "";
-        formData.value.privacyAccepted = false;
-  }
-
-
+  formData.value.name = "";
+  formData.value.email = "";
+  formData.value.reveils = "";
+  formData.value.privacyAccepted = false;
 }
 function scrollToForm() {
   const formElement = document.querySelector('.boxess');
@@ -191,7 +187,7 @@ div .box{
 
 }
 div img {
-    width: 50%;
+    width: 90%;
 }
 .boxes {
   display: flex;
@@ -229,7 +225,8 @@ border-radius: 16px;
   align-items: flex-start;
   max-width: 96%;
 }
-.form-group input {
+.form-group input,
+.form-group select {
   width: 100%;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;

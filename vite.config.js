@@ -36,6 +36,9 @@ function generateDuplicateIndexHtmlPlugin() {
         '/order-complete',
         '/cart',
         '/payment-options',
+        '/concours',
+        '/concourspolitique',
+        '/minimusee',
       ];
       
       const languages = ['fr', 'en', 'it'];
@@ -133,6 +136,9 @@ function generateDuplicateIndexHtmlPlugin() {
         'https://www.brunopesenti.ch/fr/order-complete',
         'https://www.brunopesenti.ch/en/order-complete',
         'https://www.brunopesenti.ch/it/order-complete',
+        'https://www.brunopesenti.ch/fr/concours',
+        'https://www.brunopesenti.ch/en/concours',
+        'https://www.brunopesenti.ch/it/concours',
         ...dynamicSitemapUrls,
       ];
 

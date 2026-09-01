@@ -2,13 +2,20 @@
   <div class="boxes">
   <!-- <Concours /> -->
     <div class="box">
-      <section class="shop-banner">
-        <p class="shop-banner__eyebrow">{{ $t("home.shopBanner.eyebrow") }}</p>
-        <h2>{{ $t("home.shopBanner.title") }}</h2>
-        <p>{{ $t("home.shopBanner.description") }}</p>
-        <RouterLink class="shop-banner__cta" :to="`/${lang}/produits`">
-          {{ $t("home.shopBanner.cta") }}
-        </RouterLink>
+      <section class="concours-banner">
+        <div class="concours-banner__text">
+          <p class="concours-banner__eyebrow">{{ $t("home.concoursBanner.eyebrow") }}</p>
+          <h2>{{ $t("home.concoursBanner.title") }}</h2>
+          <p>{{ $t("home.concoursBanner.description") }}</p>
+          <RouterLink class="concours-banner__cta" :to="`/${lang}/concours`">
+            {{ $t("home.concoursBanner.cta") }}
+          </RouterLink>
+        </div>
+        <img
+          class="concours-banner__img"
+          src="../assets/img/image.png"
+          alt="Montre de poche genevoise de la fin du XIXe siècle à gagner"
+        />
       </section>
 
       <h1>Bruno Pesenti</h1>
@@ -55,56 +62,79 @@ const lang = localStorage.getItem("language") || "fr";
 </script>
 
 <style scoped>
-.shop-banner {
+.concours-banner {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  border: 1px solid #d9c2a0;
+  border: 2px solid #ea9839;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(222, 184, 135, 0.18), rgba(76, 106, 101, 0.08));
+  background: #ea9839;
+  color: #222221;
   text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-.shop-banner__eyebrow {
+.concours-banner__text {
+  flex: 1;
+}
+
+.concours-banner__img {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.concours-banner__eyebrow {
   margin: 0 0 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #4c6a65;
+  color: #fff;
 }
 
-.shop-banner h2 {
+.concours-banner h2 {
   margin: 0 0 0.75rem;
   font-size: 1.6rem;
-  color: #2f2f2f;
+  color: #222221;
 }
 
-.shop-banner p {
+.concours-banner p {
   margin: 0 0 1rem;
-  color: #444;
+  color: #222221;
 }
 
-.shop-banner__cta {
+.concours-banner__cta {
   display: inline-block;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.25rem;
   border-radius: 999px;
-  background: #4c6a65;
-  color: #fff;
+  background: #fff;
+  color: #222221;
   text-decoration: none;
   font-weight: 700;
+  border: 2px solid #fff;
 }
 
-.shop-banner__cta:hover {
-  background: #3f5a56;
+.concours-banner__cta:hover {
+  background: transparent;
+  color: #fff;
 }
 
 @media (max-width: 640px) {
-  .shop-banner {
+  .concours-banner {
     padding: 1.1rem;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .shop-banner h2 {
+  .concours-banner h2 {
     font-size: 1.3rem;
+  }
+
+  .concours-banner__img {
+    width: 80%;
   }
 }
 </style>

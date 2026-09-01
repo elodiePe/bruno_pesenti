@@ -312,3 +312,118 @@ function sendMailSafe(message) {
     return false;
   }
 }
+
+function sendEmailConcours(emailTo, name, reveils) {
+  const subject = 'Confirmation de votre participation au concours - Bruno Pesenti';
+
+  const clientEmail = buildConcoursCustomerEmail({ name, reveils });
+  const adminEmail = buildConcoursAdminEmail({ name, email: emailTo, reveils });
+
+  const clientSuccess = sendReservationCustomerEmail(
+    emailTo,
+    subject,
+    clientEmail.htmlBody,
+    clientEmail.body,
+  );
+
+  const adminSuccess = sendReservationAdminEmail(
+    adminEmail.subject,
+    adminEmail.htmlBody,
+    adminEmail.body,
+    emailTo,
+  );
+
+  return {
+    successSecondemail: clientSuccess,
+    successAdminemail: adminSuccess,
+  };
+}
+
+function buildConcoursCustomerEmail({ name, reveils }) {
+  const htmlBody = `
+    <html>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f4f6f8; margin: 0; padding: 20px 12px;">
+        <div style="max-width: 700px; margin: 0 auto;">
+          <div style="background: linear-gradient(135deg, #4c6a65 0%, #3f5a56 100%); padding: 30px 28px; border-radius: 18px 18px 0 0; color: #fff; text-align: center; box-shadow: 0 8px 28px rgba(76,106,101,0.25);">
+            <h1 style="margin: 0; font-size: 30px; letter-spacing: 0.02em;">BRUNO PESENTI</h1>
+            <p style="margin: 8px 0 0 0; color: #deb887;">Le Cabinotier</p>
+          </div>
+
+          <div style="border: 1px solid #e5e7eb; border-top: 0; border-radius: 0 0 18px 18px; padding: 28px; background: #fff; box-shadow: 0 10px 30px rgba(15,23,42,0.08);">
+            <h2 style="margin: 0 0 18px 0; color: #4c6a65;">Confirmation de participation au concours</h2>
+            <p>Bonjour <strong>${name}</strong>,</p>
+            <p>Merci pour votre participation au concours de Bruno Pesenti ! Votre inscription a bien été enregistrée.</p>
+
+            <div style="background: #f8fafc; padding: 16px; border-radius: 12px; margin: 22px 0;">
+              <p style="margin: 0; color: #6b7280;">Votre réponse</p>
+              <p style="margin: 4px 0 0 0; font-size: 24px; font-weight: 700; color: #4c6a65;">${reveils || 'N/A'}</p>
+            </div>
+
+            <p>Le tirage au sort sera effectué parmi les bonnes réponses. Le gagnant sera contacté par e-mail ou par téléphone.</p>
+
+            <div style="margin-top: 22px; padding: 16px; background: #f0f7f6; border-radius: 10px; border-left: 4px solid #4c6a65;">
+              <p style="margin: 0 0 8px 0;"><strong>Questions ?</strong></p>
+              <p style="margin: 0; font-size: 14px; color: #334155;">
+                Contactez Bruno Pesenti<br>
+                Téléphone: <a href="tel:0227317575" style="color:#1d4ed8; text-decoration:none;">022 731 75 75</a><br>
+                E-mail: <a href="mailto:info.brunopesenti@gmail.com" style="color:#1d4ed8; text-decoration:none;">info.brunopesenti@gmail.com</a><br>
+                Adresse: Rue des Corps-Saints 10, 1201 Genève
+              </p>
+            </div>
+
+            <p style="margin-top: 20px;">Bonne chance !<br><strong>Bruno Pesenti</strong></p>
+
+            <p style="margin: 14px 0 0 0; font-size: 12px; color: #64748b; text-align:center;">
+              Merci de conserver ce message comme preuve de votre participation.
+            </p>
+          </div>
+        </div>
+      </body>
+    </html>
+  `;
+
+  const body = [
+    `Bonjour ${name || ''},`,
+    '',
+    'Merci pour votre participation au concours de Bruno Pesenti ! Votre inscription a bien été enregistrée.',
+    `Votre réponse: ${reveils || 'N/A'}`,
+    '',
+    'Le tirage au sort sera effectué parmi les bonnes réponses. Le gagnant sera contacté par e-mail ou par téléphone.',
+    '',
+    'Questions :',
+    'Téléphone: 022 731 75 75',
+    'E-mail: info.brunopesenti@gmail.com',
+    'Adresse: Rue des Corps-Saints 10, 1201 Genève',
+    '',
+    'Bonne chance !',
+    'Bruno Pesenti',
+  ].join('\n');
+
+  return { htmlBody, body };
+}
+
+function buildConcoursAdminEmail({ name, email, reveils }) {
+  const subject = `Nouvelle participation au concours - ${name}`;
+
+  const htmlBody = `
+    <html>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="max-width: 700px; margin: 0 auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 12px;">
+          <h2 style="color: #4c6a65;">Nouvelle participation au concours</h2>
+          <p><strong>Nom :</strong> ${name}</p>
+          <p><strong>Email :</strong> ${email}</p>
+          <p><strong>Réponse :</strong> ${reveils || 'N/A'}</p>
+        </div>
+      </body>
+    </html>
+  `;
+
+  const body = [
+    'Nouvelle participation au concours',
+    `Nom: ${name}`,
+    `Email: ${email}`,
+    `Réponse: ${reveils || 'N/A'}`,
+  ].join('\n');
+
+  return { subject, htmlBody, body };
+}

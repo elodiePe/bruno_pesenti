@@ -38,6 +38,7 @@
         "contact": "Contact",
         "produits": "Shop",
         "concours": "Contest",
+        "minimusee": "Mini-museum",
         "language": {
             "french": "Français",
             "english": "English",
@@ -59,11 +60,11 @@
             },
             "highlight2": ". Today, I specialize in the repair and restoration of antique watches and clocks."
         },
-        "shopBanner": {
-            "eyebrow": "Online shop",
-            "title": "A space with products for sale online",
-            "description": "Browse the available pieces and buy directly online from the website.",
-            "cta": "View products"
+        "concoursBanner": {
+            "eyebrow": "Contest",
+            "title": "A contest is running!",
+            "description": "Find the base movement with the fouet among the 6 ébauches on display at the workshop and win a late-19th-century Geneva pocket watch.",
+            "cta": "Enter the contest"
         },
         "atelier": {
                     "title": "My workshop",
@@ -118,20 +119,20 @@
         }
     },
     "concours": {
-            "dates": "<b>From September 1st to December 20th, 2025.</b>",
-        "title": "WIN a Jaeger LeCoultre alarm clock!",
+            "dates": "<b>From September 1st to December 20th, 2026.</b>",
+        "title": "WIN a late-19th-century Geneva pocket watch!",
         "cta": "Enter the contest",
         "cta2": "How to participate?",
-        "description": "Enter my contest to win a 1940s Jaeger LeCoultre alarm clock!",
-        "banner_description": "Count the number of mechanical watches with alarms displayed in the showcase!",
-        "rules": "To participate, come to the workshop and count the number of mechanical watches with alarms displayed in the showcase! A draw will be made among the correct answers.",
+        "description": "Enter my contest to win a pocket watch made in Geneva in the late 19th century!",
+        "banner_description": "Find the base movement with the fouet among the 6 ébauches on display!",
+        "rules": "To enter, find the base movement with the fouet among the 6 ébauches on display, then enter its number (1 to 6) in the form. Hint: the ébauche you are looking for is the ancestor of the chronoscope. A draw will be made among the correct answers.",
         "questions": "For any questions or requests, feel free to contact me by phone, via the contact form, or come to the workshop.",
         "Lieu": "Bruno Pesenti's workshop, Rue des Corps-Saints 10, 1201 Geneva",
         "form": {
             "title": "Contest participation form",
             "name": "Name",
             "email": "Email",
-            "reveils": "Number of mechanical watches with alarms in the showcase",
+            "reveils": "Which ébauche is the base movement with the fouet? (1 to 6)",
             "privacy": "I have read and accept the privacy policy and the contest participation policy",
             "required": "Required",
             "politics1": "and",
@@ -144,15 +145,15 @@
         "steps": {
             "step1": {
                 "title": "Step 1: Find the workshop",
-                "description": "Go to the workshop in Geneva to find the showcase."
+                "description": "Go to Bruno Pesenti's workshop in Geneva, where the 6 ébauches are on display."
             },
             "step2": {
-                "title": "Step 2: Find the watches with alarms",
-                "description": "Count the number of mechanical watches with alarms in the showcase."
+                "title": "Step 2: Identify the right ébauche",
+                "description": "Among the 6 ébauches on display, find the base movement with the fouet. Hint: it is the ancestor of the chronoscope."
             },
             "step3": {
                 "title": "Step 3: Fill out the form",
-                "description": "A draw will be made among the correct answers.",
+                "description": "Enter the number of the ébauche (1 to 6) in the form. A draw will be made among the correct answers.",
                                 "Newsletter": "Once the form is submitted, you will receive an email indicating that you need to confirm your email. Don't forget this step to validate your entry in the contest."
 
             }
